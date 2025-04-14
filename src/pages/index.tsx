@@ -1,9 +1,15 @@
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
+import { POSTS_QUERYResult } from "@/sanity/types";
 
-export default async function Home() {
+export async function getStaticProps() {
   const posts = await client.fetch(POSTS_QUERY);
+  return {
+    props: { posts },
+  };
+}
 
+export default function Home({ posts }: { posts: POSTS_QUERYResult }) {
   return (
     <>
       <h1>Posts:</h1>
