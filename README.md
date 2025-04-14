@@ -2,17 +2,23 @@
 
 ## Getting Started
 
-Set `studioHost` in `sanity.cli.ts`.
-
-Set environment variables:
-
-- `SANITY_STUDIO_SANITY_PROJECT_ID`
-- `SANITY_STUDIO_SANITY_DATASET`
-
 Install dependencies:
 
 ```
 npm install
+```
+
+Set `studioHost` in `sanity.cli.ts`.
+
+Set environment variables :
+
+- `SANITY_STUDIO_SANITY_PROJECT_ID`
+- `SANITY_STUDIO_SANITY_DATASET`
+
+Deploy schema to dataset:
+
+```
+npx sanity deploy
 ```
 
 Start development server:
