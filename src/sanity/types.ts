@@ -143,6 +143,7 @@ export type Author = {
   _updatedAt: string;
   _rev: string;
   name?: string;
+  dateOfBirth?: string;
   slug?: Slug;
   image?: {
     asset?: {
@@ -292,6 +293,48 @@ export type POSTS_QUERYResult = Array<{
   title: string | null;
   slug: Slug | null;
 }>;
+// Variable: AUTHORS_QUERY
+// Query: *[_type == "author"]
+export type AUTHORS_QUERYResult = Array<{
+  _id: string;
+  _type: "author";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  dateOfBirth?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  bio?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+}>;
 // Variable: POST_QUERY
 // Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage}
 export type POST_QUERYResult = {
@@ -347,6 +390,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\" && defined(slug.current)][0...12]{\n  _id, title, slug\n}": POSTS_QUERYResult;
+    "*[_type == \"author\"]": AUTHORS_QUERYResult;
     "*[_type == \"post\" && slug.current == $slug][0]{\n  title, body, mainImage\n}": POST_QUERYResult;
   }
 }

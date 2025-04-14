@@ -7,6 +7,8 @@ export const POSTS_QUERY =
   _id, title, slug
 }`);
 
+export const AUTHORS_QUERY = defineQuery(`*[_type == "author"]`);
+
 export const POST_QUERY =
   defineQuery(`*[_type == "post" && slug.current == $slug][0]{
   title, body, mainImage
