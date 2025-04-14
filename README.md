@@ -29,7 +29,7 @@ npm run dev
 
 ## Apply schema changes
 
-Initially and after each change:
+After each change:
 
 ```
 npm run typegen
