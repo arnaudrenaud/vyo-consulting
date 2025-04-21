@@ -286,13 +286,13 @@ export type SanityImageMetadata = {
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
-// Variable: HOME_PAGE_POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id, title, slug}
-export type HOME_PAGE_POSTS_QUERYResult = Array<{
+// Variable: LAST_POST_QUERY
+// Query: *[_type == "post"]  | order(_createdAt desc)[0]{  _id, title, slug}
+export type LAST_POST_QUERYResult = {
   _id: string;
   title: string | null;
   slug: Slug | null;
-}>;
+} | null;
 // Variable: POST_COUNT_QUERY
 // Query: count(*[_type == "post"])
 export type POST_COUNT_QUERYResult = number;
@@ -399,7 +399,7 @@ export type POST_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"post\" && defined(slug.current)][0...12]{\n  _id, title, slug\n}": HOME_PAGE_POSTS_QUERYResult;
+    "*[_type == \"post\"]\n  | order(_createdAt desc)[0]{\n  _id, title, slug\n}": LAST_POST_QUERYResult;
     "count(*[_type == \"post\"])": POST_COUNT_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)][$startIndex...$endIndex]{\n  _id, title, slug\n}": POST_PAGE_QUERYResult;
     "*[_type == \"author\"]": AUTHORS_QUERYResult;

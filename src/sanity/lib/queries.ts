@@ -2,8 +2,8 @@
 
 import { defineQuery } from "next-sanity";
 
-export const HOME_PAGE_POSTS_QUERY =
-  defineQuery(`*[_type == "post" && defined(slug.current)][0...12]{
+export const LAST_POST_QUERY = defineQuery(`*[_type == "post"]
+  | order(_createdAt desc)[0]{
   _id, title, slug
 }`);
 
