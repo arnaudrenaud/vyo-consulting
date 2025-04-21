@@ -2,8 +2,15 @@
 
 import { defineQuery } from "next-sanity";
 
-export const POSTS_QUERY =
+export const HOME_PAGE_POSTS_QUERY =
   defineQuery(`*[_type == "post" && defined(slug.current)][0...12]{
+  _id, title, slug
+}`);
+
+export const POST_COUNT_QUERY = defineQuery(`count(*[_type == "post"])`);
+
+export const POST_PAGE_QUERY =
+  defineQuery(`*[_type == "post" && defined(slug.current)][$startIndex...$endIndex]{
   _id, title, slug
 }`);
 
