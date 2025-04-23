@@ -1,8 +1,11 @@
-import { PATHS } from "@/lib/urls";
+import Link from "next/link";
+import { useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { AUTHORS_QUERY, LAST_POST_QUERY } from "@/sanity/lib/queries";
 import { AUTHORS_QUERYResult, LAST_POST_QUERYResult } from "@/sanity/types";
-import Link from "next/link";
+
+import { PATHS } from "@/lib/urls";
+import { SortBy, getSortedObjects } from "@/lib/arrays";
 
 export async function getStaticProps() {
   const lastPost = await client.fetch(LAST_POST_QUERY);
@@ -19,6 +22,8 @@ export default function Home({
   lastPost: LAST_POST_QUERYResult;
   authors: AUTHORS_QUERYResult;
 }) {
+  const [sortBy, setSortBy] = useState<SortBy>("ALPHA_ASC");
+
   return (
     <>
       <h1>Last post:</h1>
@@ -28,8 +33,17 @@ export default function Home({
 
       <hr />
       <h2>All our authors:</h2>
+      <select
+        value={sortBy}
+        onChange={(event) => {
+          setSortBy(event.target.value as SortBy);
+        }}
+      >
+        <option value="ALPHA_ASC">A → Z</option>
+        <option value="ALPHA_DESC">Z → A</option>
+      </select>
       <ol>
-        {authors.map((author) => (
+        {getSortedObjects(authors, { key: "name", sortBy }).map((author) => (
           <li key={author._id}>
             {author.name} ({author.dateOfBirth})
           </li>
