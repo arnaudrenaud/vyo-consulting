@@ -7,6 +7,11 @@ export const LAST_POST_QUERY = defineQuery(`*[_type == "post"]
   _id, title, slug
 }`);
 
+export const ALL_POSTS_QUERY = defineQuery(`*[_type == "post"]
+  | order(_createdAt desc){
+  _id, title, slug, categories[]->
+}`);
+
 export const POST_COUNT_QUERY = defineQuery(`count(*[_type == "post"])`);
 
 export const POST_PAGE_QUERY =

@@ -293,6 +293,23 @@ export type LAST_POST_QUERYResult = {
   title: string | null;
   slug: Slug | null;
 } | null;
+// Variable: ALL_POSTS_QUERY
+// Query: *[_type == "post"]  | order(_createdAt desc){  _id, title, slug, categories[]->}
+export type ALL_POSTS_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  categories: Array<{
+    _id: string;
+    _type: "category";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    title?: string;
+    slug?: Slug;
+    description?: string;
+  }> | null;
+}>;
 // Variable: POST_COUNT_QUERY
 // Query: count(*[_type == "post"])
 export type POST_COUNT_QUERYResult = number;
@@ -400,6 +417,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"post\"]\n  | order(_createdAt desc)[0]{\n  _id, title, slug\n}": LAST_POST_QUERYResult;
+    "*[_type == \"post\"]\n  | order(_createdAt desc){\n  _id, title, slug, categories[]->\n}": ALL_POSTS_QUERYResult;
     "count(*[_type == \"post\"])": POST_COUNT_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)][$startIndex...$endIndex]{\n  _id, title, slug\n}": POST_PAGE_QUERYResult;
     "*[_type == \"author\"]": AUTHORS_QUERYResult;

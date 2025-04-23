@@ -1,5 +1,6 @@
 export type SortBy = "ALPHA_DESC" | "ALPHA_ASC";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getSortedObjects<T extends Record<string, any>>(
   array: T[],
   { key, sortBy }: { key: string; sortBy: SortBy }

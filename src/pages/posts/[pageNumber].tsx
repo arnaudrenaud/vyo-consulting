@@ -74,6 +74,8 @@ export default function PostsPage({
       {nextPageNumber ? (
         <Link href={`${PATHS.POSTS}/${nextPageNumber}`}>Next page</Link>
       ) : null}
+      <hr />
+      <Link href={PATHS.ALL_POSTS}>All posts</Link>
     </>
   );
 }
