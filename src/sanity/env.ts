@@ -6,6 +6,11 @@ export const dataset = assertValue(
   "Missing environment variable: SANITY_STUDIO_SANITY_DATASET"
 );
 
+export const hostId = assertValue(
+  process.env.SANITY_STUDIO_HOST,
+  "Missing environment variable: SANITY_STUDIO_HOST"
+);
+
 export const projectId = assertValue(
   process.env.SANITY_STUDIO_SANITY_PROJECT_ID,
   "Missing environment variable: SANITY_STUDIO_SANITY_PROJECT_ID"

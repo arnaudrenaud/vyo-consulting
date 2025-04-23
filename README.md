@@ -2,18 +2,17 @@
 
 ## Getting Started
 
+Copy `.env.example` to `.env` and set variables:
+
+- Project ID must already exist
+- Dataset must already exist (when a project is created, a dataset named `production` is also created)
+- Studio host will be created if it does not already exist
+
 Install dependencies:
 
 ```
 npm install
 ```
-
-Set `studioHost` in `sanity.cli.ts`.
-
-Set environment variables :
-
-- `SANITY_STUDIO_SANITY_PROJECT_ID`
-- `SANITY_STUDIO_SANITY_DATASET`
 
 Deploy schema to dataset:
 

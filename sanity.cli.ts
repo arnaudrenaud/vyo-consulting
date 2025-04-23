@@ -6,8 +6,9 @@ import { defineCliConfig } from "sanity/cli";
 
 const projectId = process.env.SANITY_STUDIO_SANITY_PROJECT_ID;
 const dataset = process.env.SANITY_STUDIO_SANITY_DATASET;
+const studioHost = process.env.SANITY_STUDIO_HOST;
 
 export default defineCliConfig({
   api: { projectId, dataset },
-  studioHost: "with-sanity-poc",
+  studioHost,
 });
