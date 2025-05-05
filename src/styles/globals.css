@@ -12,6 +12,8 @@
   --font-mono: var(--font-geist-mono);
 
   --color-mint-500: oklch(0.72 0.11 178);
+
+  --breakpoint-sm: 480px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -51,6 +51,11 @@ export default function Home({
             </li>
           ))}
         </ol>
+
+        <div className="text-yellow-500 hidden sm:block">
+          Invisible on an extra-small screen (custom{" "}
+          <code>--breakpoint-sm</code> instead of default 640 px).
+        </div>
       </>
     </PageLayout>
   );
