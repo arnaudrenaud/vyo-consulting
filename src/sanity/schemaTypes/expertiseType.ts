@@ -10,6 +10,7 @@ export const expertiseType = defineType({
     defineField({
       name: "name",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -17,6 +18,7 @@ export const expertiseType = defineType({
       options: {
         source: "name",
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "shortDescription",
