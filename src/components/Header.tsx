@@ -1,4 +1,4 @@
-import { PATHS } from "@/lib/urls";
+import { PATHS } from "@/helpers/constants";
 import Link from "next/link";
 
 export function Header() {
