@@ -10,6 +10,7 @@
     "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.84.0",
