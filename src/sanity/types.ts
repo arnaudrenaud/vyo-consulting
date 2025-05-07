@@ -192,34 +192,36 @@ export type AllSanitySchemaTypes =
   | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
-// Variable: LAST_POST_QUERY
-// Query: *[_type == "post"]  | order(_createdAt desc)[0]{  _id, title, slug}
-export type LAST_POST_QUERYResult = null;
-// Variable: ALL_POSTS_QUERY
-// Query: *[_type == "post"]  | order(_createdAt desc){  _id, title, slug, categories[]->}
-export type ALL_POSTS_QUERYResult = Array<never>;
-// Variable: POST_COUNT_QUERY
-// Query: count(*[_type == "post"])
-export type POST_COUNT_QUERYResult = number;
-// Variable: POST_PAGE_QUERY
-// Query: *[_type == "post" && defined(slug.current)][$startIndex...$endIndex]{  _id, title, slug}
-export type POST_PAGE_QUERYResult = Array<never>;
-// Variable: AUTHORS_QUERY
-// Query: *[_type == "author"]
-export type AUTHORS_QUERYResult = Array<never>;
-// Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage}
-export type POST_QUERYResult = null;
+// Variable: ALL_EXPERTISES_QUERY
+// Query: *[_type == "expertise"]{  _id, name, slug, shortDescription}
+export type ALL_EXPERTISES_QUERYResult = Array<{
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  shortDescription: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "post"]\n  | order(_createdAt desc)[0]{\n  _id, title, slug\n}': LAST_POST_QUERYResult;
-    '*[_type == "post"]\n  | order(_createdAt desc){\n  _id, title, slug, categories[]->\n}': ALL_POSTS_QUERYResult;
-    'count(*[_type == "post"])': POST_COUNT_QUERYResult;
-    '*[_type == "post" && defined(slug.current)][$startIndex...$endIndex]{\n  _id, title, slug\n}': POST_PAGE_QUERYResult;
-    '*[_type == "author"]': AUTHORS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, mainImage\n}': POST_QUERYResult;
+    '*[_type == "expertise"]{\n  _id, name, slug, shortDescription\n}': ALL_EXPERTISES_QUERYResult;
   }
 }
