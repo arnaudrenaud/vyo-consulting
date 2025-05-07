@@ -20,11 +20,13 @@ export const expertiseType = defineType({
     }),
     defineField({
       name: "shortDescription",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "longDescription",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     }),
   ],
 });
