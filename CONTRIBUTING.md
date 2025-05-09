@@ -1,5 +1,7 @@
 # Contribuer au projet
 
+Projet : https://github.com/users/arnaudrenaud/projects/3
+
 ## Accomplir une tâche
 
 1. Choisir une tâche dans la colonne _Ready_ (ou en créer une à partir des [spécifications](#références)) : https://github.com/users/arnaudrenaud/projects/3
@@ -17,4 +19,8 @@
 
 - Spécifications générales : https://drive.google.com/drive/folders/1JJileQd9dku_J5H4w5wbJEUg5YBR9cuw
 - Devis : https://docs.google.com/spreadsheets/d/1WmTnYIRqe4tqKvEJ4eZjlFFLOV6TIYc7WncnIQwAmGc/edit?gid=0#gid=0
+
+## Instances
+
 - Production : https://vyo-consulting.netlify.app/
+- CMS : https://www.sanity.io/@on6WKtipb/studio/cjyf93knkw8ptie0kr674si6/default/studio/structure
