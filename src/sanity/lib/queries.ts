@@ -7,6 +7,6 @@ export const ALL_EXPERTISES_QUERY =
   _id, name, slug, shortDescription
 }`);
 
-export const ALL_METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
+export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
   title, subtitle, description, logo
 }`);

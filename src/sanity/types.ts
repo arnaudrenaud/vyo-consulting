@@ -241,9 +241,9 @@ export type ALL_EXPERTISES_QUERYResult = Array<{
     _key: string;
   }> | null;
 }>;
-// Variable: ALL_METADATA_QUERY
+// Variable: METADATA_QUERY
 // Query: *[_type == "metadata"][0]{  title, subtitle, description, logo}
-export type ALL_METADATA_QUERYResult = {
+export type METADATA_QUERYResult = {
   title: string | null;
   subtitle: string | null;
   description: string | null;
@@ -266,6 +266,6 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "expertise"]| order(_createdAt asc){\n  _id, name, slug, shortDescription\n}': ALL_EXPERTISES_QUERYResult;
-    '*[_type == "metadata"][0]{\n  title, subtitle, description, logo\n}': ALL_METADATA_QUERYResult;
+    '*[_type == "metadata"][0]{\n  title, subtitle, description, logo\n}': METADATA_QUERYResult;
   }
 }

@@ -1,16 +1,16 @@
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
-import { ALL_EXPERTISES_QUERY, ALL_METADATA_QUERY } from "@/sanity/lib/queries";
+import { ALL_EXPERTISES_QUERY, METADATA_QUERY } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
-  ALL_METADATA_QUERYResult,
+  METADATA_QUERYResult,
 } from "@/sanity/types";
 import Head from "next/head";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
-  const metadata = await client.fetch(ALL_METADATA_QUERY);
+  const metadata = await client.fetch(METADATA_QUERY);
   return {
     props: { expertises, metadata },
   };
@@ -21,7 +21,7 @@ export default function Home({
   metadata,
 }: {
   expertises: ALL_EXPERTISES_QUERYResult;
-  metadata: ALL_METADATA_QUERYResult;
+  metadata: METADATA_QUERYResult;
 }) {
   if (!metadata) {
     throw new Error("Metadata is undefined");
