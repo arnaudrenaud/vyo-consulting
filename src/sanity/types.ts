@@ -125,6 +125,15 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
+export type Title = {
+  _id: string;
+  _type: "title";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+};
+
 export type Expertise = {
   _id: string;
   _type: "expertise";
@@ -188,12 +197,13 @@ export type AllSanitySchemaTypes =
   | SanityImageMetadata
   | Geopoint
   | SanityAssetSourceData
+  | Title
   | Expertise
   | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: ALL_EXPERTISES_QUERY
-// Query: *[_type == "expertise"]{  _id, name, slug, shortDescription}
+// Query: *[_type == "expertise"]| order(_createdAt asc){  _id, name, slug, shortDescription}
 export type ALL_EXPERTISES_QUERYResult = Array<{
   _id: string;
   name: string | null;
@@ -222,6 +232,6 @@ export type ALL_EXPERTISES_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "expertise"]{\n  _id, name, slug, shortDescription\n}': ALL_EXPERTISES_QUERYResult;
+    '*[_type == "expertise"]| order(_createdAt asc){\n  _id, name, slug, shortDescription\n}': ALL_EXPERTISES_QUERYResult;
   }
 }
