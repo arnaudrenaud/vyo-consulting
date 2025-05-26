@@ -12,6 +12,7 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
   const logo = metadata?.logo ? urlFor(metadata.logo).url() : null;
 
   const [scrollDirection, setScrollDirection] = useState("");
+  const [atTop, setAtTop] = useState(true);
   const lastScrollY = useRef(0);
   const throttleWait = useRef(false);
   const [navOpen, setNavOpen] = useState(false);
@@ -39,7 +40,7 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
 
     const updateScrollState = () => {
       const scrollY = window.scrollY;
-      // setAtTop(scrollY < 50);
+      setAtTop(scrollY < 50);
 
       if (Math.abs(scrollY - lastScrollY.current) < threshold) return;
       setScrollDirection(scrollY > lastScrollY.current ? "down" : "up");
@@ -57,7 +58,6 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
   }, []);
 
   return (
-    //
     <nav
       role="navigation"
       aria-label="main-navigation"
@@ -65,9 +65,10 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
         "nav-bar",
         isMobile ? "h-20" : "h-full pt-9",
         scrollDirection === "down"
-          ? `${styles.isScrollingDown} pl-unset`
-          : "pl-8 bg-[#fff7ed]/90",
-        // shadow-md
+          ? `${styles.isScrollingDown}`
+          : "bg-[#fff7ed]/90",
+        //  shadow-md
+        atTop ? "mt-4" : "mt-0",
       )}
     >
       <Link href={PATHS.INDEX}>
