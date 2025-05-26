@@ -1,0 +1,187 @@
+.nav {
+  position: fixed;
+  background: white;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: all 400ms ease-in-out;
+}
+
+.mainDiv {
+  display: flex;
+  flex-flow: column nowrap;
+  vertical-align: top;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0px 12px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+// Burger Menu Mobile Animation
+
+.navOverlay {
+  position: fixed;
+  background: #fff;
+  z-index: 1;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  padding: 4em;
+  transition: all 1.8s cubic-bezier(0.165, 1, 0.44, 1);
+}
+
+.lineTop,
+.lineBottom {
+  margin: 0 auto;
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 10px;
+  background: black;
+  left: 0;
+  right: 0;
+  transform: rotate(0deg);
+  transition: all 0.4s;
+}
+
+.lineTop {
+  top: 0.75em;
+  &.spin {
+    top: 1em;
+    transform: rotate(135deg);
+    background: black;
+  }
+}
+
+.lineBottom {
+  bottom: 0.68rem;
+  &.spin {
+    bottom: 1rem;
+    transform: rotate(225deg);
+    background: black;
+  }
+}
+
+.hamBox {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+ul.navLinks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & li {
+    list-style: none;
+    position: relative;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 600px) {
+      margin-bottom: 1.5em;
+    }
+    @media screen and (max-width: 450px) {
+      margin-bottom: 1em;
+    }
+    & a {
+      text-decoration: none;
+      color: black;
+      font-size: 3em;
+      position: relative;
+      top: 0;
+      user-select: none;
+      transition: all 1.5s cubic-bezier(0.165, 1, 0.33, 1);
+      @media screen and (max-width: 600px) {
+        font-size: 2.5em;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+.navItemWrapper:after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background: white;
+  margin: 0 auto;
+}
+
+.isScrollingDown {
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.navFooter {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.navSocialMedia {
+  display: flex;
+  & li {
+    list-style: none;
+    & a {
+      position: relative;
+      bottom: -20px;
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      padding-left: 2em;
+      opacity: 0;
+      transform: all 2s cubic-bezier(0.16, 1, 0.33, 1);
+    }
+  }
+}
+
+.location {
+  position: relative;
+  bottom: -20px;
+  opacity: 0;
+  transform: all 2s cubic-bezier(0.16, 1, 0.33, 1);
+  text-transform: uppercase;
+}
+
+.navbarItemus {
+  position: relative;
+  font-size: 1.1rem;
+  &::before {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: black;
+    top: 100%;
+    left: 0;
+    content: "";
+    pointer-events: none;
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s;
+  }
+  &:hover::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
+  }
+}
