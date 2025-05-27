@@ -6,6 +6,7 @@ import {
   METADATA_QUERYResult,
 } from "@/sanity/types";
 import Head from "next/head";
+import HeroSection from "@/components/HeroSection";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -36,6 +37,8 @@ export default function Home({
           key="title"
         />
       </Head>
+
+      <HeroSection />
 
       <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>
