@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fff7ed;
   --foreground: #171717;
 }
 
@@ -17,3 +17,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.nav-bar {
+  @apply fixed py-4 px-20 text-sm h-16 z-50 top-0 right-0 left-0 flex items-center justify-between before:content-[''] 
+    before:absolute before:bottom-0 before:right-12 before:left-12 before:w-[calc(100%-6rem)] before:h-[1px] before:bg-[#c9cdd2]
+    max-md:px-4 max-md:before:w-[calc(100%-2rem)] max-md:before:left-4 max-md:before:right-4
+     xl:px-36 xl:mx-auto transition-all duration-[400ms] ease-in-out;
+}
+
+/* xl:max-w-11/12 */
