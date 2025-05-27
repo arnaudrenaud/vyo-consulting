@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { METADATA_QUERYResult } from "@/sanity/types";
 
 export function PageLayout({
@@ -10,11 +10,6 @@ export function PageLayout({
   children: ReactNode;
   metadata: METADATA_QUERYResult;
 }) {
-  useEffect(() => {
-    // Always display the top of the page when navigating
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <Header metadata={metadata} />
