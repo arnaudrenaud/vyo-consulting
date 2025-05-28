@@ -7,6 +7,7 @@ import {
 } from "@/sanity/types";
 import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
+import { Button } from "@/components/ui/button";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -42,6 +43,8 @@ export default function Home({
 
       <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>
+
+      <Button>Exemple de bouton shadcn/ui</Button>
 
       <ul className="space-y-4">
         {expertises.map((expertise) => (
