@@ -28,7 +28,7 @@ const HeroSection = () => {
           Nos solutions sur mesure
         </Link>
       </div>
-      <div className="lg:order-2 order-1">
+      <div className="lg:order-2 order-1 flex items-center">
         <img
           src="/hero-img.png"
           alt="Image home section"
