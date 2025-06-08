@@ -74,8 +74,8 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
       >
         <Link href={PATHS.INDEX}>
           <img
-            // src={logo || ""}
-            src="/icones/vyoconsulting.png"
+            src={logo || ""}
+            // src="/icones/vyoconsulting.png"
             alt="Image du logo de VYO Consulting"
             className="h-8"
           />
