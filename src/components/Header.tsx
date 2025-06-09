@@ -58,66 +58,76 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
   }, []);
 
   return (
-    <nav
-      role="navigation"
-      aria-label="main-navigation"
-      className={clsx(
-        "nav-bar",
-        isMobile ? "h-20" : "h-full pt-9",
-        scrollDirection === "down"
-          ? `${styles.isScrollingDown}`
-          : "bg-[#fff7ed]/90",
-        //  shadow-md
-        atTop ? "mt-4" : "mt-0",
-      )}
-    >
-      <Link href={PATHS.INDEX}>
-        <img
-          src={logo || ""}
-          alt="Image du logo de VYO Consulting"
-          className="h-8"
-        />
-      </Link>
-      <ul className="flex items-center space-x-6 max-md:hidden">
-        <li>
-          <Link href={PATHS.SOLUTIONS}>À propos</Link>
-        </li>
-        <li>
-          <Link href={PATHS.PROJETS}>Services</Link>
-        </li>
-        <li>
-          <Link href={PATHS.ABOUT}>Contact</Link>
-        </li>
-
-        <li className="text-white bg-[#10182b] rounded-full px-4 py-2">
-          <Link href={PATHS.CONTACT}>Nous contacter</Link>
-        </li>
-      </ul>
-      {/* Button Burger Menu */}
-      <div
-        role="button"
-        className="menu-toggle block md:hidden self-end z-[99]"
-        onClick={() => setNavOpen(!navOpen)}
+    <>
+      <nav
+        role="navigation"
+        aria-label="main-navigation"
+        className={clsx(
+          "nav-bar h-[1px] w-full bg-[#c9cdd2]",
+          isMobile ? "h-20" : "h-full pt-9",
+          scrollDirection === "down"
+            ? `${styles.isScrollingDown}`
+            : "bg-[#fff7ed]/90",
+          //  shadow-md
+          atTop ? "mt-4" : "mt-0",
+        )}
       >
+        <Link href={PATHS.INDEX}>
+          <img
+            src={logo || ""}
+            // src="/icones/vyoconsulting.png"
+            alt="Image du logo de VYO Consulting"
+            className="h-8"
+          />
+        </Link>
+        <ul className="flex items-center space-x-6 max-md:hidden">
+          <li>
+            <Link href={PATHS.SOLUTIONS}>À propos</Link>
+          </li>
+          <li>
+            <Link href={PATHS.PROJETS}>Services</Link>
+          </li>
+          <li>
+            <Link href={PATHS.ABOUT}>Contact</Link>
+          </li>
+
+          <li className="text-white bg-[#10182b] rounded-full px-4 py-2">
+            <Link href={PATHS.CONTACT} className="flex items-center">
+              <img
+                src="/icones/contact.png"
+                alt="contact icon"
+                className="inline-block mr-2 w-4"
+              />
+              Nous contacter
+            </Link>
+          </li>
+        </ul>
+        {/* Button Burger Menu */}
         <div
-          className={
-            navOpen ? `${styles.hamBox} ${styles.hamBoxOpen}` : styles.hamBox
-          }
+          role="button"
+          className="menu-toggle block md:hidden self-end z-[99]"
+          onClick={() => setNavOpen(!navOpen)}
         >
-          <span
+          <div
             className={
-              navOpen ? `${styles.lineTop} ${styles.spin}` : styles.lineTop
+              navOpen ? `${styles.hamBox} ${styles.hamBoxOpen}` : styles.hamBox
             }
-          ></span>
-          <span
-            className={
-              navOpen
-                ? `${styles.lineBottom} ${styles.spin}`
-                : styles.lineBottom
-            }
-          ></span>
+          >
+            <span
+              className={
+                navOpen ? `${styles.lineTop} ${styles.spin}` : styles.lineTop
+              }
+            ></span>
+            <span
+              className={
+                navOpen
+                  ? `${styles.lineBottom} ${styles.spin}`
+                  : styles.lineBottom
+              }
+            ></span>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

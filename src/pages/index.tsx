@@ -7,6 +7,8 @@ import {
 } from "@/sanity/types";
 import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
+import BannerNumber from "@/components/BannerNumber";
+import SolutionsSection from "@/components/SolutionsSection";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -39,6 +41,8 @@ export default function Home({
       </Head>
 
       <HeroSection />
+      <BannerNumber />
+      <SolutionsSection />
 
       <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>

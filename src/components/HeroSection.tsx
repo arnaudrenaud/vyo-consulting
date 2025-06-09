@@ -1,18 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+import ButtonLink from "./ButtonLink";
 
 const HeroSection = () => {
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-8">
       <div className="hero-text p-4 lg:order-1 order-2">
-        <h1 className="text-6xl mb-4">
+        <h1 className="text-6xl mb-4 max-lg:text-5xl max-lg:mt-4">
           <span className="font-bold">Cabinet de conseil</span>
           <br />
           en nouvelles technologies
           <br />
           et stratégie digitale
         </h1>
-        <p className="mb-4 max-w-3/5">
+
+        <p className="mb-4 max-w-3/5 max-lg:max-w-full max-lg:text-justify max-lg:mt-8">
           VYO consulting vous guide dans vos projets IT avec{" "}
           <span className="font-bold">
             une approche pragmatique et humaine.{" "}
@@ -21,14 +22,9 @@ const HeroSection = () => {
           <span className="font-bold">excellence et humilité</span>
         </p>
 
-        <Link
-          href="/solutions"
-          className="rounded-[20px] py-1 px-3 border border-black"
-        >
-          Nos solutions sur mesure
-        </Link>
+        <ButtonLink href="/solutions" text="Nos solutions sur mesure" />
       </div>
-      <div className="lg:order-2 order-1">
+      <div className="lg:order-2 order-1 flex items-center">
         <img
           src="/hero-img.png"
           alt="Image home section"
