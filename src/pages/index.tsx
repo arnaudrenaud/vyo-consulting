@@ -9,6 +9,7 @@ import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
 import BannerNumber from "@/components/BannerNumber";
 import SolutionsSection from "@/components/SolutionsSection";
+import Processus from "@/components/Processus";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -43,6 +44,7 @@ export default function Home({
       <HeroSection />
       <BannerNumber />
       <SolutionsSection />
+      <Processus />
 
       <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>
