@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import BannerNumber from "@/components/BannerNumber";
 import SolutionsSection from "@/components/SolutionsSection";
 import Processus from "@/components/Processus";
+import { Button } from "@/components/ui/button";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -48,6 +49,9 @@ export default function Home({
 
       <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>
+
+      {/* TODO: delete */}
+      <Button>Exemple de bouton shadcn/ui</Button>
 
       <ul className="space-y-4">
         {expertises.map((expertise) => (
