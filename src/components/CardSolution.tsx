@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichContent } from "@/components/utils/RichContent";
+import { PATHS } from "@/helpers/constants";
 import { SOLUTION_THEME_COLOR } from "@/helpers/theme";
 import { ALL_EXPERTISES_QUERYResult } from "@/sanity/types";
 import Link from "next/link";
@@ -23,7 +24,10 @@ const CardSolution = ({
       <p className="text-[0.9rem] text-[#737373] text-sm">
         <RichContent value={shortDescription} />
       </p>
-      <Link href="/solutions" className="flex items-center text-xs font-medium">
+      <Link
+        href={`${PATHS.SOLUTIONS}/${slug.current}`}
+        className="flex items-center text-xs font-medium"
+      >
         Découvrir cette offre
         <img
           src="/icones/ArrowRight.png"
