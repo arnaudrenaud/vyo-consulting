@@ -5,5 +5,3 @@ export enum PATHS {
   ABOUT = "/about",
   CONTACT = "/contact",
 }
-
-export const TITLE = "VYO Consulting";
