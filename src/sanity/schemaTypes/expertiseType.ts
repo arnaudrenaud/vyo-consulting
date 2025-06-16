@@ -24,6 +24,7 @@ export const expertiseType = defineType({
       name: "shortDescription",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "longDescription",

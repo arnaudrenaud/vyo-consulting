@@ -58,7 +58,7 @@ export default function Home({
         heroParagraph={content.heroParagraph}
       />
       <BannerNumber />
-      <SolutionsSection />
+      <SolutionsSection expertises={expertises} />
       <Processus />
 
       <h1>{metadata.title}</h1>

@@ -741,7 +741,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "longDescription": {
         "type": "objectAttribute",

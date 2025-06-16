@@ -2,8 +2,13 @@
 import React from "react";
 import CardSolution from "./CardSolution";
 import ButtonLink from "./ButtonLink";
+import { ALL_EXPERTISES_QUERYResult } from "@/sanity/types";
 
-const SolutionsSection = () => {
+const SolutionsSection = ({
+  expertises,
+}: {
+  expertises: ALL_EXPERTISES_QUERYResult;
+}) => {
   return (
     <section className="mt-24">
       <div className="text-center">
@@ -29,14 +34,9 @@ const SolutionsSection = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 mt-12">
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
-        <CardSolution />
+        {expertises.map((expertise) => (
+          <CardSolution key={expertise._id} {...expertise} />
+        ))}
       </div>
       <div className="mt-12 flex justify-center">
         <ButtonLink href="/solutions" text="Échangeons à propos votre besoin" />
