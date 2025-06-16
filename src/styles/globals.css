@@ -27,10 +27,12 @@ body {
 
 /* xl:max-w-11/12 */
 
-.slick-prev::before,
+/* .slick-prev::before,
 .slick-next::before {
-  color: #16a34a !important;
+  background-color: #16a34a !important;
   height: 24px !important;
+  width: 24px !important;
+  display: block !important;
 }
 
 .slick-prev::before {
@@ -39,4 +41,4 @@ body {
 
 .slick-next::before {
   content: url("/icones/arrow-right-carrousel.png") !important;
-}
+} */

@@ -49,7 +49,7 @@ const Projects = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <div className="text-center py-14">
+        <div className="text-center pt-14 pb-6">
           <div className="inline-block relative">
             <h2 className="font-light text-5xl">Nos projets</h2>
             <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
