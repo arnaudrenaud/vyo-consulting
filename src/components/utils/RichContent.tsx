@@ -13,3 +13,5 @@ export function RichContent(props: Parameters<typeof PortableText>[0]) {
     />
   );
 }
+
+export type RichContentValue = Parameters<typeof PortableText>[0]["value"];

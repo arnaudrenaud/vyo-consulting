@@ -38,6 +38,10 @@ export default function Home({
   if (!metadata) {
     throw new Error("Metadata is undefined");
   }
+  if (!content) {
+    throw new Error("Homepage content undefined.");
+  }
+
   return (
     <>
       <Head>
@@ -49,7 +53,10 @@ export default function Home({
         />
       </Head>
 
-      <HeroSection content={content} />
+      <HeroSection
+        heroTitle={content.heroTitle}
+        heroParagraph={content.heroParagraph}
+      />
       <BannerNumber />
       <SolutionsSection />
       <Processus />
