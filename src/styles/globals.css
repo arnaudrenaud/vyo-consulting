@@ -26,3 +26,17 @@ body {
 }
 
 /* xl:max-w-11/12 */
+
+.slick-prev::before,
+.slick-next::before {
+  color: #16a34a !important;
+  height: 24px !important;
+}
+
+.slick-prev::before {
+  content: url("/icones/arrow-left-carrousel.png") !important;
+}
+
+.slick-next::before {
+  content: url("/icones/arrow-right-carrousel.png") !important;
+}

@@ -38,9 +38,10 @@ const SolutionsSection = () => {
         <CardSolution />
         <CardSolution />
       </div>
-      <div className="mt-12 flex justify-center">
+      <div className="my-12 flex justify-center">
         <ButtonLink href="/solutions" text="Échangeons à propos votre besoin" />
       </div>
+      <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
     </section>
   );
 };

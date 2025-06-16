@@ -1,4 +1,4 @@
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import { ALL_EXPERTISES_QUERY, METADATA_QUERY } from "@/sanity/lib/queries";
 import {
@@ -9,7 +9,9 @@ import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
 import BannerNumber from "@/components/BannerNumber";
 import SolutionsSection from "@/components/SolutionsSection";
-import Processus from "@/components/Processus";
+import Process from "@/components/Process";
+import ChoiceSection from "@/components/ChoiceSection";
+import Projects from "@/components/Projects";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
@@ -21,7 +23,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({
-  expertises,
+  // expertises,
   metadata,
 }: {
   expertises: ALL_EXPERTISES_QUERYResult;
@@ -44,9 +46,11 @@ export default function Home({
       <HeroSection />
       <BannerNumber />
       <SolutionsSection />
-      <Processus />
+      <Process />
+      <ChoiceSection />
+      <Projects />
 
-      <h1>{metadata.title}</h1>
+      {/* <h1>{metadata.title}</h1>
       <h2>{metadata.subtitle}</h2>
 
       <ul className="space-y-4">
@@ -58,7 +62,7 @@ export default function Home({
             )}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </>
   );
 }

@@ -3,7 +3,7 @@ import ButtonLink from "./ButtonLink";
 
 const Processus = () => {
   return (
-    <section className="mt-24 mb-12">
+    <section className="mt-6 mb-12">
       <div className="text-center">
         <div className="inline-block relative">
           <h2 className="font-light text-5xl">
