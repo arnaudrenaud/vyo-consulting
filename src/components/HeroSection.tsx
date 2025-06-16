@@ -1,25 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import { HOMEPAGE_QUERYResult } from "@/sanity/types";
 import ButtonLink from "./ButtonLink";
+import { RichContent } from "@/components/utils/RichContent";
 
-const HeroSection = () => {
+const HeroSection = ({ content }: { content: HOMEPAGE_QUERYResult }) => {
+  if (!content) {
+    throw new Error("Homepage content is undefined");
+  }
+
   return (
     <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-8">
       <div className="hero-text p-4 lg:order-1 order-2">
         <h1 className="text-6xl mb-4 max-lg:text-5xl max-lg:mt-4">
-          <span className="font-bold">Cabinet de conseil</span>
-          <br />
-          en nouvelles technologies
-          <br />
-          et stratégie digitale
+          <RichContent value={content.heroTitle} />
         </h1>
 
         <p className="mb-4 max-w-3/5 max-lg:max-w-full max-lg:text-justify max-lg:mt-8">
-          VYO consulting vous guide dans vos projets IT avec{" "}
-          <span className="font-bold">
-            une approche pragmatique et humaine.{" "}
-          </span>
-          Ensemble, relevons le défi du digital avec{" "}
-          <span className="font-bold">excellence et humilité</span>
+          <RichContent value={content.heroParagraph} />
         </p>
 
         <ButtonLink href="/solutions" text="Nos solutions sur mesure" />

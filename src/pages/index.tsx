@@ -1,8 +1,13 @@
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
-import { ALL_EXPERTISES_QUERY, METADATA_QUERY } from "@/sanity/lib/queries";
+import {
+  ALL_EXPERTISES_QUERY,
+  HOMEPAGE_QUERY,
+  METADATA_QUERY,
+} from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
+  HOMEPAGE_QUERYResult,
   METADATA_QUERYResult,
 } from "@/sanity/types";
 import Head from "next/head";
@@ -11,20 +16,22 @@ import BannerNumber from "@/components/BannerNumber";
 import SolutionsSection from "@/components/SolutionsSection";
 import Processus from "@/components/Processus";
 import { Button } from "@/components/ui/button";
-// import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
   const metadata = await client.fetch(METADATA_QUERY);
+  const content = await client.fetch(HOMEPAGE_QUERY);
   return {
-    props: { expertises, metadata },
+    props: { expertises, metadata, content },
   };
 }
 
 export default function Home({
+  content,
   expertises,
   metadata,
 }: {
+  content: HOMEPAGE_QUERYResult;
   expertises: ALL_EXPERTISES_QUERYResult;
   metadata: METADATA_QUERYResult;
 }) {
@@ -42,7 +49,7 @@ export default function Home({
         />
       </Head>
 
-      <HeroSection />
+      <HeroSection content={content} />
       <BannerNumber />
       <SolutionsSection />
       <Processus />

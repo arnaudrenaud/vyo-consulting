@@ -1,21 +1,18 @@
-import { ComposeIcon } from "@sanity/icons";
+import { CircleIcon } from "@sanity/icons";
 import { defineType, defineField } from "sanity";
 
 export const globalType = defineType({
   name: "metadata",
   title: "Metadata",
   type: "document",
-  icon: ComposeIcon,
+  icon: CircleIcon,
   fields: [
     defineField({
       name: "title",
       type: "string",
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "subtitle",
-      type: "string",
-      validation: (Rule) => Rule.required(),
+      description:
+        "Titre utilisé par le navigateur (souvent pour nommer l'onglet), non affiché dans la page.",
     }),
     defineField({
       name: "description",
