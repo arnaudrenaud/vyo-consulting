@@ -103,3 +103,18 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* .slick-prev::before,
+.slick-next::before {
+  background-color: #16a34a !important;
+  height: 24px !important;
+  width: 24px !important;
+  display: block !important;
+}
+
+.slick-prev::before {
+  content: url("/icones/arrow-left-carrousel.png") !important;
+}
+
+.slick-next::before {
+  content: url("/icones/arrow-right-carrousel.png") !important;
+} */

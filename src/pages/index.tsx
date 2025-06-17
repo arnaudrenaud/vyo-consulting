@@ -1,4 +1,4 @@
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
@@ -14,8 +14,10 @@ import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
 import BannerNumber from "@/components/BannerNumber";
 import SolutionsSection from "@/components/SolutionsSection";
-import Processus from "@/components/Processus";
-import { Button } from "@/components/ui/button";
+import Process from "@/components/Process";
+import ChoiceSection from "@/components/ChoiceSection";
+import Projects from "@/components/Projects";
+// import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
@@ -59,24 +61,9 @@ export default function Home({
       />
       <BannerNumber />
       <SolutionsSection expertises={expertises} />
-      <Processus />
-
-      <h1>{metadata.title}</h1>
-      <h2>{metadata.subtitle}</h2>
-
-      {/* TODO: delete */}
-      <Button>Exemple de bouton shadcn/ui</Button>
-
-      <ul className="space-y-4">
-        {expertises.map((expertise) => (
-          <li key={expertise._id}>
-            <div>{expertise.name}</div>
-            {expertise.shortDescription && (
-              <PortableText value={expertise.shortDescription} />
-            )}
-          </li>
-        ))}
-      </ul>
+      <Process />
+      <ChoiceSection />
+      <Projects />
     </>
   );
 }
