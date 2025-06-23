@@ -6,7 +6,7 @@ const Processus = () => {
     <section className="mt-6 mb-12">
       <div className="text-center">
         <div className="inline-block relative">
-          <h2 className="font-light text-5xl">
+          <h2 className="font-light text-5xl max-md:text-3xl">
             Besoin d&apos;un talent ou d&apos;une équipe?
           </h2>
           <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
@@ -26,11 +26,11 @@ const Processus = () => {
         <img
           src="/icones/schema.png"
           alt="Processus schema processus"
-          className="max-sm:max-w-3/4 sm:max-w-[345px] max-lg:m-auto max-lg:py-8 lg:ml-auto"
+          className="max-sm:max-w-[60%] sm:max-w-[345px] max-lg:m-auto max-lg:py-8 max-sm:pb-0! lg:ml-auto"
         />
         <div className="max-lg:m-auto">
           <div className="p-4 gap-4 items-end flex">
-            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-md:h-14 rounded-full border border-[#4ADE80]">
+            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-[330px]:w-24! max-md:h-14 rounded-full border border-[#4ADE80]">
               <div className="max-sm:text-xl sm:text-3xl">01</div>
             </div>
             <div className="flex flex-col">
@@ -57,7 +57,7 @@ const Processus = () => {
           <div className="h-[1px] w-auto bg-[#CBD5E1] max-w-[430px] ml-5"></div>
 
           <div className="p-4 gap-4 items-end flex">
-            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-md:h-14 rounded-full border border-[#4ADE80]">
+            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-[330px]:w-24! max-md:h-14 rounded-full border border-[#4ADE80]">
               <div className="max-sm:text-xl sm:text-3xl">02</div>
             </div>
             <div className="flex flex-col">

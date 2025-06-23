@@ -103,18 +103,34 @@ body {
     @apply bg-background text-foreground;
   }
 }
-/* .slick-prev::before,
+
+.slick-slide {
+  transform: scaleY(0.98) !important;
+}
+
+.slick-arrow {
+  background: #16a34a !important;
+  border-radius: 50%;
+}
+
 .slick-next::before {
-  background-color: #16a34a !important;
-  height: 24px !important;
-  width: 24px !important;
-  display: block !important;
+  content: url("/icones/arrow-right-carrousel-20.png") !important;
+  opacity: 1 !important;
+  display: flex !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin: auto !important;
+  font-size: 8px !important;
+  border: none !important;
 }
 
 .slick-prev::before {
-  content: url("/icones/arrow-left-carrousel.png") !important;
+  content: url("/icones/arrow-left-carrousel-20.png") !important;
+  opacity: 1 !important;
+  display: flex !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin: auto !important;
+  font-size: 8px !important;
+  border: none !important;
 }
-
-.slick-next::before {
-  content: url("/icones/arrow-right-carrousel.png") !important;
-} */

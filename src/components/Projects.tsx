@@ -24,19 +24,19 @@ const Projects = () => {
     adaptiveHeight: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1250,
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 780,
         settings: {
           slidesToShow: 1,
         },
@@ -64,7 +64,6 @@ const Projects = () => {
           </p>
         </div>
         <div className="w-full max-w-screen-lg px-4">
-          {/* flex flex-col justify-center gap-4 */}
           <Slider {...settings}>
             {[1, 2, 3, 4, 5].map((n) => (
               <div

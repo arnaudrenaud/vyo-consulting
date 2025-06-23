@@ -15,7 +15,7 @@ const CardSolution = ({
 
   return (
     <div
-      className={`bg-white rounded-2xl shadow-[3px_3px] ${themeColor.background} flex flex-col justify-center gap-4 md:max-w-[725px] px-4 py-8 max-md:px-8 mx-auto`}
+      className={`bg-white rounded-2xl shadow-[3px_3px] ${themeColor.background} flex flex-col justify-center gap-4 md:max-w-[725px] px-4 py-8 mx-auto`}
     >
       <h4 className="font-bold text-2xl">
         <span className={themeColor.text}>vyo.</span>

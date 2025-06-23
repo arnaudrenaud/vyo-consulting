@@ -75,20 +75,19 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
         <Link href={PATHS.INDEX}>
           <img
             src={logo || ""}
-            // src="/icones/vyoconsulting.png"
             alt="Image du logo de VYO Consulting"
             className="h-8"
           />
         </Link>
         <ul className="flex items-center space-x-6 max-md:hidden">
           <li>
-            <Link href={PATHS.SOLUTIONS}>À propos</Link>
+            <Link href={PATHS.SOLUTIONS}>Solutions</Link>
           </li>
           <li>
-            <Link href={PATHS.PROJETS}>Services</Link>
+            <Link href={PATHS.PROJETS}>Projets</Link>
           </li>
           <li>
-            <Link href={PATHS.ABOUT}>Contact</Link>
+            <Link href={PATHS.ABOUT}>A propos</Link>
           </li>
 
           <li className="text-white bg-[#10182b] rounded-full px-4 py-2">

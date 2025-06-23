@@ -21,7 +21,7 @@ const SolutionsSection = ({
         </div>
         <h2 className="text-center text-5xl"></h2>
       </div>
-      <p className="text-center mt-4 text-[#737373]">
+      <p className="text-center mt-8 text-[#737373]">
         <span className="font-bold">
           Envie d&apos;accélérer votre transformation digitale ?
         </span>

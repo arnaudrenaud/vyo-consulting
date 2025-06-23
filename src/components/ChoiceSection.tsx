@@ -6,13 +6,16 @@ const ChoiceSection = () => {
   return (
     <>
       <div className="md:h-[60rem] w-full relative">
-        <div className="absolute text-[#BBF7D0] h-[174px] w-[174px] block z-50 -top-8 -left-12" />
+        <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] -top-8 -left-48 rounded-full" />
         <div className="flex justify-center items-center mt-12 bg-[url('/bckg-choice.png')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
           {/* Card */}
-          <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[725px] px-16 pt-16 pb-16 max-md:px-8">
+          {/* max-md:px-8 */}
+          <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[725px] max-md:w-full px-4 sm:px-8 md:px-16 pt-16 pb-16">
             <div className="text-center mb-8">
               <div className="inline-block relative">
-                <h2 className="font-light text-5xl">Pourquoi nous choisir ?</h2>
+                <h2 className="font-light text-5xl max-sm:text-3xl">
+                  Pourquoi nous choisir ?
+                </h2>
                 <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
                   <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
                   <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
@@ -24,11 +27,11 @@ const ChoiceSection = () => {
               <p className="relative bg-[url('/icones/bckg-rectangle-left.png')] bg-no-repeat bg-contain p-4 pl-12 rounded-lg leading-4 h-[4.5rem]">
                 <span className="font-semibold">Un accompagnement complet</span>
                 <br /> en transformation digitale
-                <span className="flex items-center justify-center absolute -top-10 left-[-35px] w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <span className="flex items-center justify-center absolute -top-10 left-[-35px] max-sm:-left-[10px] max-sm:-top-6 w-16 h-16 max-sm:w-10! max-sm:h-10! max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
                   <img
                     src="/icones/footprints.png"
                     alt="footprints"
-                    className="w-6 h-6"
+                    className="w-6 h-6 max-sm:w-4 max-sm:h-4"
                   />
                 </span>
                 <span className="flex items-center justify-center absolute right-[68px] top-8 z-50 max-md:hidden">
@@ -53,11 +56,11 @@ const ChoiceSection = () => {
                   humain,
                   <br /> éthique et pragmatique
                 </span>
-                <span className="flex items-center justify-center absolute -top-10 right-[-40px] w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <span className="flex items-center justify-center absolute -top-10 right-[-40px] max-sm:-right-[10px] max-sm:-top-6 w-16 h-16 max-md:w-14 max-md:h-14 max-sm:w-10! max-sm:h-10! rounded-full border border-[#16A34A]">
                   <img
                     src="/icones/circle-user.png"
                     alt="circle-user"
-                    className="w-6 h-6"
+                    className="w-6 h-6 max-sm:w-4 max-sm:h-4"
                   />
                 </span>
                 <span className="flex items-center justify-center absolute left-[-59px] top-[1.6rem] z-50 max-md:hidden">
@@ -82,11 +85,11 @@ const ChoiceSection = () => {
                   stratégie digitale
                   <br /> et nouvelles technologies
                 </span>
-                <span className="flex items-center justify-center absolute -top-10 left-[-35px] w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <span className="flex items-center justify-center absolute -top-10 left-[-35px] max-sm:-left-[10px] max-sm:-top-6 max-sm:w-10! max-sm:h-10! w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
                   <img
                     src="/icones/circuit-board.png"
                     alt="circuit-board"
-                    className="w-6 h-6"
+                    className="w-6 h-6 max-sm:w-4 max-sm:h-4"
                   />
                 </span>
                 <span className="flex items-center justify-center absolute right-[68px] top-8 z-50 max-md:hidden">
@@ -110,11 +113,11 @@ const ChoiceSection = () => {
                 <span className="font-semibold">
                   collective et collaborative
                 </span>
-                <span className="flex items-center justify-center absolute -top-10 right-[-40px] w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <span className="flex items-center justify-center absolute -top-10 right-[-40px] max-sm:-right-[10px] max-sm:-top-6 w-16 h-16 max-md:w-14 max-md:h-14 max-sm:w-10! max-sm:h-10! rounded-full border border-[#16A34A]">
                   <img
                     src="/icones/hand-helping.png"
                     alt="hand-helping"
-                    className="w-6 h-6"
+                    className="w-6 h-6 max-sm:w-4 max-sm:h-4"
                   />
                 </span>
                 <span className="flex items-center justify-center absolute left-[-59px] top-[1.6rem] z-50 max-md:hidden">
@@ -139,11 +142,11 @@ const ChoiceSection = () => {
                   indépendant
                   <br /> et flexible
                 </span>
-                <span className="flex items-center justify-center absolute -top-10 left-[-35px] w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <span className="flex items-center justify-center absolute -top-10 left-[-35px] max-sm:-left-[10px] max-sm:-top-6 w-16 h-16 max-md:w-14 max-md:h-14 max-sm:w-10! max-sm:h-10! rounded-full border border-[#16A34A]">
                   <img
                     src="/icones/biceps.png"
                     alt="biceps"
-                    className="w-6 h-6"
+                    className="w-6 h-6 max-sm:w-4 max-sm:h-4"
                   />
                 </span>
               </p>
