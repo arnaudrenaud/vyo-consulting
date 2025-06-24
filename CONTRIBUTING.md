@@ -19,8 +19,7 @@ Projet : https://github.com/users/arnaudrenaud/projects/3
 
 - Spécifications générales : https://drive.google.com/drive/folders/1JJileQd9dku_J5H4w5wbJEUg5YBR9cuw
 - Devis : https://docs.google.com/spreadsheets/d/1WmTnYIRqe4tqKvEJ4eZjlFFLOV6TIYc7WncnIQwAmGc/edit?gid=0#gid=0
-- Maquettes :
-  - Index : https://www.figma.com/design/WmMd458x138nVOUW0BKxvc/VYO-Site
+- Maquettes : https://www.figma.com/design/SYdMTtOBijNDnmswSkDHie/SITE_VYOConsulting?node-id=257-4734&p=f&t=i9GNgbnn73nTe1ie-0
 
 ## Instances
 
