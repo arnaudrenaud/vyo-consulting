@@ -21,6 +21,7 @@ const CardSolution = ({
         <span className={themeColor.text}>vyo.</span>
         {name}
       </h4>
+      {/* rendre conditionnel l'affichage de la description en fonction de l'url */}
       <p className="text-[0.9rem] text-[#737373] text-sm">
         <RichContent value={shortDescription} />
       </p>

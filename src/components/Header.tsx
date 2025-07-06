@@ -12,11 +12,14 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
   const logo = metadata?.logo ? urlFor(metadata.logo).url() : null;
 
   const [scrollDirection, setScrollDirection] = useState("");
-  const [atTop, setAtTop] = useState(true);
   const lastScrollY = useRef(0);
   const throttleWait = useRef(false);
   const [navOpen, setNavOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 992px)");
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
     if (navOpen) {
@@ -40,7 +43,6 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
 
     const updateScrollState = () => {
       const scrollY = window.scrollY;
-      setAtTop(scrollY < 50);
 
       if (Math.abs(scrollY - lastScrollY.current) < threshold) return;
       setScrollDirection(scrollY > lastScrollY.current ? "down" : "up");
@@ -68,20 +70,61 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
           scrollDirection === "down"
             ? `${styles.isScrollingDown}`
             : "bg-[#fff7ed]/90",
-          //  shadow-md
-          atTop ? "mt-4" : "mt-0",
         )}
       >
         <Link href={PATHS.INDEX}>
-          <img
-            src={logo || ""}
-            alt="Image du logo de VYO Consulting"
-            className="h-8"
-          />
+          {logo && (
+            <img
+              src={logo || ""}
+              alt="Image du logo de VYO Consulting"
+              className="h-7"
+            />
+          )}
         </Link>
-        <ul className="flex items-center space-x-6 max-md:hidden">
-          <li>
-            <Link href={PATHS.SOLUTIONS}>Solutions</Link>
+        <ul className="flex items-center space-x-10 max-md:hidden">
+          <li
+            className="relative inline-block text-left after:content-[' '] after:h-[3px] after:block after:bg-green-600 after:translate-y-[19px] mt-1 hover:cursor-pointer"
+            onClick={toggleDropdown}
+          >
+            <div className="flex items-center space-x-1">
+              <button>Solutions</button>
+              <img
+                src={
+                  isOpen ? "/icones/chevron-up.svg" : "/icones/chevron-down.svg"
+                }
+                alt={isOpen ? "chevron up" : "chevron down"}
+              />
+            </div>
+
+            <div
+              className={`origin-top-left absolute left-0 mt-[21.5px] w-56 bg-[#fff7ed] shadow-lg ring-1 ring-black/5 transition-opacity duration-200 ${
+                isOpen
+                  ? "opacity-100 scale-100 visible"
+                  : "opacity-0 scale-95 invisible"
+              }`}
+            >
+              <ul className="py-1">
+                {[
+                  "vyo.design",
+                  "vyo.agile&methods",
+                  "vyo.product&project",
+                  "vyo.softwarefactory",
+                  "vyo.devops&cloud",
+                  "vyo.cybersecurity",
+                  "vyo.data",
+                  "vyo.infra",
+                  "vyo.squad",
+                ].map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="px-4 py-[5.5px] hover:bg-white rounded-md cursor-pointer transition-colors mx-6 text-sm font-medium"
+                  >
+                    {/* dynamiser la couleur de 'vyo.' && le path en fonction de la solution */}
+                    <Link href={PATHS.SOLUTIONS}>{item}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
           <li>
             <Link href={PATHS.PROJETS}>Projets</Link>

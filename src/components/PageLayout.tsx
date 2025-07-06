@@ -22,7 +22,7 @@ export function PageLayout({
       <img
         src="/icones/circle-green.png"
         alt="Circle green"
-        className="absolute max-[500px]:w-[250px]! max-md:w-[360px] w-[483px] bottom-20 max-md:bottom-50 right-0 z-[-1]"
+        className="absolute max-[500px]:w-[250px]! max-md:w-[360px] w-[458px] bottom-20 max-md:bottom-50 right-0 z-[-1]"
       />
     </div>
   );

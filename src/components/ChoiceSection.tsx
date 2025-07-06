@@ -161,15 +161,3 @@ const ChoiceSection = () => {
   );
 };
 export default ChoiceSection;
-
-{
-  /* <div className="flex items-center justify-center mr-auto w-20 h-20 max-md:w-14 max-md:h-14 rounded-full border border-black">
-              <img
-                src="/icones/medal.png"
-                alt="medal"
-                className="w-6 h-6 m-auto"
-              />
-            </div> */
-}
-
-// clip-path: polygon(23.5% 0.5%, 100% 0%, 100% 60%, 100% 100%, 0% 100%, 0% 34.8%, 16.7% 23.8%);

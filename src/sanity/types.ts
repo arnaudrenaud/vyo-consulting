@@ -68,6 +68,52 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Solutions = {
+  _id: string;
+  _type: "solutions";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  slug: Slug;
+  projects: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  professions?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -249,6 +295,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | Solutions
   | HomePage
   | Metadata
   | SanityImageCrop
@@ -371,6 +418,48 @@ export type METADATA_QUERYResult = {
     _type: "image";
   };
 } | null;
+// Variable: SOLUTION_QUERY
+// Query: *[_type == "solutions" && slug.current == $slug][0]{  title,  slug,  projects,  professions}
+export type SOLUTION_QUERYResult = {
+  title: string;
+  slug: Slug;
+  projects: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  professions: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -379,5 +468,6 @@ declare module "@sanity/client" {
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "metadata"][0]{\n  title, subtitle, description, logo\n}': METADATA_QUERYResult;
+    '*[_type == "solutions" && slug.current == $slug][0]{\n  title,\n  slug,\n  projects,\n  professions\n}': SOLUTION_QUERYResult;
   }
 }

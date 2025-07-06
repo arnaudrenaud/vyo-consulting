@@ -2,12 +2,15 @@ export const apiVersion = "2025-04-14";
 
 export const dataset = assertValue(
   process.env.NEXT_PUBLIC_SANITY_STUDIO_DATASET ||
-    process.env.SANITY_STUDIO_DATASET,
+    process.env.SANITY_STUDIO_DATASET ||
+    "production",
   "Missing environment variable: NEXT_PUBLIC_SANITY_STUDIO_DATASET",
 );
 
 export const hostId = assertValue(
-  process.env.NEXT_PUBLIC_SANITY_STUDIO_HOST || process.env.SANITY_STUDIO_HOST,
+  process.env.NEXT_PUBLIC_SANITY_STUDIO_HOST ||
+    process.env.SANITY_STUDIO_HOST ||
+    "vyo-consulting",
   "Missing environment variable: NEXT_PUBLIC_SANITY_STUDIO_HOST",
 );
 

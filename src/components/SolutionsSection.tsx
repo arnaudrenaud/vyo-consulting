@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import CardSolution from "./CardSolution";
 import ButtonLink from "./ButtonLink";
@@ -10,7 +9,7 @@ const SolutionsSection = ({
   expertises: ALL_EXPERTISES_QUERYResult;
 }) => {
   return (
-    <section className="mt-24">
+    <section>
       <div className="text-center">
         <div className="inline-block relative">
           <h2 className="font-light text-5xl">Nos solutions</h2>
@@ -39,6 +38,7 @@ const SolutionsSection = ({
         ))}
       </div>
       <div className="my-12 flex justify-center">
+        {/* rendre dynamique le texte du bouton */}
         <ButtonLink href="/solutions" text="Échangeons à propos votre besoin" />
       </div>
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>

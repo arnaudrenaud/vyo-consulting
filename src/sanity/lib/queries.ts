@@ -11,3 +11,11 @@ export const ALL_EXPERTISES_QUERY = defineQuery(
 export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
   title, subtitle, description, logo
 }`);
+
+export const SOLUTION_QUERY =
+  defineQuery(`*[_type == "solutions" && slug.current == $slug][0]{
+  title,
+  slug,
+  projects,
+  professions
+}`);
