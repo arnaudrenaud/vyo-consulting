@@ -1,55 +1,71 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
+import { GetStaticPaths } from "next";
 import { client } from "@/sanity/lib/client";
-import { SOLUTION_QUERY } from "@/sanity/lib/queries";
-import { SOLUTION_QUERYResult } from "@/sanity/types";
-
-type Props = {
-  data: SOLUTION_QUERYResult;
-};
+import {
+  ALL_EXPERTISES_QUERY,
+  EXPERTISE_DETAILS_QUERY,
+} from "@/sanity/lib/queries";
+import {
+  ALL_EXPERTISES_QUERYResult,
+  EXPERTISE_DETAILS_QUERYResult,
+} from "@/sanity/types";
+import SolutionsHeroSection from "@/components/solutions/SolutionsHeroSection";
+import SolutionsSection from "@/components/SolutionsSection";
+import Projects from "@/components/Projects";
+import Professions from "@/components/solutions/Professions";
+import { urlFor } from "@/sanity/lib/image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs: { slug: { current: string } }[] = await client.fetch(`
-    *[_type == "solutions" && defined(slug.current)]{
-      slug
-    }
-  `);
+  const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
 
   return {
-    paths: slugs.map((item) => ({
+    paths: allSolutions.map((item) => ({
       params: { slug: item.slug.current },
     })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
-  const data = (await client.fetch(SOLUTION_QUERY, {
+export const getStaticProps = async ({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) => {
+  const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
+  const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
-  })) as SOLUTION_QUERYResult;
-
-  if (!data) {
-    return { notFound: true };
-  }
+  });
 
   return {
     props: {
-      data,
+      allSolutions,
+      solution,
     },
   };
 };
 
-export default function SolutionPage({ data }: Props) {
-  //   const { title, slug, projects, professions } = data;
-  const router = useRouter();
-
-  //   console.log("data in SolutionPage:", title, slug, projects, professions);
-  console.log("data in SolutionPage:", data);
-
-  if (router.isFallback) {
-    return <p>Loading...</p>;
+export default function SolutionPage({
+  allSolutions,
+  solution,
+}: {
+  allSolutions: ALL_EXPERTISES_QUERYResult;
+  solution: EXPERTISE_DETAILS_QUERYResult;
+}) {
+  if (!solution) {
+    throw new Error("Solution is undefined.");
   }
+  const logoUrl = solution.logo ? urlFor(solution.logo).url() : "";
 
-  return <h1>Solutions is working !!!</h1>;
+  return (
+    <>
+      <SolutionsHeroSection
+        logoUrl={logoUrl}
+        name={solution.name}
+        heroParagraph={solution.longDescription}
+      />
+      {/* <CoSquad /> */}
+      <Professions />
+      <Projects />
+      <SolutionsSection expertises={allSolutions} />
+    </>
+  );
 }

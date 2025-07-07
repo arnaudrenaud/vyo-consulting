@@ -68,52 +68,6 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Solutions = {
-  _id: string;
-  _type: "solutions";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title: string;
-  slug: Slug;
-  projects: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  professions?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-};
-
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -180,6 +134,64 @@ export type Metadata = {
   };
 };
 
+export type Expertise = {
+  _id: string;
+  _type: "expertise";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string;
+  slug: Slug;
+  logo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  shortDescription: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  longDescription: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
   top?: number;
@@ -237,52 +249,6 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Expertise = {
-  _id: string;
-  _type: "expertise";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name: string;
-  slug: Slug;
-  shortDescription: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  longDescription?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-};
-
 export type Slug = {
   _type: "slug";
   current: string;
@@ -295,15 +261,14 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
-  | Solutions
   | HomePage
   | Metadata
+  | Expertise
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | Expertise
   | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
@@ -362,6 +327,18 @@ export type ALL_EXPERTISES_QUERYResult = Array<{
   _rev: string;
   name: string;
   slug: Slug;
+  logo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   shortDescription: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -380,7 +357,7 @@ export type ALL_EXPERTISES_QUERYResult = Array<{
     _type: "block";
     _key: string;
   }>;
-  longDescription?: Array<{
+  longDescription: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -418,12 +395,29 @@ export type METADATA_QUERYResult = {
     _type: "image";
   };
 } | null;
-// Variable: SOLUTION_QUERY
-// Query: *[_type == "solutions" && slug.current == $slug][0]{  title,  slug,  projects,  professions}
-export type SOLUTION_QUERYResult = {
-  title: string;
+// Variable: EXPERTISE_DETAILS_QUERY
+// Query: *[_type == "expertise" && slug.current == $slug][0]
+export type EXPERTISE_DETAILS_QUERYResult = {
+  _id: string;
+  _type: "expertise";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string;
   slug: Slug;
-  projects: Array<{
+  logo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  shortDescription: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -441,7 +435,7 @@ export type SOLUTION_QUERYResult = {
     _type: "block";
     _key: string;
   }>;
-  professions: Array<{
+  longDescription: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -458,7 +452,7 @@ export type SOLUTION_QUERYResult = {
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
 } | null;
 
 // Query TypeMap
@@ -468,6 +462,6 @@ declare module "@sanity/client" {
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "metadata"][0]{\n  title, subtitle, description, logo\n}': METADATA_QUERYResult;
-    '*[_type == "solutions" && slug.current == $slug][0]{\n  title,\n  slug,\n  projects,\n  professions\n}': SOLUTION_QUERYResult;
+    '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
   }
 }

@@ -2,40 +2,23 @@
 import ButtonLink from "../ButtonLink";
 import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 
-const HeroSection = ({
-  heroTitle,
+const SolutionsHeroSection = ({
+  logoUrl,
+  name,
   heroParagraph,
 }: {
-  heroTitle: RichContentValue;
+  logoUrl: string;
+  name: string;
   heroParagraph: RichContentValue;
 }) => {
   return (
     <>
       <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 relative mb-14">
         <div className="hero-text p-4 lg:order-1 order-2">
-          {/* <RichContent value={heroTitle} /> */}
-          <img
-            src="/logo-vyo-design.svg"
-            alt="logo vyo design"
-            className="my-4"
-          />
+          <img src={logoUrl} alt={`Logo de vyo.${name}`} className="my-4" />
 
           <p className="mb-4 max-w-[400px] max-lg:max-w-full max-lg:text-justify max-lg:mt-8">
-            {/* <RichContent value={heroParagraph} /> */}
-            Le Design chez <span className="font-bold">VYO Consulting</span> est
-            une démarche intégrée dans chaque projet de transformation. Nous
-            mettons l’accent sur{" "}
-            <span className="font-bold">
-              une expérience utilisateur intuitive, en alliant créativité et
-              innovation.
-            </span>{" "}
-            Nos équipes de designers collaborent étroitement avec les équipes
-            métiers pour créer des interfaces qui répondent aux besoins réels
-            des utilisateurs tout en respectant vos exigences fonctionnelles.
-            <span className="font-bold">
-              Nous veillons à ce que chaque produit soit à la fois performant et
-              agréable à utiliser.
-            </span>
+            <RichContent value={heroParagraph} />
           </p>
 
           <ButtonLink href="/solutions" text="Discutons de votre besoin" />
@@ -54,4 +37,4 @@ const HeroSection = ({
     </>
   );
 };
-export default HeroSection;
+export default SolutionsHeroSection;
