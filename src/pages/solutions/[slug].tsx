@@ -65,7 +65,7 @@ export default function SolutionPage({
       {/* <CoSquad /> */}
       <Professions />
       <Projects />
-      <SolutionsSection expertises={allSolutions} />
+      <SolutionsSection expertises={allSolutions} showDescription={false} />
     </>
   );
 }

@@ -11,7 +11,8 @@ const CardSolution = ({
   name,
   shortDescription,
   logo,
-}: ALL_EXPERTISES_QUERYResult[0]) => {
+  showDescription,
+}: ALL_EXPERTISES_QUERYResult[0] & { showDescription: boolean }) => {
   const themeColor =
     SOLUTION_THEME_COLOR[slug.current] || SOLUTION_THEME_COLOR.default;
 
@@ -25,9 +26,11 @@ const CardSolution = ({
         <img className="h-[24px]" src={logoUrl} alt={`Logo de vyo.${name}`} />
       </h4>
       {/* rendre conditionnel l'affichage de la description en fonction de l'url */}
-      <p className="text-[0.9rem] text-[#737373] text-sm">
-        <RichContent value={shortDescription} />
-      </p>
+      {showDescription && (
+        <p className="text-[0.9rem] text-[#737373] text-sm">
+          <RichContent value={shortDescription} />
+        </p>
+      )}
       <Link
         href={`${PATHS.SOLUTIONS}/${slug.current}`}
         className="flex items-center text-xs font-medium"

@@ -60,7 +60,7 @@ export default function Home({
         heroParagraph={content.heroParagraph}
       />
       <BannerNumber />
-      <SolutionsSection expertises={expertises} />
+      <SolutionsSection expertises={expertises} showDescription />
       <Process />
       <ChoiceSection />
       <Projects />
