@@ -12,10 +12,6 @@ export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
   title, subtitle, description, logo
 }`);
 
-export const SOLUTION_QUERY =
-  defineQuery(`*[_type == "solutions" && slug.current == $slug][0]{
-  title,
-  slug,
-  projects,
-  professions
-}`);
+export const EXPERTISE_DETAILS_QUERY = defineQuery(
+  `*[_type == "expertise" && slug.current == $slug][0]`,
+);

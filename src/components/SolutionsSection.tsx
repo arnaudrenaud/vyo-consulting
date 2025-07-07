@@ -2,11 +2,14 @@ import React from "react";
 import CardSolution from "./CardSolution";
 import ButtonLink from "./ButtonLink";
 import { ALL_EXPERTISES_QUERYResult } from "@/sanity/types";
+import { getSolutionsInOrder } from "@/helpers/functions";
 
 const SolutionsSection = ({
   expertises,
+  showDescription,
 }: {
   expertises: ALL_EXPERTISES_QUERYResult;
+  showDescription: boolean;
 }) => {
   return (
     <section>
@@ -33,8 +36,12 @@ const SolutionsSection = ({
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 mt-12">
-        {expertises.map((expertise) => (
-          <CardSolution key={expertise._id} {...expertise} />
+        {getSolutionsInOrder(expertises).map((expertise) => (
+          <CardSolution
+            key={expertise._id}
+            {...expertise}
+            showDescription={showDescription}
+          />
         ))}
       </div>
       <div className="my-12 flex justify-center">

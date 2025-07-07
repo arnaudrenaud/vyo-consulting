@@ -19,10 +19,7 @@ const About = ({ content }: { content: HOMEPAGE_QUERYResult }) => {
 
   return (
     <section className="flex flex-col items-center justify-center min-h-screen">
-      <HeroSection
-        heroTitle={content.heroTitle}
-        heroParagraph={content.heroParagraph}
-      />
+      <HeroSection />
       <Values />
     </section>
   );

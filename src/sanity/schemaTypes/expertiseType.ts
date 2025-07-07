@@ -21,6 +21,14 @@ export const expertiseType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "logo",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "shortDescription",
       type: "array",
       of: [{ type: "block" }],
@@ -30,6 +38,7 @@ export const expertiseType = defineType({
       name: "longDescription",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });

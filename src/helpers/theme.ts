@@ -2,6 +2,7 @@ export const SOLUTION_THEME_COLOR: Record<
   string,
   { text: string; background: string }
 > = {
+  squad: { text: "text-red-600", background: "shadow-red-600" },
   "devops-and-cloud": { text: "text-pink-600", background: "shadow-pink-600" },
   design: { text: "text-fuchsia-600", background: "shadow-fuchsia-600" },
   "agile-and-methods": {
