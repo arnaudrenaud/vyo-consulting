@@ -338,6 +338,12 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type Job = {
+  _type: "job";
+  name: string;
+  levels?: Array<string>;
+};
+
 export type Collaborator = {
   _id: string;
   _type: "collaborator";
@@ -417,6 +423,23 @@ export type Expertise = {
     _type: "block";
     _key: string;
   }>;
+  coverPicture?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  jobs?: Array<
+    {
+      _key: string;
+    } & Job
+  >;
 };
 
 export type SanityImageCrop = {
@@ -491,6 +514,7 @@ export type AllSanitySchemaTypes =
   | Metadata
   | Project
   | SanityFileAsset
+  | Job
   | Collaborator
   | Expertise
   | SanityImageCrop
@@ -604,6 +628,23 @@ export type ALL_EXPERTISES_QUERYResult = Array<{
     _type: "block";
     _key: string;
   }>;
+  coverPicture?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  jobs?: Array<
+    {
+      _key: string;
+    } & Job
+  >;
 }>;
 // Variable: METADATA_QUERY
 // Query: *[_type == "metadata"][0]{  title, subtitle, description, logo}
@@ -682,6 +723,23 @@ export type EXPERTISE_DETAILS_QUERYResult = {
     _type: "block";
     _key: string;
   }>;
+  coverPicture?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  jobs?: Array<
+    {
+      _key: string;
+    } & Job
+  >;
 } | null;
 
 // Query TypeMap

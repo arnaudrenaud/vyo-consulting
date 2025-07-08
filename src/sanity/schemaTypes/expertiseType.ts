@@ -40,5 +40,14 @@ export const expertiseType = defineType({
       of: [{ type: "block" }],
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "coverPicture",
+      type: "image",
+    }),
+    defineField({
+      name: "jobs",
+      type: "array",
+      of: [{ type: "job" }],
+    }),
   ],
 });
