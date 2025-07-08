@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import ButtonLink from "../ButtonLink";
 
 const CoSquad = () => {
@@ -9,9 +10,92 @@ const CoSquad = () => {
             <h2 className="font-light text-5xl">
               Co-construisons une équipe adaptée à votre besoin
             </h2>
+
             <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
               <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
               <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-4 mt-20">
+            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+                <img
+                  src="/icones/users-round.svg"
+                  alt="users round icon"
+                  className="w-6 h-6"
+                />
+              </div>
+              <h3 className="text-3xl font-semibold">
+                Votre besoin de transformation digitale : une équipe dédiée
+              </h3>
+              <ul className="list-disc pl-8">
+                <li>
+                  Une <span className="font-bold">Task Force sur mesure</span>{" "}
+                  mobilisée selon vos objectifs et votre budget
+                </li>
+                <li>
+                  Une coordination fluide entre les expertises techniques,
+                  métier et stratégiques
+                </li>
+                <li>
+                  Un accompagnement complet : de la conception à la réalisation
+                  (cadrage, build, run)
+                </li>
+              </ul>
+            </div>
+
+            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+                <img
+                  src="/icones/trello.svg"
+                  alt="trello icon"
+                  className="w-6 h-6"
+                />
+              </div>
+              <h3 className="text-3xl font-semibold">
+                Votre besoin de transformation digitale : une équipe dédiée
+              </h3>
+              <ul className="list-disc pl-6">
+                <li>
+                  Une <span className="font-bold">Task Force sur mesure</span>{" "}
+                  mobilisée selon vos objectifs et votre budget
+                </li>
+                <li>
+                  Une coordination fluide entre les expertises techniques,
+                  métier et stratégiques
+                </li>
+                <li>
+                  Un accompagnement complet : de la conception à la réalisation
+                  (cadrage, build, run)
+                </li>
+              </ul>
+            </div>
+
+            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+                <img
+                  src="/icones/hands.svg"
+                  alt="hands icon"
+                  className="w-6 h-6"
+                />
+              </div>
+              <h3 className="text-3xl font-semibold">
+                Votre besoin de transformation digitale : une équipe dédiée
+              </h3>
+              <ul className="list-disc pl-6">
+                <li>
+                  Une <span className="font-bold">Task Force sur mesure</span>{" "}
+                  mobilisée selon vos objectifs et votre budget
+                </li>
+                <li>
+                  Une coordination fluide entre les expertises techniques,
+                  métier et stratégiques
+                </li>
+                <li>
+                  Un accompagnement complet : de la conception à la réalisation
+                  (cadrage, build, run)
+                </li>
+              </ul>
             </div>
           </div>
         </div>

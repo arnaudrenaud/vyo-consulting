@@ -20,12 +20,11 @@ const CardSolution = ({
 
   return (
     <div
-      className={`bg-white rounded-2xl shadow-[3px_3px] ${themeColor.background} flex flex-col justify-center gap-4 md:max-w-[725px] px-4 py-8 mx-auto`}
+      className={`bg-white rounded-2xl shadow-[3px_3px] ${themeColor.background} flex flex-col justify-center gap-4 md:max-w-[725px] px-4 py-8 mx-auto w-full`}
     >
       <h4>
         <img className="h-[24px]" src={logoUrl} alt={`Logo de vyo.${name}`} />
       </h4>
-      {/* rendre conditionnel l'affichage de la description en fonction de l'url */}
       {showDescription && (
         <p className="text-[0.9rem] text-[#737373] text-sm">
           <RichContent value={shortDescription} />

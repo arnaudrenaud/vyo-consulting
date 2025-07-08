@@ -67,8 +67,6 @@ const Values = () => {
           <img src="/icones/polygon.svg" alt="polygon" className="h-[76px]" />
         </div>
       </div>
-
-      {/* <div className="h-[1px] w-full bg-[#c9cdd2]"></div> */}
     </section>
   );
 };

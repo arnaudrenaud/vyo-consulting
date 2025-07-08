@@ -13,6 +13,7 @@ import SolutionsSection from "@/components/SolutionsSection";
 import Projects from "@/components/Projects";
 import Professions from "@/components/solutions/Professions";
 import { urlFor } from "@/sanity/lib/image";
+import CoSquad from "@/components/solutions/CoSquad";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
@@ -62,8 +63,7 @@ export default function SolutionPage({
         name={solution.name}
         heroParagraph={solution.longDescription}
       />
-      {/* <CoSquad /> */}
-      <Professions />
+      {solution.slug.current === "squad" ? <CoSquad /> : <Professions />}
       <Projects />
       <SolutionsSection expertises={allSolutions} showDescription={false} />
     </>

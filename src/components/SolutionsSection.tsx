@@ -3,6 +3,7 @@ import CardSolution from "./CardSolution";
 import ButtonLink from "./ButtonLink";
 import { ALL_EXPERTISES_QUERYResult } from "@/sanity/types";
 import { getSolutionsInOrder } from "@/helpers/functions";
+import { useRouter } from "next/router";
 
 const SolutionsSection = ({
   expertises,
@@ -11,8 +12,11 @@ const SolutionsSection = ({
   expertises: ALL_EXPERTISES_QUERYResult;
   showDescription: boolean;
 }) => {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
   return (
-    <section>
+    <section className={`${currentPath === "/" ? "mt-12" : ""}`}>
       <div className="text-center">
         <div className="inline-block relative">
           <h2 className="font-light text-5xl">Nos solutions</h2>
@@ -35,7 +39,7 @@ const SolutionsSection = ({
         activer.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 xl:max-w-[1200px] xl:mx-auto">
         {getSolutionsInOrder(expertises).map((expertise) => (
           <CardSolution
             key={expertise._id}
@@ -45,7 +49,6 @@ const SolutionsSection = ({
         ))}
       </div>
       <div className="my-12 flex justify-center">
-        {/* rendre dynamique le texte du bouton */}
         <ButtonLink href="/solutions" text="Échangeons à propos votre besoin" />
       </div>
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
