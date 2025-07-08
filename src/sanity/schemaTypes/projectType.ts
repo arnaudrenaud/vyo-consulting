@@ -74,6 +74,17 @@ export const projectType = defineType({
     }),
 
     defineField({
+      name: "realizationScreenshots",
+      type: "array",
+      of: [{ type: "image" }],
+    }),
+
+    defineField({
+      name: "document",
+      type: "file",
+    }),
+
+    defineField({
       name: "expertises",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "expertise" } })],
