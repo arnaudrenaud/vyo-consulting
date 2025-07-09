@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
   EXPERTISE_DETAILS_QUERY,
+  METADATA_QUERY,
 } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
@@ -31,6 +32,7 @@ export const getStaticProps = async ({
 }: {
   params: { slug: string };
 }) => {
+  const metadata = await client.fetch(METADATA_QUERY);
   const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
   const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
@@ -38,6 +40,7 @@ export const getStaticProps = async ({
 
   return {
     props: {
+      metadata,
       allSolutions,
       solution,
     },
