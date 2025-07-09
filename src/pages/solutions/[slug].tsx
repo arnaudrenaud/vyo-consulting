@@ -67,7 +67,11 @@ export default function SolutionPage({
         name={solution.name}
         heroParagraph={solution.longDescription}
       />
-      {solution.slug.current === "squad" ? <CoSquad /> : <Professions />}
+      {solution.slug.current === "squad" ? (
+        <CoSquad />
+      ) : (
+        <Professions solution={solution} />
+      )}
       <Projects />
       <SolutionsSection expertises={expertises} showDescription={false} />
     </>
