@@ -1,13 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
+import { getSolutionThemeColor } from "@/helpers/functions";
 import ButtonLink from "../ButtonLink";
+import { EXPERTISE_DETAILS_QUERYResult } from "@/sanity/types";
 
-const Professions = () => {
+const Professions = ({
+  solution,
+}: {
+  solution: EXPERTISE_DETAILS_QUERYResult;
+}) => {
+  if (!solution) {
+    throw new Error("Solution is undefined.");
+  }
+  const themeColor = getSolutionThemeColor(solution.slug);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center relative">
         <div className="text-center py-6">
           <div className="inline-block relative">
-            <h2 className="font-light text-5xl">Nos métiers design</h2>
+            <h2 className="font-light text-5xl">Nos métiers {solution.name}</h2>
             <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
               <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
               <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
@@ -22,8 +33,8 @@ const Professions = () => {
                   Junior . Senior
                 </span>
                 <span
-                  className="flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
-                max-sm:w-10! max-sm:h-10! rounded-full border border-[#C026D3]"
+                  className={`flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
+                max-sm:w-10! max-sm:h-10! rounded-full border ${themeColor.border}`}
                 >
                   <img
                     src="/icones/layout-panel-top.svg"
@@ -41,8 +52,8 @@ const Professions = () => {
                   Junior . Senior
                 </span>
                 <span
-                  className="flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
-                max-sm:w-10! max-sm:h-10! rounded-full border border-[#C026D3]"
+                  className={`flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
+                max-sm:w-10! max-sm:h-10! rounded-full border ${themeColor.border}`}
                 >
                   <img
                     src="/icones/palette.svg"
@@ -60,8 +71,8 @@ const Professions = () => {
                   Junior . Senior
                 </span>
                 <span
-                  className="flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
-                max-sm:w-10! max-sm:h-10! rounded-full border border-[#C026D3]"
+                  className={`flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
+                max-sm:w-10! max-sm:h-10! rounded-full border ${themeColor.border}`}
                 >
                   <img
                     src="/icones/drafting-compass.svg"
@@ -79,8 +90,8 @@ const Professions = () => {
                   Junior . Senior
                 </span>
                 <span
-                  className="flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
-                max-sm:w-10! max-sm:h-10! rounded-full border border-[#C026D3]"
+                  className={`flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
+                max-sm:w-10! max-sm:h-10! rounded-full border ${themeColor.border}`}
                 >
                   <img
                     src="/icones/pencil-ruler.svg"

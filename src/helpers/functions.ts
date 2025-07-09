@@ -1,4 +1,5 @@
 import { SOLUTIONS_IN_ORDER } from "@/helpers/constants";
+import { SOLUTION_THEME_COLOR } from "@/helpers/theme";
 import { Slug } from "@/sanity/types";
 
 export function getSolutionsInOrder<T extends { slug: Slug }>(
@@ -13,4 +14,7 @@ export function getSolutionsInOrder<T extends { slug: Slug }>(
     }
     return solution;
   });
+}
+export function getSolutionThemeColor(slug: Slug) {
+  return SOLUTION_THEME_COLOR[slug.current] || SOLUTION_THEME_COLOR.default;
 }

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichContent } from "@/components/utils/RichContent";
 import { PATHS } from "@/helpers/constants";
-import { SOLUTION_THEME_COLOR } from "@/helpers/theme";
+import { getSolutionThemeColor } from "@/helpers/functions";
 import { urlFor } from "@/sanity/lib/image";
 import { ALL_EXPERTISES_QUERYResult } from "@/sanity/types";
 import Link from "next/link";
@@ -13,8 +13,7 @@ const CardSolution = ({
   logo,
   showDescription,
 }: ALL_EXPERTISES_QUERYResult[0] & { showDescription: boolean }) => {
-  const themeColor =
-    SOLUTION_THEME_COLOR[slug.current] || SOLUTION_THEME_COLOR.default;
+  const themeColor = getSolutionThemeColor(slug);
 
   const logoUrl = logo ? urlFor(logo).url() : "";
 

@@ -3,13 +3,30 @@ import { useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { PATHS } from "@/helpers/constants";
 import Link from "next/link";
-import { METADATA_QUERYResult } from "@/sanity/types";
+import {
+  ALL_EXPERTISES_QUERYResult,
+  METADATA_QUERYResult,
+} from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import styles from "@/styles/header.module.scss";
 import clsx from "clsx";
+import { getSolutionsInOrder } from "@/helpers/functions";
 
-export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
-  const logo = metadata?.logo ? urlFor(metadata.logo).url() : null;
+export function Header({
+  metadata,
+  expertises,
+}: {
+  metadata: METADATA_QUERYResult;
+  expertises: ALL_EXPERTISES_QUERYResult;
+}) {
+  if (!metadata) {
+    throw new Error("Metadata is undefined.");
+  }
+  if (!expertises) {
+    throw new Error("Expertises are undefined.");
+  }
+
+  const logo = metadata.logo ? urlFor(metadata.logo).url() : null;
 
   const [scrollDirection, setScrollDirection] = useState("");
   const lastScrollY = useRef(0);
@@ -103,24 +120,22 @@ export function Header({ metadata }: { metadata: METADATA_QUERYResult }) {
                   : "opacity-0 scale-95 invisible"
               }`}
             >
-              <ul className="py-1">
-                {[
-                  "vyo.design",
-                  "vyo.agile&methods",
-                  "vyo.product&project",
-                  "vyo.softwarefactory",
-                  "vyo.devops&cloud",
-                  "vyo.cybersecurity",
-                  "vyo.data",
-                  "vyo.infra",
-                  "vyo.squad",
-                ].map((item, idx) => (
+              <ul className="py-1 space-y-1">
+                {getSolutionsInOrder(expertises).map((item, idx) => (
                   <li
                     key={idx}
-                    className="px-4 py-[5.5px] hover:bg-white rounded-md cursor-pointer transition-colors mx-6 text-sm font-medium"
+                    className="px-2 py-[7px] hover:bg-white rounded-md cursor-pointer transition-colors mx-6 text-sm font-medium"
                   >
                     {/* dynamiser la couleur de 'vyo.' && le path en fonction de la solution */}
-                    <Link href={PATHS.SOLUTIONS}>{item}</Link>
+                    <Link href={`${PATHS.SOLUTIONS}/${item.slug.current}`}>
+                      <span className="flex h-[14px]">
+                        <img
+                          className=""
+                          src={urlFor(item.logo).url()}
+                          alt={item.slug.current}
+                        />
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
