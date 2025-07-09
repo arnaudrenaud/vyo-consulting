@@ -61,6 +61,8 @@ export default defineConfig({
 
             // Regular document types
             S.documentTypeListItem("expertise").title("Expertise"),
+            S.documentTypeListItem("collaborator").title("Collaborator"),
+            S.documentTypeListItem("project").title("Project"),
           ]),
     }),
     visionTool({ defaultApiVersion: apiVersion }),
