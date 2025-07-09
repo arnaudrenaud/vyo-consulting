@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
   EXPERTISE_DETAILS_QUERY,
+  METADATA_QUERY,
 } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
@@ -16,10 +17,10 @@ import { urlFor } from "@/sanity/lib/image";
 import CoSquad from "@/components/solutions/CoSquad";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
+  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
 
   return {
-    paths: allSolutions.map((item) => ({
+    paths: expertises.map((item) => ({
       params: { slug: item.slug.current },
     })),
     fallback: false,
@@ -31,24 +32,27 @@ export const getStaticProps = async ({
 }: {
   params: { slug: string };
 }) => {
-  const allSolutions = await client.fetch(ALL_EXPERTISES_QUERY);
+  const metadata = await client.fetch(METADATA_QUERY);
+  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
+
   const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
   });
 
   return {
     props: {
-      allSolutions,
+      metadata,
+      expertises,
       solution,
     },
   };
 };
 
 export default function SolutionPage({
-  allSolutions,
+  expertises,
   solution,
 }: {
-  allSolutions: ALL_EXPERTISES_QUERYResult;
+  expertises: ALL_EXPERTISES_QUERYResult;
   solution: EXPERTISE_DETAILS_QUERYResult;
 }) {
   if (!solution) {
@@ -65,7 +69,7 @@ export default function SolutionPage({
       />
       {solution.slug.current === "squad" ? <CoSquad /> : <Professions />}
       <Projects />
-      <SolutionsSection expertises={allSolutions} showDescription={false} />
+      <SolutionsSection expertises={expertises} showDescription={false} />
     </>
   );
 }
