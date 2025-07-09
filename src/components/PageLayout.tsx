@@ -19,11 +19,13 @@ export function PageLayout({
 }) {
   return (
     <div className={`${GeistSans.className} relative`}>
-      <Header metadata={metadata} expertises={expertises} />
+      {metadata && expertises && (
+        <Header metadata={metadata} expertises={expertises} />
+      )}
       <main className="mt-24 mb-8 md:px-12 px-4 space-y-6 flex flex-col min-h-[calc(100vh-70px)] xl:max-w-11/12 xl:mx-auto">
         {children}
       </main>
-      <Footer metadata={metadata} />
+      {metadata && <Footer metadata={metadata} />}
       <img
         src="/icones/circle-green.png"
         alt="Circle green"
