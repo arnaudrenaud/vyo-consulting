@@ -16,9 +16,9 @@ const CoSquad = () => {
               <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-4 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-4 mt-[85px] xl:max-w-[1200px] xl:mx-auto max-md:gap-y-12">
             <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
-              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+              <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/users-round.svg"
                   alt="users round icon"
@@ -45,7 +45,7 @@ const CoSquad = () => {
             </div>
 
             <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
-              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+              <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/trello.svg"
                   alt="trello icon"
@@ -72,7 +72,7 @@ const CoSquad = () => {
             </div>
 
             <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
-              <div className="absolute top-[-33px] left-[-25px] bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
+              <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/hands.svg"
                   alt="hands icon"
@@ -99,6 +99,12 @@ const CoSquad = () => {
             </div>
           </div>
         </div>
+        {/* <div className="absolute bg-[#DCFCE7] h-[228px] w-[228px] block z-[-1] top-0 right-0 rounded-full" /> */}
+        {/* <img
+          src="/icones/elipse-cosquad.svg"
+          alt="ellipse"
+          className="absolute top-0 right-0"
+        /> */}
       </div>
 
       <div className="mb-8 mx-auto">
