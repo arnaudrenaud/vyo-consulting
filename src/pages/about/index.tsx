@@ -1,13 +1,16 @@
 import HeroSection from "@/components/about/HeroSection";
+import History from "@/components/about/History";
+import Values from "@/components/about/Values";
+import Approach from "@/components/about/Approach";
+import DigitalJourney from "@/components/about/DigitalJourney";
+import BannerNumber from "@/components/about/BannerNumber";
 import { client } from "@/sanity/lib/client";
-// A changer en "about" pour la page "À propos" ABOUTPAGE_QUERY && ABOUTPAGE_QUERYResult
 import {
   ALL_EXPERTISES_QUERY,
   HOMEPAGE_QUERY,
   METADATA_QUERY,
 } from "@/sanity/lib/queries";
 import { HOMEPAGE_QUERYResult } from "@/sanity/types";
-import Values from "@/components/about/Values";
 
 export async function getStaticProps() {
   const content = await client.fetch(HOMEPAGE_QUERY);
@@ -27,7 +30,11 @@ const About = ({ content }: { content: HOMEPAGE_QUERYResult }) => {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen">
       <HeroSection />
+      <History />
       <Values />
+      <Approach />
+      <DigitalJourney />
+      <BannerNumber />
     </section>
   );
 };
