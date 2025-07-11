@@ -6,6 +6,10 @@ export enum PATHS {
   CONTACT = "/contact",
 }
 
+export enum SEARCH_PARAMS {
+  "PROJECT_ID" = "project",
+}
+
 export const SOLUTIONS_IN_ORDER = [
   "squad",
   "devops-and-cloud",

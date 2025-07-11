@@ -2,10 +2,12 @@ import { GetStaticPaths } from "next";
 import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
+  ALL_PROJECTS_QUERY,
   EXPERTISE_DETAILS_QUERY,
 } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
+  ALL_PROJECTS_QUERYResult,
   EXPERTISE_DETAILS_QUERYResult,
 } from "@/sanity/types";
 import SolutionsHeroSection from "@/components/solutions/SolutionsHeroSection";
@@ -35,11 +37,13 @@ export const getStaticProps = async ({
   const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
   });
+  const projects = await client.fetch(ALL_PROJECTS_QUERY);
 
   return {
     props: {
       ...(await getPageLayoutData()),
       solution,
+      projects,
     },
   };
 };
@@ -47,9 +51,11 @@ export const getStaticProps = async ({
 export default function SolutionPage({
   expertises,
   solution,
+  projects,
 }: {
   expertises: ALL_EXPERTISES_QUERYResult;
   solution: EXPERTISE_DETAILS_QUERYResult;
+  projects: ALL_PROJECTS_QUERYResult;
 }) {
   if (!solution) {
     throw new Error("Solution is undefined.");
@@ -75,7 +81,7 @@ export default function SolutionPage({
         solution.jobs &&
         solution.jobs.length && <Professions solution={solution} />
       )}
-      <Projects />
+      <Projects projects={projects} />
       <SolutionsSection expertises={expertises} showDescription={false} />
     </>
   );
