@@ -76,7 +76,8 @@ export default function SolutionPage({
       {solution.slug.current === "squad" ? (
         <CoSquad />
       ) : (
-        <Professions solution={solution} />
+        solution.jobs &&
+        solution.jobs.length && <Professions solution={solution} />
       )}
       <Projects />
       <SolutionsSection expertises={expertises} showDescription={false} />
