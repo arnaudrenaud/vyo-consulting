@@ -141,7 +141,7 @@ export function Header({
             </div>
           </li>
           <li>
-            <Link href={PATHS.PROJETS}>Projets</Link>
+            <Link href={PATHS.PROJECTS}>Projets</Link>
           </li>
           <li>
             <Link href={PATHS.ABOUT}>A propos</Link>
