@@ -14,7 +14,7 @@ import { schema } from "./src/sanity/schemaTypes";
 // import { structure } from "./src/sanity/structure";
 
 // Define the singleton document types
-const singletonTypes = new Set(["metadata", "homePage"]);
+const singletonTypes = new Set(["metadata", "homePage", "aboutPage"]);
 
 export default defineConfig({
   basePath: "/studio",
@@ -45,19 +45,25 @@ export default defineConfig({
           .title("Contenu")
           .items([
             // Our singleton type has a list item with a custom child
-            S.listItem().title("Metadata").id("metadata").child(
-              // Instead of rendering a list of documents, we render a single
-              // document, specifying the `documentId` manually to ensure
-              // that we're editing the single instance of the document
-              S.document().schemaType("metadata").documentId("metadata"),
-            ),
+            S.listItem()
+              .title("Metadata")
+              .id("metadata")
+              .child(
+                S.document().schemaType("metadata").documentId("metadata"),
+              ),
 
-            S.listItem().title("Page d'accueil").id("homePage").child(
-              // Instead of rendering a list of documents, we render a single
-              // document, specifying the `documentId` manually to ensure
-              // that we're editing the single instance of the document
-              S.document().schemaType("homePage").documentId("homePage"),
-            ),
+            S.listItem()
+              .title("Page d'accueil")
+              .id("homePage")
+              .child(
+                S.document().schemaType("homePage").documentId("homePage"),
+              ),
+            S.listItem()
+              .title('Page \"À propos\"')
+              .id("aboutPage")
+              .child(
+                S.document().schemaType("aboutPage").documentId("aboutPage"),
+              ),
 
             // Regular document types
             S.documentTypeListItem("expertise").title("Expertise"),

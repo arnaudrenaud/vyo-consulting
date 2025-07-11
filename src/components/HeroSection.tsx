@@ -24,7 +24,7 @@ const HeroSection = ({
       </div>
       <div className="relative lg:order-2 order-1 flex items-center max-lg:mt-6">
         <img
-          src="/hero-img.png"
+          src="/hero-img.jpg"
           alt="Image home section"
           className="rounded-md max-w-11/12 mx-auto lg:max-w-full"
         />
