@@ -59,6 +59,11 @@ export default function SolutionPage({
     throw new Error("Solution is undefined.");
   }
   const logoUrl = solution.logo ? urlFor(solution.logo).url() : "";
+  const coverPictureUrl = solution.coverPicture
+    ? solution.logo
+      ? urlFor(solution.coverPicture).url()
+      : ""
+    : undefined;
 
   return (
     <>
@@ -66,6 +71,7 @@ export default function SolutionPage({
         logoUrl={logoUrl}
         name={solution.name}
         heroParagraph={solution.longDescription}
+        coverPicture={coverPictureUrl}
       />
       {solution.slug.current === "squad" ? (
         <CoSquad />
