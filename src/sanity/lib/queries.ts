@@ -7,6 +7,7 @@ export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
 }`);
 
 export const HOMEPAGE_QUERY = defineQuery(`*[_type == "homePage"][0]`);
+export const ABOUT_PAGE_QUERY = defineQuery(`*[_type == "aboutPage"][0]`);
 
 export const ALL_EXPERTISES_QUERY = defineQuery(
   `*[_type == "expertise"]| order(_createdAt asc)`,
