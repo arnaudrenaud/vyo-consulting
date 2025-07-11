@@ -1,8 +1,9 @@
 // import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
-import { HOMEPAGE_QUERY } from "@/sanity/lib/queries";
+import { ALL_PROJECTS_QUERY, HOMEPAGE_QUERY } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
+  ALL_PROJECTS_QUERYResult,
   HOMEPAGE_QUERYResult,
   METADATA_QUERYResult,
 } from "@/sanity/types";
@@ -18,19 +19,22 @@ import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 
 export async function getStaticProps() {
   const content = await client.fetch(HOMEPAGE_QUERY);
+  const projects = await client.fetch(ALL_PROJECTS_QUERY);
   return {
-    props: { ...(await getPageLayoutData()), content },
+    props: { ...(await getPageLayoutData()), content, projects },
   };
 }
 
 export default function Home({
-  content,
-  expertises,
   metadata,
+  expertises,
+  content,
+  projects,
 }: {
-  content: HOMEPAGE_QUERYResult;
-  expertises: ALL_EXPERTISES_QUERYResult;
   metadata: METADATA_QUERYResult;
+  expertises: ALL_EXPERTISES_QUERYResult;
+  content: HOMEPAGE_QUERYResult;
+  projects: ALL_PROJECTS_QUERYResult;
 }) {
   if (!metadata) {
     throw new Error("Metadata is undefined");
@@ -58,7 +62,7 @@ export default function Home({
       <SolutionsSection expertises={expertises} showDescription />
       <Process />
       <ChoiceSection />
-      <Projects />
+      <Projects projects={projects} />
     </>
   );
 }

@@ -5,7 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { PATHS } from "@/helpers/constants";
+import { PATHS, SEARCH_PARAMS } from "@/helpers/constants";
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 import { client } from "@/sanity/lib/client";
 import { ALL_PROJECTS_QUERY } from "@/sanity/lib/queries";
@@ -34,7 +34,7 @@ export default function ProjectsIndexPage({
       {projects.map((project) => (
         <Link
           key={project._id}
-          href={`${PATHS.PROJECTS}?project=${project._id}`}
+          href={`${PATHS.PROJECTS}?${SEARCH_PARAMS.PROJECT_ID}=${project._id}`}
         >
           {project.shortTitle}
         </Link>

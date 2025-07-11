@@ -742,13 +742,9 @@ export type EXPERTISE_DETAILS_QUERYResult = {
   >;
 } | null;
 // Variable: ALL_PROJECTS_QUERY
-// Query: *[_type == "project"]| order(_createdAt desc)
+// Query: *[_type == "project"]| order(_createdAt desc){_id, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}
 export type ALL_PROJECTS_QUERYResult = Array<{
   _id: string;
-  _type: "project";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
   shortTitle: string;
   shortDescription: Array<{
     children?: Array<{
@@ -770,7 +766,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
   }>;
   fullTitle: string;
   client: string;
-  clientLogo?: {
+  clientLogo: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -781,8 +777,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
-  };
-  context?: Array<{
+  } | null;
+  context: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -799,8 +795,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  goals?: Array<{
+  }> | null;
+  goals: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -817,8 +813,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  realizations?: Array<{
+  }> | null;
+  realizations: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -835,8 +831,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  achievements?: Array<{
+  }> | null;
+  achievements: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -853,8 +849,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  team?: Array<{
+  }> | null;
+  team: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -871,8 +867,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  technology?: Array<{
+  }> | null;
+  technology: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -889,8 +885,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  impact?: Array<{
+  }> | null;
+  impact: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -907,8 +903,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }>;
-  realizationScreenshots?: Array<{
+  }> | null;
+  realizationScreenshots: Array<{
     asset?: {
       _ref: string;
       _type: "reference";
@@ -920,8 +916,8 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: "image";
     _key: string;
-  }>;
-  document?: {
+  }> | null;
+  document: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -930,21 +926,103 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     };
     media?: unknown;
     _type: "file";
-  };
+  } | null;
   expertises: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "expertise";
+    _id: string;
+    _type: "expertise";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name: string;
+    slug: Slug;
+    logo: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    shortDescription: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    longDescription: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    coverPicture?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    jobs?: Array<
+      {
+        _key: string;
+      } & Job
+    >;
   }>;
-  collaborators?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "collaborator";
-  }>;
+  collaborators: Array<{
+    _id: string;
+    _type: "collaborator";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    firstName: string;
+    lastName: string;
+    jobTitle: string;
+    profilePicture?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  }> | null;
 }>;
 
 // Query TypeMap
@@ -955,6 +1033,6 @@ declare module "@sanity/client" {
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
-    '*[_type == "project"]| order(_createdAt desc)': ALL_PROJECTS_QUERYResult;
+    '*[_type == "project"]| order(_createdAt desc){_id, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;
   }
 }
