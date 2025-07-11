@@ -10,6 +10,7 @@ import { ALL_PROJECTS_QUERYResult } from "@/sanity/types";
 import { urlFor } from "@/sanity/lib/image";
 import { RichContent } from "@/components/utils/RichContent";
 import { PATHS, SEARCH_PARAMS } from "@/helpers/constants";
+import { getSolutionThemeColor } from "@/helpers/functions";
 
 const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   const [mounted, setMounted] = useState(false);
@@ -72,7 +73,7 @@ const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
             {projects.slice(0, 6).map((project) => (
               <div
                 key={project._id}
-                className="bg-white rounded-2xl shadow-[3px_3px_0_0_#C026D3] w-[95%]! ml-[10px]! px-4 py-8 max-md:px-8"
+                className={`bg-white rounded-2xl shadow-[3px_3px] ${getSolutionThemeColor(project.expertises[0].slug).background} w-[95%]! ml-[10px]! px-4 py-8 max-md:px-8`}
               >
                 <div className="relative">
                   <img
