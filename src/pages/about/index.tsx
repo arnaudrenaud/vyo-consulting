@@ -1,21 +1,16 @@
 import HeroSection from "@/components/about/HeroSection";
 import { client } from "@/sanity/lib/client";
 // A changer en "about" pour la page "À propos" ABOUTPAGE_QUERY && ABOUTPAGE_QUERYResult
-import {
-  ALL_EXPERTISES_QUERY,
-  HOMEPAGE_QUERY,
-  METADATA_QUERY,
-} from "@/sanity/lib/queries";
+import { HOMEPAGE_QUERY } from "@/sanity/lib/queries";
 import { HOMEPAGE_QUERYResult } from "@/sanity/types";
 import Values from "@/components/about/Values";
+import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 
 export async function getStaticProps() {
   const content = await client.fetch(HOMEPAGE_QUERY);
-  const metadata = await client.fetch(METADATA_QUERY);
-  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
 
   return {
-    props: { metadata, expertises, content },
+    props: { ...(await getPageLayoutData()), content },
   };
 }
 

@@ -1,7 +1,7 @@
 export enum PATHS {
   INDEX = "/",
   SOLUTIONS = "/solutions",
-  PROJETS = "/projets",
+  PROJETS = "/projects",
   ABOUT = "/about",
   CONTACT = "/contact",
 }

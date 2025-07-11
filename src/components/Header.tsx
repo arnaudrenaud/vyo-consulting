@@ -19,11 +19,10 @@ export function Header({
   metadata: METADATA_QUERYResult;
   expertises: ALL_EXPERTISES_QUERYResult;
 }) {
-  if (!metadata) {
-    throw new Error("Metadata is undefined.");
-  }
-  if (!expertises) {
-    throw new Error("Expertises are undefined.");
+  if (!metadata || !expertises) {
+    throw new Error(
+      "Global metadata and expertises must de defined to render Header.",
+    );
   }
 
   const logo = metadata.logo ? urlFor(metadata.logo).url() : null;

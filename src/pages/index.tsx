@@ -1,10 +1,6 @@
 // import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
-import {
-  ALL_EXPERTISES_QUERY,
-  HOMEPAGE_QUERY,
-  METADATA_QUERY,
-} from "@/sanity/lib/queries";
+import { HOMEPAGE_QUERY } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
   HOMEPAGE_QUERYResult,
@@ -17,14 +13,13 @@ import SolutionsSection from "@/components/SolutionsSection";
 import Process from "@/components/Process";
 import ChoiceSection from "@/components/ChoiceSection";
 import Projects from "@/components/Projects";
+import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 // import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
-  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
-  const metadata = await client.fetch(METADATA_QUERY);
   const content = await client.fetch(HOMEPAGE_QUERY);
   return {
-    props: { expertises, metadata, content },
+    props: { ...(await getPageLayoutData()), content },
   };
 }
 
