@@ -19,9 +19,7 @@ export function PageLayout({
 }) {
   return (
     <div className={`${GeistSans.className} relative`}>
-      {metadata && expertises && (
-        <Header metadata={metadata} expertises={expertises} />
-      )}
+      <Header metadata={metadata} expertises={expertises} />
       <main className="relative max-md:overflow-x-hidden mt-24 mb-8 md:px-12 px-4 space-y-6 flex flex-col min-h-[calc(100vh-70px)] xl:max-w-[85%] xl:mx-auto">
         {children}
         <div className="absolute bg-[#DCFCE7] h-[228px] w-[228px] block z-[-1] xl:top-[31.5rem] lg:top-[42rem] top-[60rem] -right-[3rem] rounded-full" />
