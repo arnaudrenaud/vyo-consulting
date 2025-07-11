@@ -3,7 +3,6 @@ import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
   EXPERTISE_DETAILS_QUERY,
-  METADATA_QUERY,
 } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
@@ -15,6 +14,7 @@ import Projects from "@/components/Projects";
 import Professions from "@/components/solutions/Professions";
 import { urlFor } from "@/sanity/lib/image";
 import CoSquad from "@/components/solutions/CoSquad";
+import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
@@ -32,17 +32,13 @@ export const getStaticProps = async ({
 }: {
   params: { slug: string };
 }) => {
-  const metadata = await client.fetch(METADATA_QUERY);
-  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
-
   const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
   });
 
   return {
     props: {
-      metadata,
-      expertises,
+      ...(await getPageLayoutData()),
       solution,
     },
   };
