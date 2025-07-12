@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import ButtonLink from "../ButtonLink";
-// import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 
 const History = () => {
   return (
