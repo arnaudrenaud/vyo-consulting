@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 import ButtonLink from "../ButtonLink";
-// import { RichContent, RichContentValue } from "@/components/utils/RichContent";
+import { RichContent, RichContentValue } from "@/components/utils/RichContent";
+
 
 const HeroSection = ({
   heroTitle,
@@ -38,4 +39,5 @@ const HeroSection = ({
     </>
   );
 };
+
 export default HeroSection;

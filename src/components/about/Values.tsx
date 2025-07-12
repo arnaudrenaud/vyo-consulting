@@ -2,7 +2,7 @@
 
 const Values = () => {
   return (
-    <section>
+    <section className="pt-12">
       <div className="bg-white rounded-sm text-center p-6 mt-8">
         <div className="inline-block relative">
           <h2 className="font-light text-5xl">Nos valeurs</h2>
@@ -18,7 +18,7 @@ const Values = () => {
               alt="ethique icone"
               className="mb-1"
             />
-            <h3 className="uppercase font-medium text-3xl">Ethique</h3>
+            <h3 className="uppercase font-medium text-3xl mb-3">Ethique</h3>
             <p className="text-sm">
               Elle est au cœur de notre approche, garantissant des{" "}
               <span className="font-bold">
@@ -34,7 +34,7 @@ const Values = () => {
               alt="humanisme icone"
               className="mb-1"
             />
-            <h3 className="uppercase font-medium text-3xl">Humanisme</h3>
+            <h3 className="uppercase font-medium text-3xl mb-3">Humanisme</h3>
             <p className="text-sm">
               Il guide notre démarche, plaçant l’humain au centre de chaque
               projet pour une{" "}
@@ -51,7 +51,7 @@ const Values = () => {
               alt="pragmatisme icone"
               className="mb-1"
             />
-            <h3 className="uppercase font-medium text-3xl">Pragmatisme</h3>
+            <h3 className="uppercase font-medium text-3xl mb-3">Pragmatisme</h3>
             <p className="text-sm">
               Il est central dans notre action, visant des solutions{" "}
               <span className="font-bold">réalistes et efficaces,</span>{" "}
