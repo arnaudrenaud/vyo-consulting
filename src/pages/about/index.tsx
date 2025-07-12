@@ -5,31 +5,33 @@ import Approach from "@/components/about/Approach";
 import DigitalJourney from "@/components/about/DigitalJourney";
 import BannerNumber from "@/components/about/BannerNumber";
 import { client } from "@/sanity/lib/client";
-import {
-  ALL_EXPERTISES_QUERY,
-  HOMEPAGE_QUERY,
-  METADATA_QUERY,
-} from "@/sanity/lib/queries";
-import { HOMEPAGE_QUERYResult } from "@/sanity/types";
+
+import { ABOUT_PAGE_QUERY } from "@/sanity/lib/queries";
+import { ABOUT_PAGE_QUERYResult } from "@/sanity/types";
+import Values from "@/components/about/Values";
+import { getPageLayoutData } from "@/helpers/getPageLayoutData";
+
 
 export async function getStaticProps() {
-  const content = await client.fetch(HOMEPAGE_QUERY);
-  const metadata = await client.fetch(METADATA_QUERY);
-  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
+  const content = await client.fetch(ABOUT_PAGE_QUERY);
 
   return {
-    props: { metadata, expertises, content },
+    props: { ...(await getPageLayoutData()), content },
   };
 }
 
-const About = ({ content }: { content: HOMEPAGE_QUERYResult }) => {
+const About = ({ content }: { content: ABOUT_PAGE_QUERYResult }) => {
   if (!content) {
-    throw new Error("Homepage content undefined.");
+    throw new Error("About page content undefined.");
   }
 
   return (
     <section className="flex flex-col items-center justify-center min-h-screen">
       <HeroSection />
+      <HeroSection
+        heroTitle={content.heroTitle}
+        heroParagraph={content.heroParagraph}
+      />
       <History />
       <Values />
       <Approach />

@@ -6,10 +6,12 @@ const SolutionsHeroSection = ({
   logoUrl,
   name,
   heroParagraph,
+  coverPicture = "/solution-hero-img.png",
 }: {
   logoUrl: string;
   name: string;
   heroParagraph: RichContentValue;
+  coverPicture?: string;
 }) => {
   return (
     <>
@@ -29,8 +31,8 @@ const SolutionsHeroSection = ({
         </div>
         <div className="relative lg:order-2 order-1 flex items-center max-lg:mt-6">
           <img
-            src="/solution-hero-img.png"
-            alt="Image home section"
+            src={coverPicture}
+            alt={`Cover picture for solution ${name}`}
             className="rounded-md max-w-11/12 mx-auto lg:max-w-full"
           />
           <div className="absolute bg-[#BBF7D0] h-[86px] w-[86px] block z-[-1] -left-[70px] top-[40px] rounded-full" />

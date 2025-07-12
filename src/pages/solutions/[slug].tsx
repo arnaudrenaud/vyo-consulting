@@ -2,11 +2,12 @@ import { GetStaticPaths } from "next";
 import { client } from "@/sanity/lib/client";
 import {
   ALL_EXPERTISES_QUERY,
+  ALL_PROJECTS_QUERY,
   EXPERTISE_DETAILS_QUERY,
-  METADATA_QUERY,
 } from "@/sanity/lib/queries";
 import {
   ALL_EXPERTISES_QUERYResult,
+  ALL_PROJECTS_QUERYResult,
   EXPERTISE_DETAILS_QUERYResult,
 } from "@/sanity/types";
 import SolutionsHeroSection from "@/components/solutions/SolutionsHeroSection";
@@ -15,6 +16,7 @@ import Projects from "@/components/Projects";
 import Professions from "@/components/solutions/Professions";
 import { urlFor } from "@/sanity/lib/image";
 import CoSquad from "@/components/solutions/CoSquad";
+import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
@@ -32,18 +34,16 @@ export const getStaticProps = async ({
 }: {
   params: { slug: string };
 }) => {
-  const metadata = await client.fetch(METADATA_QUERY);
-  const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
-
   const solution = await client.fetch(EXPERTISE_DETAILS_QUERY, {
     slug,
   });
+  const projects = await client.fetch(ALL_PROJECTS_QUERY);
 
   return {
     props: {
-      metadata,
-      expertises,
+      ...(await getPageLayoutData()),
       solution,
+      projects,
     },
   };
 };
@@ -51,14 +51,25 @@ export const getStaticProps = async ({
 export default function SolutionPage({
   expertises,
   solution,
+  projects,
 }: {
   expertises: ALL_EXPERTISES_QUERYResult;
   solution: EXPERTISE_DETAILS_QUERYResult;
+  projects: ALL_PROJECTS_QUERYResult;
 }) {
   if (!solution) {
     throw new Error("Solution is undefined.");
   }
   const logoUrl = solution.logo ? urlFor(solution.logo).url() : "";
+  const coverPictureUrl = solution.coverPicture
+    ? solution.logo
+      ? urlFor(solution.coverPicture).url()
+      : ""
+    : undefined;
+
+  const projectsForSolution = projects.some((project) =>
+    project.expertises.map((expertise) => expertise._id).includes(solution._id),
+  );
 
   return (
     <>
@@ -66,13 +77,15 @@ export default function SolutionPage({
         logoUrl={logoUrl}
         name={solution.name}
         heroParagraph={solution.longDescription}
+        coverPicture={coverPictureUrl}
       />
       {solution.slug.current === "squad" ? (
         <CoSquad />
       ) : (
-        <Professions solution={solution} />
+        solution.jobs &&
+        solution.jobs.length && <Professions solution={solution} />
       )}
-      <Projects />
+      {projectsForSolution && <Projects projects={projects} />}
       <SolutionsSection expertises={expertises} showDescription={false} />
     </>
   );

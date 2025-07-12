@@ -1,9 +1,13 @@
 export enum PATHS {
   INDEX = "/",
   SOLUTIONS = "/solutions",
-  PROJETS = "/projets",
+  PROJECTS = "/projects",
   ABOUT = "/about",
   CONTACT = "/contact",
+}
+
+export enum SEARCH_PARAMS {
+  "PROJECT_ID" = "project",
 }
 
 export const SOLUTIONS_IN_ORDER = [
