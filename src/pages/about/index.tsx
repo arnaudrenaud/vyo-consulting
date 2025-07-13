@@ -4,8 +4,9 @@ import Values from "@/components/about/Values";
 import Approach from "@/components/about/Approach";
 import DigitalJourney from "@/components/about/DigitalJourney";
 import BannerNumber from "@/components/about/BannerNumber";
-import { client } from "@/sanity/lib/client";
+import Contact from "@/components/about/Contact";
 
+import { client } from "@/sanity/lib/client";
 import { ABOUT_PAGE_QUERY } from "@/sanity/lib/queries";
 import { ABOUT_PAGE_QUERYResult } from "@/sanity/types";
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
@@ -34,6 +35,7 @@ const About = ({ content }: { content: ABOUT_PAGE_QUERYResult }) => {
       <Approach />
       <DigitalJourney />
       <BannerNumber />
+      <Contact />
     </section>
   );
 };
