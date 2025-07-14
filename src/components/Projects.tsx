@@ -81,7 +81,7 @@ const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                     alt={`projet ${project.shortTitle}`}
                   />
                   {/* <img src={`/icones/projets-${n}.png`} alt={`projet ${n}`} /> */}
-                  <p className="absolute top-2.5 left-2.5 text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white px-4 rounded-2xl">
+                  <p className="absolute top-2.5 left-2.5 text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white px-4 rounded-2xl py-1">
                     {project.expertises.map((expertise) => (
                       <img
                         key={expertise._id}

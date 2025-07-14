@@ -1,7 +1,7 @@
 const HeroSection = () => {
   return (
     <>
-      <section className="relative mb-14">
+      <section className="relative mb-4">
         <div className="p-4">
           <h1 className="text-3xl md:text-5xl lg:text-6xl mb-4 font-light">
             Nos projets
