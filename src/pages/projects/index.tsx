@@ -1,3 +1,6 @@
+import Projects from "@/components/projects/Projects";
+import HeroSection from "@/components/projects/HeroSection";
+
 import {
   Dialog,
   DialogContent,
@@ -5,12 +8,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { PATHS, SEARCH_PARAMS } from "@/helpers/constants";
+import { PATHS } from "@/helpers/constants";
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 import { client } from "@/sanity/lib/client";
 import { ALL_PROJECTS_QUERY } from "@/sanity/lib/queries";
 import { ALL_PROJECTS_QUERYResult } from "@/sanity/types";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export async function getStaticProps() {
@@ -31,14 +33,8 @@ export default function ProjectsIndexPage({
 
   return (
     <>
-      {projects.map((project) => (
-        <Link
-          key={project._id}
-          href={`${PATHS.PROJECTS}?${SEARCH_PARAMS.PROJECT_ID}=${project._id}`}
-        >
-          {project.shortTitle}
-        </Link>
-      ))}
+      <HeroSection />
+      <Projects projects={projects} />
 
       {searchParams.get("project") && (
         <Dialog
