@@ -117,128 +117,140 @@ export function Contact() {
 
           <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
 
-          {/* Prénom */}
-          <FormField
-            control={form.control}
-            name="prenom"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Prénom</FormLabel>
-                <FormControl>
-                  <Input placeholder="Votre prénom" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="grid grid-cols-3 max-lg:grid-cols-1 gap-6">
+            <div>
+              {/* Prénom */}
+              <FormField
+                control={form.control}
+                name="prenom"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="max-lg:text-xs">Prénom</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Votre prénom" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          {/* Nom */}
-          <FormField
-            control={form.control}
-            name="nom"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nom</FormLabel>
-                <FormControl>
-                  <Input placeholder="Votre nom" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+              {/* Nom */}
+              <FormField
+                control={form.control}
+                name="nom"
+                render={({ field }) => (
+                  <FormItem className="mt-6">
+                    <FormLabel className="max-lg:text-xs">Nom</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Votre nom" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          {/* Email */}
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="Votre email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+              {/* Email */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="mt-6">
+                    <FormLabel className="max-lg:text-xs">Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Votre email"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div>
+              {/* Entreprise */}
+              <FormField
+                control={form.control}
+                name="entreprise"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="max-lg:text-xs">
+                      Votre entreprise
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl className="w-auto">
+                        <SelectTrigger>
+                          <SelectValue placeholder="Choisissez une entreprise" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="x">Entreprise X</SelectItem>
+                        <SelectItem value="y">Entreprise Y</SelectItem>
+                        <SelectItem value="z">Entreprise Z</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          {/* Entreprise */}
-          <FormField
-            control={form.control}
-            name="entreprise"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Votre entreprise</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
+              {/* Poste */}
+              <FormField
+                control={form.control}
+                name="poste"
+                render={({ field }) => (
+                  <FormItem className="mt-6">
+                    <FormLabel className="max-lg:text-xs">
+                      Intitulé de votre poste
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl className="w-auto">
+                        <SelectTrigger>
+                          <SelectValue placeholder="Choisissez un poste" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="a">Poste A</SelectItem>
+                        <SelectItem value="b">Poste B</SelectItem>
+                        <SelectItem value="c">Poste C</SelectItem>
+                        <SelectItem value="d">Poste D</SelectItem>
+                        <SelectItem value="e">Poste E</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            {/* Message */}
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem className="!block">
+                  <FormLabel className="mb-2 max-lg:text-xs">Message</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choisissez une entreprise" />
-                    </SelectTrigger>
+                    <Textarea
+                      placeholder="Votre message"
+                      className="h-4/5 mb-[7px]"
+                      {...field}
+                    />
                   </FormControl>
-                  <SelectContent>
-                    <SelectItem value="x">Entreprise X</SelectItem>
-                    <SelectItem value="y">Entreprise Y</SelectItem>
-                    <SelectItem value="z">Entreprise Z</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                  <FormDescription>500 caractères max.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-          {/* Poste */}
-          <FormField
-            control={form.control}
-            name="poste"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Intitulé de votre poste</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choisissez un poste" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="a">Poste A</SelectItem>
-                    <SelectItem value="b">Poste B</SelectItem>
-                    <SelectItem value="c">Poste C</SelectItem>
-                    <SelectItem value="d">Poste D</SelectItem>
-                    <SelectItem value="e">Poste E</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Message */}
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Votre message"
-                    className="resize-none"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>500 caractères max.</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="block ml-auto">
             Envoyer
           </Button>
         </form>
