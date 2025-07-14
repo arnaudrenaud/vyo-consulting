@@ -54,11 +54,11 @@ export function Contact() {
     try {
       // Simule une requête async
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // ✅ Toast succès
+      console.log("values ::: ", values);
       toast.success("Message envoyé avec succès !");
       form.reset(); // Réinitialise le formulaire
     } catch (error) {
+      console.log("error ::: ", error);
       toast.error("Erreur lors de l’envoi. Réessayez.");
     }
   }
@@ -91,7 +91,7 @@ export function Contact() {
                     <Checkbox
                       checked={field.value === "solution"}
                       onCheckedChange={() => field.onChange("solution")}
-                      className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black"
+                      className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black hover:cursor-pointer"
                     />
                   </FormControl>
                   <FormLabel className="text-sm text-[#0A0A0A]">
@@ -103,7 +103,7 @@ export function Contact() {
                     <Checkbox
                       checked={field.value === "postule"}
                       onCheckedChange={() => field.onChange("postule")}
-                      className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black"
+                      className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black hover:cursor-pointer"
                     />
                   </FormControl>
                   <FormLabel className="text-sm text-[#0A0A0A]">
@@ -182,15 +182,21 @@ export function Contact() {
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <FormControl className="w-auto">
+                      <FormControl className="w-auto hover:cursor-pointer">
                         <SelectTrigger>
                           <SelectValue placeholder="Choisissez une entreprise" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="x">Entreprise X</SelectItem>
-                        <SelectItem value="y">Entreprise Y</SelectItem>
-                        <SelectItem value="z">Entreprise Z</SelectItem>
+                        <SelectItem value="x" className="hover:cursor-pointer">
+                          Entreprise X
+                        </SelectItem>
+                        <SelectItem value="y" className="hover:cursor-pointer">
+                          Entreprise Y
+                        </SelectItem>
+                        <SelectItem value="z" className="hover:cursor-pointer">
+                          Entreprise Z
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -211,17 +217,27 @@ export function Contact() {
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
-                      <FormControl className="w-auto">
+                      <FormControl className="w-auto hover:cursor-pointer">
                         <SelectTrigger>
                           <SelectValue placeholder="Choisissez un poste" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="a">Poste A</SelectItem>
-                        <SelectItem value="b">Poste B</SelectItem>
-                        <SelectItem value="c">Poste C</SelectItem>
-                        <SelectItem value="d">Poste D</SelectItem>
-                        <SelectItem value="e">Poste E</SelectItem>
+                        <SelectItem value="a" className="hover:cursor-pointer">
+                          Poste A
+                        </SelectItem>
+                        <SelectItem value="b" className="hover:cursor-pointer">
+                          Poste B
+                        </SelectItem>
+                        <SelectItem value="c" className="hover:cursor-pointer">
+                          Poste C
+                        </SelectItem>
+                        <SelectItem value="d" className="hover:cursor-pointer">
+                          Poste D
+                        </SelectItem>
+                        <SelectItem value="e" className="hover:cursor-pointer">
+                          Poste E
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
