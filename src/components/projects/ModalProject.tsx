@@ -5,8 +5,9 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { PATHS } from "@/helpers/constants";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-// import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 // import { RichContent } from "@/components/utils/RichContent";
+// import { PortableText } from "@portabletext/react";
 
 import {
   Dialog,
@@ -16,9 +17,21 @@ import {
 } from "@/components/ui/dialog";
 
 const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
-  console.log("projects ::: ", projects);
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  console.log(
+    "check project ::: ",
+    projects.find((p) => p._id === searchParams.get("project")),
+  );
+
+  const projectFromParam = projects.find(
+    (p) => p._id === searchParams.get("project"),
+  );
+
+  const logo = projectFromParam?.clientLogo
+    ? urlFor(projectFromParam.clientLogo).url()
+    : null;
 
   return (
     <>
@@ -32,16 +45,15 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
           <DialogContent className="!max-w-[inherit] !w-[90%] !max-h-[90vh] !overflow-y-auto bg-white">
             <DialogHeader>
               <DialogTitle className="text-6xl max-lg:text-5xl max-md:text-3xl font-light mr-8 px-5">
-                Digitalisation des Procédures d&apos;Incident pour les
-                Conducteurs de Train
+                {projectFromParam?.fullTitle}
               </DialogTitle>
             </DialogHeader>
             <div className="flex items-center justify-between mt-4 px-5">
               <div>
                 <p className="text-sm text-[#737373]">Client:</p>
-                <p className="font-semibold">RATP Smart System</p>
+                <p className="font-semibold">{projectFromParam?.client}</p>
               </div>
-              <img src="/icones/ratp-logo.svg" alt="ratp logo" />
+              <img src={logo || ""} alt="ratp logo" className="h-[44px]" />
             </div>
 
             <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
@@ -170,18 +182,17 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                     </div>
                   </div>
                 </div>
+                {/* Là il faut récupérer depuis expertise sij'en suis la logique le logo (vyo.type_du_projet) */}
                 {/* <p className="absolute top-2.5 left-2.5 text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white pl-4 rounded-2xl py-1">
-                    {projects.expertises.map((expertise) => (
-                      <img
-                        key={expertise._id}
-                        src={urlFor(expertise.logo).url()}
-                        alt={`Logo vyo.${expertise.name}`}
-                        className="h-5"
-                      />
-                    ))}
-                  </p> */}
+                  <img
+                    src={logo || " "}
+                    alt={`Logo vyo.${projectFromParam?.name}`}
+                    className="h-5"
+                  />
+                </p> */}
               </div>
               <div className="flex items-center justify-end mt-6 gap-4">
+                {/* download to make */}
                 <Button variant="outline">Je télécharge</Button>
                 <Button asChild variant="default">
                   <Link href="/contact">Contactez-nous</Link>
