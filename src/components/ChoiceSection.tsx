@@ -4,11 +4,9 @@ import ButtonLink from "./ButtonLink";
 const ChoiceSection = () => {
   return (
     <>
-      <div className="md:h-[60rem] w-full relative">
+      <div className="w-full relative">
         <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] -top-8 -left-48 rounded-full" />
         <div className="flex justify-center items-center mt-12 bg-[url('/bckg-choice.png')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
-          {/* Card */}
-          {/* max-md:px-8 */}
           <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[725px] max-md:w-full px-4 sm:px-8 md:px-16 pt-16 pb-16">
             <div className="text-center mb-8">
               <div className="inline-block relative">

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 import { ReactNode } from "react";
 import {
   ALL_EXPERTISES_QUERYResult,
@@ -30,6 +31,7 @@ export function PageLayout({
         alt="Circle green"
         className="absolute max-[500px]:w-[250px]! max-md:w-[360px] w-[458px] bottom-20 max-md:bottom-50 right-0 z-[-1]"
       />
+      <Toaster />
     </div>
   );
 }

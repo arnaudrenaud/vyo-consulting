@@ -22,7 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const expertises = await client.fetch(ALL_EXPERTISES_QUERY);
 
   return {
-    paths: expertises.map((item) => ({
+    paths: expertises.map((item: ALL_EXPERTISES_QUERYResult[number]) => ({
       params: { slug: item.slug.current },
     })),
     fallback: false,
