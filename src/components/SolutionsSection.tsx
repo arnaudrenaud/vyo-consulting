@@ -49,7 +49,7 @@ const SolutionsSection = ({
         ))}
       </div>
       <div className="my-12 flex justify-center">
-        <ButtonLink href="/solutions" text="Échangeons à propos votre besoin" />
+        <ButtonLink href="/contact" text="Échangeons à propos votre besoin" />
       </div>
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
     </section>

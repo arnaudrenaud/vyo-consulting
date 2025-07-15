@@ -35,9 +35,9 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
             router.replace(PATHS.PROJECTS);
           }}
         >
-          <DialogContent className="!max-w-[inherit] !w-[90%] !max-h-[90vh] !overflow-y-auto bg-white">
+          <DialogContent className="!max-w-[inherit] !w-[90%] !max-h-[90vh] !overflow-y-auto bg-white overflow-x-hidden">
             <DialogHeader>
-              <DialogTitle className="text-6xl max-lg:text-5xl max-md:text-3xl font-light mr-8 px-5">
+              <DialogTitle className="text-6xl max-lg:text-5xl max-sm:text-2xl max-md:text-3xl font-light sm:mr-8 sm:px-5">
                 {projectFromParam?.fullTitle}
               </DialogTitle>
             </DialogHeader>

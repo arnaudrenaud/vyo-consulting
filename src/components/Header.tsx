@@ -109,6 +109,7 @@ export function Header({
                   isOpen ? "/icones/chevron-up.svg" : "/icones/chevron-down.svg"
                 }
                 alt={isOpen ? "chevron up" : "chevron down"}
+                className="select-none"
               />
             </div>
 
