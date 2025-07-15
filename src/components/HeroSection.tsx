@@ -20,7 +20,7 @@ const HeroSection = ({
           <RichContent value={heroParagraph} />
         </p>
 
-        <ButtonLink href="/solutions" text="Nos solutions sur mesure" />
+        <ButtonLink href="/solutions/squad" text="Nos solutions sur mesure" />
       </div>
       <div className="relative lg:order-2 order-1 flex items-center max-lg:mt-6">
         <img

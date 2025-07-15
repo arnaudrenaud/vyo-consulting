@@ -155,7 +155,10 @@ const ChoiceSection = () => {
               </p>
             </div>
             <div className="m-auto pt-8">
-              <ButtonLink href="/solutions" text="Découvrir VYO Consulting" />
+              <ButtonLink
+                href="/solutions/squad"
+                text="Découvrir VYO Consulting"
+              />
             </div>
           </div>
         </div>

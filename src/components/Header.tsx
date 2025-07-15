@@ -11,6 +11,7 @@ import { urlFor } from "@/sanity/lib/image";
 import styles from "@/styles/header.module.scss";
 import clsx from "clsx";
 import { getSolutionsInOrder } from "@/helpers/functions";
+import { useRouter } from "next/router";
 
 export function Header({
   metadata,
@@ -24,6 +25,9 @@ export function Header({
       "Global metadata and expertises must de defined to render Header.",
     );
   }
+
+  const router = useRouter();
+  const currentPath = router.pathname;
 
   const logo = metadata.logo ? urlFor(metadata.logo).url() : null;
 
@@ -102,8 +106,8 @@ export function Header({
             className="relative inline-block text-left after:content-[' '] after:h-[3px] after:block after:bg-green-600 after:translate-y-[19px] mt-1 hover:cursor-pointer"
             onClick={toggleDropdown}
           >
-            <div className="flex items-center space-x-1">
-              <button>Solutions</button>
+            <button className="flex items-center space-x-1">
+              <p className="font-medium">Solutions</p>
               <img
                 src={
                   isOpen ? "/icones/chevron-up.svg" : "/icones/chevron-down.svg"
@@ -111,7 +115,7 @@ export function Header({
                 alt={isOpen ? "chevron up" : "chevron down"}
                 className="select-none"
               />
-            </div>
+            </button>
 
             <div
               className={`origin-top-left absolute left-0 mt-[21.5px] w-56 bg-[#fff7ed] shadow-lg ring-1 ring-black/5 transition-opacity duration-200 ${
@@ -126,7 +130,6 @@ export function Header({
                     key={idx}
                     className="px-2 py-[7px] hover:bg-white rounded-md cursor-pointer transition-colors mx-6 text-sm font-medium"
                   >
-                    {/* dynamiser la couleur de 'vyo.' && le path en fonction de la solution */}
                     <Link href={`${PATHS.SOLUTIONS}/${item.slug.current}`}>
                       <span className="flex h-[14px]">
                         <img
@@ -142,23 +145,30 @@ export function Header({
             </div>
           </li>
           <li>
-            <Link href={PATHS.PROJECTS}>Projets</Link>
+            <Link href={PATHS.PROJECTS}>
+              <p className="font-medium">Projets</p>
+            </Link>
           </li>
           <li>
-            <Link href={PATHS.ABOUT}>A propos</Link>
+            <Link href={PATHS.ABOUT}>
+              <p className="font-medium">A propos</p>
+            </Link>
           </li>
 
-          <li className="text-white bg-[#10182b] rounded-full px-4 py-2">
+          <li
+            className={`${currentPath === "/contact" ? "text-black bg-[#F5F5F5] shadow-[0px_0px_0px_3px_rgba(163, 163, 163, 0.5)] border-[#d1cdc8] border-2" : "text-white bg-[#10182b]"} rounded-full px-4 py-2`}
+          >
             <Link href={PATHS.CONTACT} className="flex items-center">
               <img
-                src="/icones/contact.png"
+                src={`/icones/${currentPath === "/contact" ? "contact-black.svg" : "contact-white.svg"}`}
                 alt="contact icon"
                 className="inline-block mr-2 w-4"
               />
-              Nous contacter
+              <p className="font-medium">Nous contacter</p>
             </Link>
           </li>
         </ul>
+
         {/* Button Burger Menu */}
         <div
           role="button"
