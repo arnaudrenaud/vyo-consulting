@@ -1,4 +1,3 @@
-// import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/lib/client";
 import { ALL_PROJECTS_QUERY, HOMEPAGE_QUERY } from "@/sanity/lib/queries";
 import {
