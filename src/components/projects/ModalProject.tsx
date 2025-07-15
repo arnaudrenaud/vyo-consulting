@@ -6,8 +6,6 @@ import { PATHS } from "@/helpers/constants";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
-// import { RichContent } from "@/components/utils/RichContent";
-// import { PortableText } from "@portabletext/react";
 
 import {
   Dialog,
@@ -19,11 +17,6 @@ import {
 const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  console.log(
-    "check project ::: ",
-    projects.find((p) => p._id === searchParams.get("project")),
-  );
 
   const projectFromParam = projects.find(
     (p) => p._id === searchParams.get("project"),
@@ -192,7 +185,7 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                 </p> */}
               </div>
               <div className="flex items-center justify-end mt-6 gap-4">
-                {/* download to make */}
+                {/* download PDF to make */}
                 <Button variant="outline">Je télécharge</Button>
                 <Button asChild variant="default">
                   <Link href="/contact">Contactez-nous</Link>

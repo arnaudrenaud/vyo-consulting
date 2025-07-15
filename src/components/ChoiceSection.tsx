@@ -1,16 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import ButtonLink from "./ButtonLink";
+import { useRouter } from "next/router";
 
 const ChoiceSection = () => {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
   return (
     <>
       <div className="w-full relative">
-        <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] -top-8 -left-48 rounded-full" />
+        {currentPath !== "/contact" && (
+          <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] -top-8 -left-48 rounded-full" />
+        )}
         <div className="flex justify-center items-center mt-12 bg-[url('/bckg-choice.png')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
           <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[725px] max-md:w-full px-4 sm:px-8 md:px-16 pt-16 pb-16">
             <div className="text-center mb-8">
               <div className="inline-block relative">
-                <h2 className="font-light text-5xl max-sm:text-3xl">
+                <h2 className="font-light text-5xl max-md:text-3xl">
                   Pourquoi nous choisir ?
                 </h2>
                 <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">

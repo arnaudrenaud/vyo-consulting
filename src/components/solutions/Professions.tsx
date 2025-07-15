@@ -18,7 +18,9 @@ const Professions = ({
       <div className="flex flex-col items-center justify-center relative">
         <div className="text-center py-6">
           <div className="inline-block relative">
-            <h2 className="font-light text-5xl">Nos métiers {solution.name}</h2>
+            <h2 className="font-light text-5xl max-md:text-3xl">
+              Nos métiers {solution.name}
+            </h2>
             <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
               <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
               <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
@@ -48,11 +50,10 @@ const Professions = ({
             ))}
           </div>
         </div>
-        {/* <div className="absolute bg-[#DCFCE7] h-[228px] w-[228px] block z-[-1] rounded-full" /> */}
       </div>
 
       <div className="mb-20 mx-auto">
-        <ButtonLink href="/solutions" text="Construisons votre équipe" />
+        <ButtonLink href="/contact" text="Construisons votre équipe" />
       </div>
 
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>

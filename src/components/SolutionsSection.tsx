@@ -19,7 +19,7 @@ const SolutionsSection = ({
     <section className={`${currentPath === "/" ? "mt-12" : ""}`}>
       <div className="text-center">
         <div className="inline-block relative">
-          <h2 className="font-light text-5xl">Nos solutions</h2>
+          <h2 className="font-light text-5xl max-md:text-3xl">Nos solutions</h2>
           <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
             <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
             <div className="w-1 h-1 bg-black rounded-full ml-1"></div>

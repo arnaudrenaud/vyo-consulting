@@ -4,9 +4,9 @@ const ChoiceSection = () => {
   return (
     <>
       <div className="w-full relative">
-        <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] -top-8 -left-48 rounded-full" />
-        <div className="flex justify-center items-center mt-12 bg-[url('/bckg-choice.png')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
-          <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[94%] max-md:w-full px-4 sm:px-8 md:px-20 pt-16 pb-18">
+        <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] top-[32rem] -left-48 rounded-full" />
+        <div className="flex justify-center items-center mt-12 bg-[url('/bckg-choice.png')] py-12 rounded-lg bg-no-repeat bg-cover h-full w-full">
+          <div className="bg-white rounded-lg flex flex-col justify-center gap-4 md:max-w-[94%] max-md:max-w-[92%] px-4 sm:px-8 md:px-20 pt-16 pb-18">
             <div className="text-center mb-8">
               <img
                 src="/icones/vyoconsulting.svg"
@@ -27,8 +27,8 @@ const ChoiceSection = () => {
             </div>
             <div className="flex flex-col lg:flex-row gap-12 mx-auto px-8">
               <div className="space-y-12 lg:w-1/2">
-                <div className="relative text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative text-left bg-[#fff7ed] shadow-[#22c55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/search.svg"
                       alt="search icon"
@@ -53,8 +53,8 @@ const ChoiceSection = () => {
                     <li>• Cartographier les processus existants</li>
                   </ul>
                 </div>
-                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#22c55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/book-open.svg"
                       alt="book open icon"
@@ -85,8 +85,8 @@ const ChoiceSection = () => {
                   </ul>
                 </div>
 
-                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#22c55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] left-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/messages-square.svg"
                       alt="messages square icon"
@@ -117,8 +117,8 @@ const ChoiceSection = () => {
               </div>
 
               <div className="space-y-12 lg:w-1/2 mt-6 lg:mt-24">
-                <div className="relative text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative text-left bg-[#fff7ed] shadow-[#22c55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/settings.svg"
                       alt="settings icon"
@@ -144,8 +144,8 @@ const ChoiceSection = () => {
                   </ul>
                 </div>
 
-                <div className="relative mt-20 text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative mt-20 text-left bg-[#fff7ed] shadow-[#22c55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/brain-circuit.svg"
                       alt="trello icon"
@@ -176,8 +176,8 @@ const ChoiceSection = () => {
                   </ul>
                 </div>
 
-                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#16A34A] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
-                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
+                <div className="relative mt-[65px] text-left bg-[#fff7ed] shadow-[#22C55e] rounded-2xl shadow-[3px_3px] flex flex-col justify-center gap-4 px-6 py-10 mx-auto w-full">
+                  <div className="absolute top-[-33px] lg:right-[-25px] max-lg:left-1/2 max-lg:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#22c55e]">
                     <img
                       src="/icones/pencil-ruler-green.svg"
                       alt="pencil ruler icon"

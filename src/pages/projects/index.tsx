@@ -1,6 +1,7 @@
 import Projects from "@/components/projects/Projects";
 import HeroSection from "@/components/projects/HeroSection";
 import ModalProject from "@/components/projects/ModalProject";
+import Contact from "@/components/about/Contact";
 
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
 import { client } from "@/sanity/lib/client";
@@ -24,7 +25,7 @@ export default function ProjectsIndexPage({
     <>
       <HeroSection />
       <Projects projects={projects} />
-      {/* <Contact/> */}
+      <Contact />
       <ModalProject projects={projects} />
     </>
   );

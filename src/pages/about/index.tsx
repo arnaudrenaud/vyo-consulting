@@ -36,6 +36,7 @@ const About = ({ content }: { content: ABOUT_PAGE_QUERYResult }) => {
       <DigitalJourney />
       <BannerNumber />
       <Contact />
+      <div className="h-[1px] w-full bg-[#c9cdd2] my-10"></div>
     </section>
   );
 };

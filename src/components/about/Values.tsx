@@ -5,7 +5,7 @@ const Values = () => {
     <section className="pt-12">
       <div className="bg-white rounded-sm text-center p-6 mt-8">
         <div className="inline-block relative">
-          <h2 className="font-light text-5xl">Nos valeurs</h2>
+          <h2 className="font-light text-5xl max-md:text-3xl">Nos valeurs</h2>
           <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
             <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
             <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
@@ -43,8 +43,8 @@ const Values = () => {
             <div className="flex max-md:flex-col justify-center text-left">
               <div>
                 <img
-                  src="/icones/ethique.svg"
-                  alt="ethique icone"
+                  src="/icones/user-round.svg"
+                  alt="humanism icone"
                   className="mb-1"
                 />
                 <h3 className="uppercase font-medium text-3xl mb-3">

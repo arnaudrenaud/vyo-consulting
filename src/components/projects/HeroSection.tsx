@@ -13,7 +13,7 @@ const HeroSection = () => {
             de nos clients.
           </p>
         </div>
-        <div className="absolute bg-[#BBF7D0] h-[174px] w-[174px] block z-[-1] -bottom-[11rem] -left-[9rem] rounded-full" />
+        <div className="absolute bg-[#BBF7D0] h-[449px] w-[449px] block z-[-1] top-0 right-[1rem] rounded-full" />
       </section>
     </>
   );
