@@ -14,7 +14,6 @@ import Process from "@/components/Process";
 import ChoiceSection from "@/components/ChoiceSection";
 import Projects from "@/components/Projects";
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
-// import { TITLE } from "@/helpers/constants";
 
 export async function getStaticProps() {
   const content = await client.fetch(HOMEPAGE_QUERY);

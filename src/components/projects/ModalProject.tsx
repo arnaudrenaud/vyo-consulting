@@ -6,8 +6,6 @@ import { PATHS } from "@/helpers/constants";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
-// import { RichContent } from "@/components/utils/RichContent";
-// import { PortableText } from "@portabletext/react";
 
 import {
   Dialog,
@@ -19,11 +17,6 @@ import {
 const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  console.log(
-    "check project ::: ",
-    projects.find((p) => p._id === searchParams.get("project")),
-  );
 
   const projectFromParam = projects.find(
     (p) => p._id === searchParams.get("project"),
@@ -42,9 +35,9 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
             router.replace(PATHS.PROJECTS);
           }}
         >
-          <DialogContent className="!max-w-[inherit] !w-[90%] !max-h-[90vh] !overflow-y-auto bg-white">
+          <DialogContent className="!max-w-[inherit] !w-[90%] !max-h-[90vh] !overflow-y-auto bg-white overflow-x-hidden">
             <DialogHeader>
-              <DialogTitle className="text-6xl max-lg:text-5xl max-md:text-3xl font-light mr-8 px-5">
+              <DialogTitle className="text-6xl max-lg:text-5xl max-sm:text-2xl max-md:text-3xl font-light sm:mr-8 sm:px-5">
                 {projectFromParam?.fullTitle}
               </DialogTitle>
             </DialogHeader>
@@ -192,7 +185,7 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                 </p> */}
               </div>
               <div className="flex items-center justify-end mt-6 gap-4">
-                {/* download to make */}
+                {/* download PDF to make */}
                 <Button variant="outline">Je télécharge</Button>
                 <Button asChild variant="default">
                   <Link href="/contact">Contactez-nous</Link>

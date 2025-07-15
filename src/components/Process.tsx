@@ -111,7 +111,7 @@ const Processus = () => {
       </div>
 
       <div className="mt-12 flex justify-center text-sm">
-        <ButtonLink href="/solutions" text="Trouver votre solution" />
+        <ButtonLink href="/solutions/squad" text="Trouver votre solution" />
       </div>
     </section>
   );

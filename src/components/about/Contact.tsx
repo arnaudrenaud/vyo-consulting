@@ -18,21 +18,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 const formSchema = z.object({
   objectif: z.enum(["solution", "postule"]),
   prenom: z.string().min(1, { message: "Prénom requis" }),
   nom: z.string().min(1, { message: "Nom requis" }),
   email: z.email({ message: "Email invalide" }),
-  entreprise: z.enum(["x", "y", "z"], { message: "Choix requis" }),
-  poste: z.enum(["a", "b", "c", "d", "e"], { message: "Choix requis" }),
+  entreprise: z.string().min(3, { message: "Choix requis" }),
+  poste: z.string().min(3, { message: "Choix requis" }),
   message: z.string().max(500, { message: "500 caractères max" }),
 });
 
@@ -44,8 +37,8 @@ export function Contact() {
       prenom: "",
       nom: "",
       email: " ",
-      entreprise: "x",
-      poste: "a",
+      entreprise: "",
+      poste: "",
       message: "",
     },
   });
@@ -67,7 +60,9 @@ export function Contact() {
     <section className="mt-12 bg-white p-8 rounded-lg shadow-md w-full">
       <div className="text-center mb-12">
         <div className="inline-block relative">
-          <h2 className="font-light text-5xl">Contactez-nous</h2>
+          <h2 className="font-light text-5xl max-md:text-3xl">
+            Contactez-nous
+          </h2>
           <div className="absolute left-0 -bottom-[8px] w-full flex items-center justify-between h-[1px]">
             <div className="bg-black h-[2px] w-[calc(100%-8px)]"></div>
             <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
@@ -170,35 +165,16 @@ export function Contact() {
             </div>
             <div>
               {/* Entreprise */}
+
               <FormField
                 control={form.control}
                 name="entreprise"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="max-lg:text-xs">
-                      Votre entreprise
-                    </FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl className="w-auto hover:cursor-pointer">
-                        <SelectTrigger>
-                          <SelectValue placeholder="Choisissez une entreprise" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="x" className="hover:cursor-pointer">
-                          Entreprise X
-                        </SelectItem>
-                        <SelectItem value="y" className="hover:cursor-pointer">
-                          Entreprise Y
-                        </SelectItem>
-                        <SelectItem value="z" className="hover:cursor-pointer">
-                          Entreprise Z
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <FormLabel className="max-lg:text-xs">Entreprise</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Votre entreprise" {...field} />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -213,33 +189,9 @@ export function Contact() {
                     <FormLabel className="max-lg:text-xs">
                       Intitulé de votre poste
                     </FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl className="w-auto hover:cursor-pointer">
-                        <SelectTrigger>
-                          <SelectValue placeholder="Choisissez un poste" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="a" className="hover:cursor-pointer">
-                          Poste A
-                        </SelectItem>
-                        <SelectItem value="b" className="hover:cursor-pointer">
-                          Poste B
-                        </SelectItem>
-                        <SelectItem value="c" className="hover:cursor-pointer">
-                          Poste C
-                        </SelectItem>
-                        <SelectItem value="d" className="hover:cursor-pointer">
-                          Poste D
-                        </SelectItem>
-                        <SelectItem value="e" className="hover:cursor-pointer">
-                          Poste E
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <FormControl>
+                      <Input placeholder="Votre poste" {...field} />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}

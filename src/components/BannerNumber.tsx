@@ -97,7 +97,7 @@ const BannerNumber = () => {
                   <img
                     src="/underline.png"
                     alt="underline"
-                    className="absolute w-[176px]"
+                    className="absolute w-[176px] max-md:w-[90px]"
                   />
                 </div>
               </span>
@@ -135,7 +135,10 @@ const BannerNumber = () => {
               </span>
             </p>
 
-            <ButtonLink href="/solutions" text="Découvrir VYO Consulting" />
+            <ButtonLink
+              href="/solutions/squad"
+              text="Découvrir VYO Consulting"
+            />
           </div>
         </div>
       </div>

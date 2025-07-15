@@ -7,7 +7,7 @@ const CoSquad = () => {
       <div className="flex flex-col items-center justify-center">
         <div className="text-center py-6">
           <div className="inline-block relative">
-            <h2 className="font-light text-5xl">
+            <h2 className="font-light text-5xl max-md:text-3xl">
               Co-construisons une équipe adaptée à votre besoin
             </h2>
 
@@ -108,7 +108,7 @@ const CoSquad = () => {
       </div>
 
       <div className="mb-8 mx-auto">
-        <ButtonLink href="/solutions" text="Construisons votre équipe" />
+        <ButtonLink href="/contact" text="Construisons votre équipe" />
       </div>
 
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
