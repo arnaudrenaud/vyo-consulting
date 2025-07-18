@@ -185,3 +185,46 @@ ul.navLinks {
     transform: scale3d(1, 1, 1);
   }
 }
+
+@keyframes slideDown {
+  from {
+    // opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    // opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    // opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    // opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.menuEnter {
+  animation: slideDown 400ms ease-out forwards;
+}
+
+.menuExit {
+  animation: slideUp 400ms ease-in forwards;
+}
+
+.menuBase {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-weight: 500;
+}

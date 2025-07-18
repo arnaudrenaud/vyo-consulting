@@ -38,16 +38,27 @@ export function Header({
   const isMobile = useMediaQuery("(max-width: 992px)");
 
   const [isOpen, setIsOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
     if (navOpen) {
+      setMenuVisible(true);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
+      if (menuVisible) {
+        setIsAnimatingOut(true);
+        const timeout = setTimeout(() => {
+          setMenuVisible(false);
+          setIsAnimatingOut(false);
+        }, 400); // ← doit matcher la durée de l'animation CSS
+        return () => clearTimeout(timeout);
+      }
     }
-  }, [navOpen]);
+  }, [navOpen, menuVisible]);
 
   useEffect(() => {
     const threshold = 10;
@@ -101,7 +112,7 @@ export function Header({
             />
           )}
         </Link>
-        <ul className="flex items-center space-x-10 max-md:hidden">
+        <ul className="flex items-center space-x-10 max-lg:hidden">
           <li
             className="relative inline-block text-left after:content-[' '] after:h-[3px] after:block after:bg-green-600 after:translate-y-[19px] mt-1 hover:cursor-pointer"
             onClick={toggleDropdown}
@@ -172,8 +183,9 @@ export function Header({
         {/* Button Burger Menu */}
         <div
           role="button"
-          className="menu-toggle block md:hidden self-end z-[99]"
+          className="menu-toggle block lg:hidden self-end z-[999999]"
           onClick={() => setNavOpen(!navOpen)}
+          aria-expanded={navOpen}
         >
           <div
             className={
@@ -194,6 +206,86 @@ export function Header({
             ></span>
           </div>
         </div>
+
+        {menuVisible && (
+          <div
+            className={clsx(
+              styles.menuBase,
+              isAnimatingOut ? styles.menuExit : styles.menuEnter,
+            )}
+            role="menu"
+          >
+            <li
+              className="relative inline-block text-left after:content-[' '] after:h-[3px] after:block after:bg-green-600 after:translate-y-[19px] mt-1 hover:cursor-pointer"
+              onClick={toggleDropdown}
+            >
+              <button className="flex items-center space-x-1">
+                <p className="font-medium text-3xl">Solutions</p>
+                <img
+                  src={
+                    isOpen
+                      ? "/icones/chevron-up.svg"
+                      : "/icones/chevron-down.svg"
+                  }
+                  alt={isOpen ? "chevron up" : "chevron down"}
+                  className="select-none"
+                />
+              </button>
+
+              <div
+                className={`origin-top-left absolute left-0 max-lg:-left-9 mt-[21.5px] w-56 bg-[#fff7ed] max-lg:bg-white shadow-lg ring-1 ring-black/5 transition-opacity duration-200 ${
+                  isOpen
+                    ? "opacity-100 scale-100 visible"
+                    : "opacity-0 scale-95 invisible"
+                }`}
+              >
+                <ul className="py-1 space-y-1">
+                  {getSolutionsInOrder(expertises).map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="px-2 py-[7px] hover:bg-white rounded-md cursor-pointer transition-colors mx-6 text-sm font-medium"
+                    >
+                      <Link
+                        href={`${PATHS.SOLUTIONS}/${item.slug.current}`}
+                        onClick={() => setNavOpen(false)}
+                        role="menuitem"
+                      >
+                        <span className="flex h-[14px]">
+                          <img
+                            className=""
+                            src={urlFor(item.logo).url()}
+                            alt={item.slug.current}
+                          />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+            <Link
+              href={PATHS.PROJECTS}
+              onClick={() => setNavOpen(false)}
+              role="menuitem"
+            >
+              <span className="text-3xl">Projects</span>
+            </Link>
+            <Link
+              href={PATHS.ABOUT}
+              onClick={() => setNavOpen(false)}
+              role="menuitem"
+            >
+              <span className="text-3xl">À propos</span>
+            </Link>
+            <Link
+              href={PATHS.CONTACT}
+              onClick={() => setNavOpen(false)}
+              role="menuitem"
+            >
+              <span className="text-3xl">Contact</span>
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );

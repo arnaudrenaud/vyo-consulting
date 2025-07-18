@@ -122,7 +122,11 @@ export function Contact() {
                   <FormItem>
                     <FormLabel className="max-lg:text-xs">Prénom</FormLabel>
                     <FormControl>
-                      <Input placeholder="Votre prénom" {...field} />
+                      <Input
+                        placeholder="Votre prénom"
+                        {...field}
+                        className="text-sm"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -137,7 +141,11 @@ export function Contact() {
                   <FormItem className="mt-6">
                     <FormLabel className="max-lg:text-xs">Nom</FormLabel>
                     <FormControl>
-                      <Input placeholder="Votre nom" {...field} />
+                      <Input
+                        placeholder="Votre nom"
+                        {...field}
+                        className="text-sm"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -156,6 +164,7 @@ export function Contact() {
                         type="email"
                         placeholder="Votre email"
                         {...field}
+                        className="text-sm"
                       />
                     </FormControl>
                     <FormMessage />
@@ -173,7 +182,11 @@ export function Contact() {
                   <FormItem>
                     <FormLabel className="max-lg:text-xs">Entreprise</FormLabel>
                     <FormControl>
-                      <Input placeholder="Votre entreprise" {...field} />
+                      <Input
+                        placeholder="Votre entreprise"
+                        {...field}
+                        className="text-sm"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -190,7 +203,11 @@ export function Contact() {
                       Intitulé de votre poste
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Votre poste" {...field} />
+                      <Input
+                        placeholder="Votre poste"
+                        {...field}
+                        className="text-sm"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -207,7 +224,7 @@ export function Contact() {
                   <FormControl>
                     <Textarea
                       placeholder="Votre message"
-                      className="h-4/5 mb-[7px]"
+                      className="h-4/5 max-md:h-[200px] max-lg:h-[250px] mb-[7px] text-sm"
                       {...field}
                     />
                   </FormControl>

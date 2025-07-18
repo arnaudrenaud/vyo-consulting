@@ -30,7 +30,7 @@ const Processus = () => {
         />
         <div className="max-lg:m-auto">
           <div className="p-4 gap-4 items-end flex">
-            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-[330px]:w-24! max-md:h-14 rounded-full border border-[#4ADE80]">
+            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-md:h-14 rounded-full border border-[#4ADE80]">
               <div className="max-sm:text-xl sm:text-3xl">01</div>
             </div>
             <div className="flex flex-col">
@@ -57,7 +57,7 @@ const Processus = () => {
           <div className="h-[1px] w-auto bg-[#CBD5E1] max-w-[430px] ml-5"></div>
 
           <div className="p-4 gap-4 items-end flex">
-            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-[330px]:w-24! max-md:h-14 rounded-full border border-[#4ADE80]">
+            <div className="flex items-center justify-center w-20 h-20 max-md:w-14 max-md:h-14 rounded-full border border-[#4ADE80]">
               <div className="max-sm:text-xl sm:text-3xl">02</div>
             </div>
             <div className="flex flex-col">
