@@ -155,11 +155,11 @@ export function Header({
               </ul>
             </div>
           </li>
-          <li>
+          {/* <li>
             <Link href={PATHS.PROJECTS}>
               <p className="font-medium">Projets</p>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href={PATHS.ABOUT}>
               <p className="font-medium">A propos</p>
@@ -263,13 +263,13 @@ export function Header({
                 </ul>
               </div>
             </li>
-            <Link
+            {/* <Link
               href={PATHS.PROJECTS}
               onClick={() => setNavOpen(false)}
               role="menuitem"
             >
               <span className="text-3xl">Projects</span>
-            </Link>
+            </Link> */}
             <Link
               href={PATHS.ABOUT}
               onClick={() => setNavOpen(false)}

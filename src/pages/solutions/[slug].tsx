@@ -67,9 +67,9 @@ export default function SolutionPage({
       : ""
     : undefined;
 
-  const projectsForSolution = projects.some((project) =>
-    project.expertises.map((expertise) => expertise._id).includes(solution._id),
-  );
+  // const projectsForSolution = projects.some((project) =>
+  //   project.expertises.map((expertise) => expertise._id).includes(solution._id),
+  // );
 
   return (
     <>
@@ -85,8 +85,10 @@ export default function SolutionPage({
         solution.jobs &&
         solution.jobs.length && <Professions solution={solution} />
       )}
-      {projectsForSolution && <Projects projects={projects} />}
       <SolutionsSection expertises={expertises} showDescription={false} />
+      <Projects projects={projects} />
+      {/* en attente de dynamisation pour avoir les autres projets */}
+      {/* {projectsForSolution && <Projects projects={projects} />} */}
     </>
   );
 }
