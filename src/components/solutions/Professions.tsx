@@ -16,7 +16,7 @@ const Professions = ({
   return (
     <>
       <div className="flex flex-col items-center justify-center relative">
-        <div className="text-center py-6">
+        <div className="text-center pt-6 pb-4">
           <div className="inline-block relative">
             <h2 className="font-light text-5xl max-md:text-3xl">
               Nos métiers {solution.name}
@@ -26,33 +26,25 @@ const Professions = ({
               <div className="w-1 h-1 bg-black rounded-full ml-1"></div>
             </div>
           </div>
-          <div className="grid grid-cols-4 max-sm:grid-cols-1 max-lg:grid-cols-2 gap-12 mt-24 justify-center sm:ml-[4.2rem]">
+          <div className="grid grid-cols-4 max-sm:grid-cols-1 max-lg:grid-cols-2 gap-8 mt-10 justify-center">
             {solution.jobs?.map((job) => (
               <div className="text-sm max-sm:mx-auto" key={job._key}>
-                <p className="relative bg-[url('/professions-bckg.svg')] bg-no-repeat bg-contain py-4 pl-8 pr-16 rounded-lg w-fit">
+                <div
+                  className={`relative text-left bg-white border-1 border-b-accent ${themeColor.background} rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-5 py-5 mx-auto w-full`}
+                >
                   <span>
                     <span className="font-semibold">{job.name}</span>
                     <br />
                     {job.levels?.join(" • ")}
                   </span>
-                  <span
-                    className={`flex items-center justify-center absolute -top-10 left-[-40px] max-sm:-left-[10px] max-sm:-top-6 w-[66px] h-[66px] max-md:w-14 max-md:h-14 
-                max-sm:w-10! max-sm:h-10! rounded-full border ${themeColor.border}`}
-                  >
-                    <img
-                      src="/icones/layout-panel-top.svg"
-                      alt="circle-user"
-                      className="w-6 h-6 max-sm:w-4 max-sm:h-4"
-                    />
-                  </span>
-                </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="mb-20 mx-auto">
+      <div className="mx-auto mb-20">
         <ButtonLink href="/contact" text="Construisons votre équipe" />
       </div>
 
