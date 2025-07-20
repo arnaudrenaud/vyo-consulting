@@ -17,7 +17,7 @@ const CoSquad = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-4 mt-[85px] xl:max-w-[1200px] xl:mx-auto max-md:gap-y-12">
-            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+            <div className="relative text-left bg-white border-1 border-b-accent shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
               <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/users-round.svg"
@@ -44,7 +44,7 @@ const CoSquad = () => {
               </ul>
             </div>
 
-            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+            <div className="relative text-left bg-white border-1 border-b-accent shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
               <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/trello.svg"
@@ -71,7 +71,7 @@ const CoSquad = () => {
               </ul>
             </div>
 
-            <div className="relative text-left bg-white shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
+            <div className="relative text-left bg-white border-1 border-b-accent shadow-[#DC2626] rounded-2xl shadow-[3px_3px] flex flex-col gap-4 md:max-w-[725px] px-6 py-10 mx-auto w-full">
               <div className="absolute top-[-33px] left-[-25px] max-md:left-1/2 max-md:-translate-x-1/2 bg-white flex items-center justify-center m-auto w-[66px] h-[66px] max-md:w-14 max-md:h-14 rounded-full border border-[#DC2626]">
                 <img
                   src="/icones/hands.svg"
