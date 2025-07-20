@@ -16,13 +16,16 @@ const CardSolution = ({
   const themeColor = getSolutionThemeColor(slug);
 
   const logoUrl = logo ? urlFor(logo).url() : "";
+  const solutionUrl = `${PATHS.SOLUTIONS}/${slug.current}`;
 
   return (
     <div
       className={`bg-white border-1 border-b-accent rounded-2xl shadow-[3px_3px] ${themeColor.background} flex flex-col justify-center gap-4 md:max-w-[725px] px-4 py-8 mx-auto w-full`}
     >
       <h4>
-        <img className="h-[24px]" src={logoUrl} alt={`Logo de vyo.${name}`} />
+        <Link href={solutionUrl}>
+          <img className="h-[24px]" src={logoUrl} alt={`Logo de vyo.${name}`} />
+        </Link>
       </h4>
       {showDescription && (
         <p className="text-[0.9rem] text-[#737373] text-sm">
@@ -30,7 +33,7 @@ const CardSolution = ({
         </p>
       )}
       <Link
-        href={`${PATHS.SOLUTIONS}/${slug.current}`}
+        href={solutionUrl}
         className="flex items-center text-xs font-medium"
       >
         Découvrir cette offre
