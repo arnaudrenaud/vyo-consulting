@@ -14,7 +14,7 @@ const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
         {projects.slice(0, 9).map((project) => (
           <div
             key={project._id}
-            className={`bg-white rounded-2xl shadow-[3px_3px] ${getSolutionThemeColor(project.expertises[0].slug).background} w-[95%]! ml-[10px]! px-4 py-8 max-md:px-8`}
+            className={`bg-white border-1 border-accent rounded-2xl shadow-[3px_3px] ${getSolutionThemeColor(project.expertises[0].slug).background} w-[95%]! ml-[10px]! px-4 py-8 max-md:px-8`}
           >
             <div className="relative">
               <img
