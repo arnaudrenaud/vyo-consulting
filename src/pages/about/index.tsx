@@ -39,7 +39,7 @@ const About = ({
       <Head>
         <title>{content.metaTitle || metadata.title}</title>
         <meta
-          property="og:title"
+          name="description"
           content={content.metaDescription || metadata.description || ""}
           key="title"
         />

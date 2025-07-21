@@ -17,7 +17,7 @@ export default function App({
       <Head>
         <title>{pageProps.metadata.title}</title>
         <meta
-          property="og:title"
+          name="description"
           content={pageProps.metadata.description || ""}
           key="title"
         />

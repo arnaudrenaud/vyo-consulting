@@ -46,7 +46,7 @@ export default function Home({
       <Head>
         <title>{metadata.title}</title>
         <meta
-          property="og:title"
+          name="description"
           content={metadata.description || ""}
           key="title"
         />
