@@ -34,9 +34,9 @@ export function Footer({ metadata }: { metadata: METADATA_QUERYResult }) {
             <li>
               <Link href={PATHS.SOLUTIONS}>Solutions</Link>
             </li>
-            {/* <li>
+            <li>
               <Link href={PATHS.PROJECTS}>Projets</Link>
-            </li> */}
+            </li>
             <li>
               <Link href={PATHS.ABOUT}>À propos</Link>
             </li>
