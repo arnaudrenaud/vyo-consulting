@@ -13,13 +13,18 @@ export function ProjectCard({
   project: ALL_PROJECTS_QUERYResult[0];
 }) {
   const projectUrl = `${PATHS.PROJECTS}?${SEARCH_PARAMS.PROJECT_ID}=${project.slug.current}`;
+  const projectCoverImage =
+    (project.realizationScreenshots &&
+      project.realizationScreenshots.length &&
+      urlFor(project.realizationScreenshots[0]).url()) ||
+    "/icones/projets-1.png";
 
   return (
     <div
       className={`bg-white border-1 border-accent rounded-2xl shadow-[3px_3px] ${getSolutionThemeColor(project.expertises[0].slug).background} w-[95%]! ml-[10px]! px-4 py-8 max-md:px-8`}
     >
       <div className="relative">
-        <img src="/icones/projets-1.png" alt={`projet ${project.shortTitle}`} />
+        <img src={projectCoverImage} alt={`projet ${project.shortTitle}`} />
         <p className="absolute top-2.5 left-2.5 text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white pl-4 rounded-2xl py-1">
           {project.expertises.map((expertise) => (
             <img
