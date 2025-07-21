@@ -8,8 +8,9 @@ import Contact from "@/components/about/Contact";
 
 import { client } from "@/sanity/lib/client";
 import { ABOUT_PAGE_QUERY } from "@/sanity/lib/queries";
-import { ABOUT_PAGE_QUERYResult } from "@/sanity/types";
+import { ABOUT_PAGE_QUERYResult, METADATA_QUERYResult } from "@/sanity/types";
 import { getPageLayoutData } from "@/helpers/getPageLayoutData";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const content = await client.fetch(ABOUT_PAGE_QUERY);
@@ -19,25 +20,45 @@ export async function getStaticProps() {
   };
 }
 
-const About = ({ content }: { content: ABOUT_PAGE_QUERYResult }) => {
+const About = ({
+  content,
+  metadata,
+}: {
+  content: ABOUT_PAGE_QUERYResult;
+  metadata: METADATA_QUERYResult;
+}) => {
+  if (!metadata) {
+    throw new Error("Metadata is undefined.");
+  }
   if (!content) {
     throw new Error("About page content undefined.");
   }
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen">
-      <HeroSection
-        heroTitle={content.heroTitle}
-        heroParagraph={content.heroParagraph}
-      />
-      <History />
-      <Values />
-      <Approach />
-      <DigitalJourney />
-      <BannerNumber />
-      <Contact />
-      <div className="h-[1px] w-full bg-[#c9cdd2] my-10"></div>
-    </section>
+    <>
+      <Head>
+        <title>{content.metaTitle || metadata.title}</title>
+        <meta
+          property="og:title"
+          content={content.metaDescription || metadata.description || ""}
+          key="title"
+        />
+      </Head>
+
+      <section className="flex flex-col items-center justify-center min-h-screen">
+        <HeroSection
+          heroTitle={content.heroTitle}
+          heroParagraph={content.heroParagraph}
+        />
+        <History />
+        <Values />
+        <Approach />
+        <DigitalJourney />
+        <BannerNumber />
+        <Contact />
+        <div className="h-[1px] w-full bg-[#c9cdd2] my-10"></div>
+      </section>
+    </>
   );
 };
 
