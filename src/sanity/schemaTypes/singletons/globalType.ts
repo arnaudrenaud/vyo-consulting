@@ -30,5 +30,15 @@ export const globalType = defineType({
       validation: (Rule) => Rule.required(),
       description: "Affiché dans l'en-tête de la page.",
     }),
+    defineField({
+      name: "ogLogoWide",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+      description:
+        "Affiché dans les cartes de prévisualisation (LinkedIn, Facebook, etc.) – taille recommandée : 1200x630px.",
+    }),
   ],
 });
