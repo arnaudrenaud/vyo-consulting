@@ -114,7 +114,7 @@ export function Header({
         </Link>
         <ul className="flex items-center space-x-10 max-lg:hidden text-muted-foreground">
           <li
-            className="relative inline-block text-left after:content-[' '] after:h-[3px] after:block after:bg-green-600 after:translate-y-[19px] mt-1 hover:cursor-pointer"
+            className={`relative inline-block text-left after:content-[' '] after:block after:h-[3px] after:translate-y-[19px] ${currentPath.startsWith(PATHS.SOLUTIONS) ? "after:bg-green-600" : ""} mt-1 hover:cursor-pointer`}
             onClick={toggleDropdown}
           >
             <button className="flex items-center space-x-1">
@@ -160,12 +160,16 @@ export function Header({
               <p className="font-medium">Projets</p>
             </Link>
           </li> */}
-          <li>
+          <li
+            className={`relative inline-block text-left after:content-[' '] after:block after:h-[3px] after:translate-y-[19px] ${currentPath === PATHS.PROJECTS ? "after:bg-green-600" : ""} mt-1 hover:cursor-pointer`}
+          >
             <Link href={PATHS.PROJECTS}>
               <p className="font-medium">Projets</p>
             </Link>
           </li>
-          <li>
+          <li
+            className={`relative inline-block text-left after:content-[' '] after:block after:h-[3px] after:translate-y-[19px] ${currentPath === PATHS.ABOUT ? "after:bg-green-600" : ""} mt-1 hover:cursor-pointer`}
+          >
             <Link href={PATHS.ABOUT}>
               <p className="font-medium">À propos</p>
             </Link>
