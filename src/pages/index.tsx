@@ -35,10 +35,10 @@ export default function Home({
   projects: ALL_PROJECTS_QUERYResult;
 }) {
   if (!metadata) {
-    throw new Error("Metadata is undefined");
+    throw new Error("Metadata is undefined.");
   }
   if (!content) {
-    throw new Error("Homepage content undefined.");
+    throw new Error("Homepage content is undefined.");
   }
 
   return (
