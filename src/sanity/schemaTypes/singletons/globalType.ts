@@ -12,12 +12,14 @@ export const globalType = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
       description:
-        "Titre utilisé par le navigateur (souvent pour nommer l'onglet), non affiché dans la page.",
+        "Titre utilisé par le navigateur (souvent pour nommer l'onglet) et pour le référencement par les moteurs, non affiché dans la page. Utilisé sur chaque page du site sauf si redéfini spécifiquement pour la page.",
     }),
     defineField({
       name: "description",
       type: "string",
       validation: (Rule) => Rule.required(),
+      description:
+        "Description utilisée principalement pour le référencement par les moteurs, et pour l'aperçu lors du partage d'une page.",
     }),
     defineField({
       name: "logo",
@@ -26,6 +28,7 @@ export const globalType = defineType({
         hotspot: true,
       },
       validation: (Rule) => Rule.required(),
+      description: "Affiché dans l'en-tête de la page.",
     }),
   ],
 });
