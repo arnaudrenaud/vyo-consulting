@@ -79,6 +79,50 @@ export type AboutPage = {
   metaDescription?: string;
 };
 
+export type ProjectsPage = {
+  _id: string;
+  _type: "projectsPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  heroTitle: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  heroParagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type HomePage = {
   _id: string;
   _type: "homePage";
@@ -104,6 +148,42 @@ export type HomePage = {
     _key: string;
   }>;
   heroParagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  introduction: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  process: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -155,6 +235,42 @@ export type Metadata = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  solutionsIntroduction: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  projectsIntroduction: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 };
 
 export type Project = {
@@ -586,6 +702,7 @@ export type SanityAssetSourceData = {
 
 export type AllSanitySchemaTypes =
   | AboutPage
+  | ProjectsPage
   | HomePage
   | Metadata
   | Project
@@ -680,6 +797,42 @@ export type HOMEPAGE_QUERYResult = {
     _type: "block";
     _key: string;
   }>;
+  introduction: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  process: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 } | null;
 // Variable: ABOUT_PAGE_QUERY
 // Query: *[_type == "aboutPage"][0]
@@ -747,6 +900,51 @@ export type ABOUT_PAGE_QUERYResult = {
   }>;
   metaTitle?: string;
   metaDescription?: string;
+} | null;
+// Variable: PROJECTS_PAGE_QUERY
+// Query: *[_type == "projectsPage"][0]
+export type PROJECTS_PAGE_QUERYResult = {
+  _id: string;
+  _type: "projectsPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  heroTitle: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  heroParagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 } | null;
 // Variable: ALL_EXPERTISES_QUERY
 // Query: *[_type == "expertise"]| order(_createdAt asc)
@@ -1192,6 +1390,7 @@ declare module "@sanity/client" {
     '*[_type == "metadata"][0]{\n  title, subtitle, description, logo, ogLogoWide\n}': METADATA_QUERYResult;
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "aboutPage"][0]': ABOUT_PAGE_QUERYResult;
+    '*[_type == "projectsPage"][0]': PROJECTS_PAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
     '*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;

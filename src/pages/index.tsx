@@ -56,9 +56,9 @@ export default function Home({
         heroTitle={content.heroTitle}
         heroParagraph={content.heroParagraph}
       />
-      <BannerNumber />
+      <BannerNumber introduction={content.introduction} />
       <SolutionsSection expertises={expertises} showDescription />
-      <Process />
+      <Process introduction={content.process} />
       <ChoiceSection />
       <Projects projects={projects} />
     </>

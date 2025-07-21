@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import ButtonLink from "./ButtonLink";
+import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 
-const BannerNumber = () => {
+const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
   return (
     <>
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
@@ -103,36 +104,7 @@ const BannerNumber = () => {
               </span>
             </h2>
             <p className="max-sm:text-sm">
-              VYO Consulting est{" "}
-              <span className="font-bold">
-                un cabinet de conseil en transformation digitale{" "}
-              </span>
-              qui accompagne les entreprises à chaque étape de leur évolution,
-              de la définition des besoins métiers à la mise en œuvre technique.
-            </p>
-            <p className="max-sm:text-sm">
-              Porté par des valeurs d’éthique, d’humanisme et de pragmatisme,
-              VYO Consulting se positionne comme un véritable « poisson pilote
-              », guidant ses clients vers l’innovation et la performance. Sans
-              jamais se substituer à leur savoir-faire, VYO Consulting
-              accompagne leur transformation grâce à une approche structurée,{" "}
-              <span className="font-bold">
-                alliant méthodologie Agile et expertise technologique.
-              </span>
-            </p>
-            <p className="max-sm:text-sm">
-              Grâce à une expertise approfondie en IT et en stratégie digitale,{" "}
-              <span className="font-bold">
-                nous co-construisons des solutions adaptées, scalables et
-                durables.
-              </span>
-            </p>
-            <p className="max-sm:text-sm">
-              Notre mission :{" "}
-              <span className="font-bold">
-                conseiller, guider et accompagner nos clients avec excellence et
-                humilité pour garantir leur succès numérique.
-              </span>
+              <RichContent value={introduction} />
             </p>
 
             <ButtonLink

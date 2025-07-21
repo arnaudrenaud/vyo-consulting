@@ -7,6 +7,7 @@ import { projectType } from "./projectType";
 
 import { globalType } from "./singletons/globalType";
 import { homePageType } from "./singletons/homePageType";
+import { projectsPageType } from "./singletons/projectsPageType";
 import { aboutPageType } from "./singletons/aboutPageType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -17,6 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     projectType,
     globalType,
     homePageType,
+    projectsPageType,
     aboutPageType,
   ],
 };

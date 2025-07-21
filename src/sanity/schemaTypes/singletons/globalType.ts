@@ -40,5 +40,18 @@ export const globalType = defineType({
       description:
         "Affiché dans les cartes de prévisualisation (LinkedIn, Facebook, etc.) – taille recommandée : 1200x630px.",
     }),
+
+    defineField({
+      name: "solutionsIntroduction",
+      type: "array",
+      validation: (Rule) => Rule.required(),
+      of: [{ type: "block" }],
+    }),
+    defineField({
+      name: "projectsIntroduction",
+      type: "array",
+      validation: (Rule) => Rule.required(),
+      of: [{ type: "block" }],
+    }),
   ],
 });

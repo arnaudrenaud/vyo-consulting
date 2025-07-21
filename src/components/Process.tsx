@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 import ButtonLink from "./ButtonLink";
 
-const Processus = () => {
+const Processus = ({ introduction }: { introduction: RichContentValue }) => {
   return (
     <section className="mt-6 mb-12">
       <div className="text-center">
@@ -16,11 +17,7 @@ const Processus = () => {
         </div>
       </div>
       <p className="text-center mt-8">
-        VYO Consulting vous accompagne de façon Agile pour
-        <br />{" "}
-        <span className="font-bold">
-          une intervention globale clef en main.
-        </span>
+        <RichContent value={introduction} />
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-0 lg:mt-12 items-center">
         <img

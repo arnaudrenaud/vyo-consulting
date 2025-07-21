@@ -1,7 +1,7 @@
 import { defineType, defineField } from "sanity";
 
-export const homePageType = defineType({
-  name: "homePage",
+export const projectsPageType = defineType({
+  name: "projectsPage",
   type: "document",
   fields: [
     defineField({
@@ -12,18 +12,6 @@ export const homePageType = defineType({
     }),
     defineField({
       name: "heroParagraph",
-      type: "array",
-      validation: (Rule) => Rule.required(),
-      of: [{ type: "block" }],
-    }),
-    defineField({
-      name: "introduction",
-      type: "array",
-      validation: (Rule) => Rule.required(),
-      of: [{ type: "block" }],
-    }),
-    defineField({
-      name: "process",
       type: "array",
       validation: (Rule) => Rule.required(),
       of: [{ type: "block" }],

@@ -14,7 +14,12 @@ import { schema } from "./src/sanity/schemaTypes";
 // import { structure } from "./src/sanity/structure";
 
 // Define the singleton document types
-const singletonTypes = new Set(["metadata", "homePage", "aboutPage"]);
+const singletonTypes = new Set([
+  "metadata",
+  "homePage",
+  "projectsPage",
+  "aboutPage",
+]);
 
 export default defineConfig({
   basePath: "/studio",
@@ -57,6 +62,14 @@ export default defineConfig({
               .id("homePage")
               .child(
                 S.document().schemaType("homePage").documentId("homePage"),
+              ),
+            S.listItem()
+              .title('Page \"Projets\"')
+              .id("projectsPage")
+              .child(
+                S.document()
+                  .schemaType("projectsPage")
+                  .documentId("projectsPage"),
               ),
             S.listItem()
               .title('Page \"À propos\"')
