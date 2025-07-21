@@ -21,6 +21,8 @@ export const homePageType = defineType({
       type: "array",
       validation: (Rule) => Rule.required(),
       of: [{ type: "block" }],
+      description:
+        "ℹ️ Pour sauter une ligne entre deux paragraphes, appuyer sur Shift+Entrée (valable sur tous les champs de bloc de texte).",
     }),
     defineField({
       name: "process",
