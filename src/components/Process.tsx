@@ -15,7 +15,7 @@ const Processus = () => {
           </div>
         </div>
       </div>
-      <p className="text-center mt-8 text-[#737373]">
+      <p className="text-center mt-8">
         VYO Consulting vous accompagne de façon Agile pour
         <br />{" "}
         <span className="font-bold">
