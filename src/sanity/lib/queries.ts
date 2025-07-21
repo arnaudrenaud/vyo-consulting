@@ -3,7 +3,7 @@
 import { defineQuery } from "next-sanity";
 
 export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
-  title, subtitle, description, logo
+  title, subtitle, description, logo, ogLogoWide
 }`);
 
 export const HOMEPAGE_QUERY = defineQuery(`*[_type == "homePage"][0]`);

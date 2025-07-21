@@ -606,12 +606,24 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: METADATA_QUERY
-// Query: *[_type == "metadata"][0]{  title, subtitle, description, logo}
+// Query: *[_type == "metadata"][0]{  title, subtitle, description, logo, ogLogoWide}
 export type METADATA_QUERYResult = {
   title: string;
   subtitle: null;
   description: string;
   logo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  ogLogoWide: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -1177,7 +1189,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "metadata"][0]{\n  title, subtitle, description, logo\n}': METADATA_QUERYResult;
+    '*[_type == "metadata"][0]{\n  title, subtitle, description, logo, ogLogoWide\n}': METADATA_QUERYResult;
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "aboutPage"][0]': ABOUT_PAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;

@@ -13,8 +13,8 @@ export default function App({
     throw new Error("Metadata is undefined.");
   }
 
-  const logo = pageProps.metadata.logo
-    ? urlFor(pageProps.metadata.logo).url()
+  const ogLogoWide = pageProps.metadata.ogLogoWide
+    ? urlFor(pageProps.metadata.ogLogoWide).url()
     : null;
 
   return (
@@ -27,7 +27,9 @@ export default function App({
           key="title"
         />
 
-        {logo && <meta name="image" property="og:image" content={logo} />}
+        {ogLogoWide && (
+          <meta name="image" property="og:image" content={ogLogoWide} />
+        )}
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
