@@ -75,6 +75,8 @@ export type AboutPage = {
     _type: "block";
     _key: string;
   }>;
+  metaTitle?: string;
+  metaDescription?: string;
 };
 
 export type HomePage = {
@@ -719,6 +721,8 @@ export type ABOUT_PAGE_QUERYResult = {
     _type: "block";
     _key: string;
   }>;
+  metaTitle?: string;
+  metaDescription?: string;
 } | null;
 // Variable: ALL_EXPERTISES_QUERY
 // Query: *[_type == "expertise"]| order(_createdAt asc)
