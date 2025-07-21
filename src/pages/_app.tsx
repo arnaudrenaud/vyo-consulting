@@ -27,7 +27,7 @@ export default function App({
           key="title"
         />
 
-        {logo && <meta property="og:image" content={logo} />}
+        {logo && <meta name="image" property="og:image" content={logo} />}
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
