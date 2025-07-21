@@ -12,7 +12,7 @@ export function ProjectCard({
 }: {
   project: ALL_PROJECTS_QUERYResult[0];
 }) {
-  const projectUrl = `${PATHS.PROJECTS}?${SEARCH_PARAMS.PROJECT_ID}=${project._id}`;
+  const projectUrl = `${PATHS.PROJECTS}?${SEARCH_PARAMS.PROJECT_ID}=${project.slug.current}`;
 
   return (
     <div

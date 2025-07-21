@@ -18,5 +18,5 @@ export const EXPERTISE_DETAILS_QUERY = defineQuery(
 );
 
 export const ALL_PROJECTS_QUERY = defineQuery(
-  `*[_type == "project"]| order(_createdAt desc){_id, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}`,
+  `*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}`,
 );

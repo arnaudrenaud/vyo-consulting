@@ -19,7 +19,7 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   const router = useRouter();
 
   const projectFromParam = projects.find(
-    (p) => p._id === searchParams.get("project"),
+    (p) => p.slug.current === searchParams.get("project"),
   );
 
   const logo = projectFromParam?.clientLogo

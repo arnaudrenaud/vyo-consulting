@@ -1144,6 +1144,14 @@
         },
         "optional": false
       },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": false
+      },
       "shortDescription": {
         "type": "objectAttribute",
         "value": {

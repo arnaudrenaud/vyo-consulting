@@ -150,6 +150,7 @@ export type Project = {
   _updatedAt: string;
   _rev: string;
   shortTitle: string;
+  slug: Slug;
   shortDescription: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -872,9 +873,10 @@ export type EXPERTISE_DETAILS_QUERYResult = {
   >;
 } | null;
 // Variable: ALL_PROJECTS_QUERY
-// Query: *[_type == "project"]| order(_createdAt desc){_id, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}
+// Query: *[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}
 export type ALL_PROJECTS_QUERYResult = Array<{
   _id: string;
+  slug: Slug;
   shortTitle: string;
   shortDescription: Array<{
     children?: Array<{
@@ -1164,6 +1166,6 @@ declare module "@sanity/client" {
     '*[_type == "aboutPage"][0]': ABOUT_PAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
-    '*[_type == "project"]| order(_createdAt desc){_id, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;
+    '*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;
   }
 }

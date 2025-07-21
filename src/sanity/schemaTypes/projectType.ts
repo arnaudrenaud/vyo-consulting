@@ -13,6 +13,16 @@ export const projectType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "shortTitle",
+      },
+      validation: (Rule) => Rule.required(),
+      description:
+        "Apparaîtra dans l'URL, identifiant humainement lisible pour améliorer le partage de la page et son référencement par les moteurs.",
+    }),
+    defineField({
       name: "shortDescription",
       type: "array",
       of: [{ type: "block" }],
