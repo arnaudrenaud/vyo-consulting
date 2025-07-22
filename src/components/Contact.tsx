@@ -85,24 +85,32 @@ export function Contact() {
                   <div className="flex space-x-2">
                     <FormControl>
                       <Checkbox
+                        id="objectif-solution"
                         checked={field.value === "solution"}
                         onCheckedChange={() => field.onChange("solution")}
                         className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black hover:cursor-pointer"
                       />
                     </FormControl>
-                    <FormLabel className="text-sm text-[#0A0A0A]">
+                    <FormLabel
+                      htmlFor="objectif-solution"
+                      className="text-sm text-[#0A0A0A]"
+                    >
                       Je recherche une solution adaptée à mon besoin
                     </FormLabel>
                   </div>
                   <div className="flex space-x-2">
                     <FormControl>
                       <Checkbox
+                        id="objectif-postule"
                         checked={field.value === "postule"}
                         onCheckedChange={() => field.onChange("postule")}
                         className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black hover:cursor-pointer"
                       />
                     </FormControl>
-                    <FormLabel className="text-sm text-[#0A0A0A]">
+                    <FormLabel
+                      htmlFor="objectif-postule"
+                      className="text-sm text-[#0A0A0A]"
+                    >
                       Je postule
                     </FormLabel>
                   </div>
