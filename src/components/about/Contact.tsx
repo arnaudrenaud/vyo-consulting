@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -18,16 +18,36 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useEffect, useRef } from "react";
 
-const formSchema = z.object({
-  objectif: z.enum(["solution", "postule"]),
-  prenom: z.string().min(1, { message: "Prénom requis" }),
-  nom: z.string().min(1, { message: "Nom requis" }),
-  email: z.email({ message: "Email invalide" }),
-  entreprise: z.string().min(3, { message: "Choix requis" }),
-  poste: z.string().min(3, { message: "Choix requis" }),
-  message: z.string().max(500, { message: "500 caractères max" }),
-});
+const formSchema = z
+  .object({
+    objectif: z.enum(["solution", "postule"]),
+    prenom: z.string().min(1, { message: "Prénom requis" }),
+    nom: z.string().min(1, { message: "Nom requis" }),
+    email: z.email({ message: "Email invalide" }),
+    entreprise: z.string().optional(),
+    poste: z.string().optional(),
+    message: z.string().max(500, { message: "500 caractères max" }),
+  })
+  .check(({ value: { objectif, entreprise, poste }, issues }) => {
+    if (objectif === "solution") {
+      if (!entreprise) {
+        issues.push({
+          path: ["entreprise"],
+          message: "Entreprise requise",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any);
+      }
+      if (!poste) {
+        issues.push({
+          path: ["poste"],
+          message: "Poste requis",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any);
+      }
+    }
+  });
 
 export function Contact() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -41,7 +61,26 @@ export function Contact() {
       poste: "",
       message: "",
     },
+    mode: "onBlur",
   });
+
+  // Watch the specific field
+  const watchedValue = useWatch({
+    control: form.control,
+    name: "objectif",
+  });
+
+  // Track whether this is the first render
+  const isFirstRender = useRef(true);
+  // When it changes, revalidate the entire form
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    form.trigger(); // revalidates the entire form
+  }, [watchedValue, form]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
@@ -128,7 +167,11 @@ export function Contact() {
                 name="prenom"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="max-lg:text-xs">Prénom</FormLabel>
+                    <FormLabel className="max-lg:text-xs">
+                      <span>
+                        Prénom <span className="text-destructive">*</span>
+                      </span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Votre prénom"
@@ -147,7 +190,11 @@ export function Contact() {
                 name="nom"
                 render={({ field }) => (
                   <FormItem className="mt-6">
-                    <FormLabel className="max-lg:text-xs">Nom</FormLabel>
+                    <FormLabel className="max-lg:text-xs">
+                      <span>
+                        Nom <span className="text-destructive">*</span>
+                      </span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Votre nom"
@@ -166,7 +213,11 @@ export function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="mt-6">
-                    <FormLabel className="max-lg:text-xs">Email</FormLabel>
+                    <FormLabel className="max-lg:text-xs">
+                      <span>
+                        Email <span className="text-destructive">*</span>
+                      </span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         type="email"
@@ -188,7 +239,19 @@ export function Contact() {
                 name="entreprise"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="max-lg:text-xs">Entreprise</FormLabel>
+                    <FormLabel className="max-lg:text-xs">
+                      <span>
+                        Entreprise
+                        {form.getValues("objectif") === "solution" ? (
+                          <>
+                            {" "}
+                            <span className="text-destructive">*</span>
+                          </>
+                        ) : (
+                          ""
+                        )}
+                      </span>
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Votre entreprise"
@@ -208,7 +271,17 @@ export function Contact() {
                 render={({ field }) => (
                   <FormItem className="mt-6">
                     <FormLabel className="max-lg:text-xs">
-                      Intitulé de votre poste
+                      <span>
+                        Intitulé de votre poste
+                        {form.getValues("objectif") === "solution" ? (
+                          <>
+                            {" "}
+                            <span className="text-destructive">*</span>
+                          </>
+                        ) : (
+                          ""
+                        )}
+                      </span>
                     </FormLabel>
                     <FormControl>
                       <Input
