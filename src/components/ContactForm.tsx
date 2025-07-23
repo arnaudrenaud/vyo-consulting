@@ -23,7 +23,7 @@ import { useEffect, useRef, useState } from "react";
 
 const formSchema = z
   .object({
-    objectif: z.enum(["solution", "postule"]),
+    objectif: z.enum(["cherche une solution", "postule"]),
     prenom: z.string().min(1, { message: "Prénom requis" }),
     nom: z.string().min(1, { message: "Nom requis" }),
     email: z.email({ message: "Email invalide" }),
@@ -32,7 +32,7 @@ const formSchema = z
     message: z.string().max(500, { message: "500 caractères max" }),
   })
   .check(({ value: { objectif, entreprise, poste }, issues }) => {
-    if (objectif === "solution") {
+    if (objectif === "cherche une solution") {
       if (!entreprise) {
         issues.push({
           path: ["entreprise"],
@@ -54,7 +54,7 @@ export function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      objectif: "solution",
+      objectif: "cherche une solution",
       prenom: "",
       nom: "",
       email: " ",
@@ -86,22 +86,36 @@ export function ContactForm() {
   const [isFormShown, setIsFormShown] = useState(true);
   const [isPending, setIsPending] = useState(false);
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  function showSubmissionError(error?: unknown) {
+    console.error(error);
+    toast.error(
+      "Erreur lors de l’envoi. Veuillez réessayer ou vérifier votre connexion à Internet.",
+    );
+  }
+
+  async function submit(values: z.infer<typeof formSchema>) {
     setIsPending(true);
     try {
-      // Simule une requête async
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // await new Promise((resolve, reject) => setTimeout(reject, 1000));
-
-      console.log("values ::: ", values);
-      toast.success("Message envoyé avec succès !");
-      form.reset(); // Réinitialise le formulaire
-      setIsFormShown(false);
-    } catch (error) {
-      console.log("error ::: ", error);
-      toast.error(
-        "Erreur lors de l’envoi. Veuillez réessayer ou vérifier votre connexion à Internet.",
+      const response = await fetch(
+        "https://www.form-to-email.com/api/s/8oaXBK7vydyW",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        },
       );
+
+      if (response.ok) {
+        toast.success("Message envoyé avec succès !");
+        form.reset();
+        setIsFormShown(false);
+      } else {
+        showSubmissionError();
+      }
+    } catch (error) {
+      showSubmissionError(error);
     } finally {
       setIsPending(false);
     }
@@ -109,7 +123,7 @@ export function ContactForm() {
 
   return isFormShown ? (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(submit)} className="space-y-6">
         <FormField
           control={form.control}
           name="objectif"
@@ -119,7 +133,7 @@ export function ContactForm() {
                 <FormControl>
                   <Checkbox
                     id="objectif-solution"
-                    checked={field.value === "solution"}
+                    checked={field.value === "cherche une solution"}
                     onCheckedChange={() => field.onChange("solution")}
                     className="h-5 w-5 data-[state=checked]:bg-black data-[state=checked]:border-black hover:cursor-pointer"
                   />
@@ -237,7 +251,7 @@ export function ContactForm() {
                   <FormLabel className="max-lg:text-xs">
                     <span>
                       Entreprise
-                      {form.getValues("objectif") === "solution" ? (
+                      {form.getValues("objectif") === "cherche une solution" ? (
                         <>
                           {" "}
                           <span className="text-destructive">*</span>
@@ -268,7 +282,7 @@ export function ContactForm() {
                   <FormLabel className="max-lg:text-xs">
                     <span>
                       Intitulé de votre poste
-                      {form.getValues("objectif") === "solution" ? (
+                      {form.getValues("objectif") === "cherche une solution" ? (
                         <>
                           {" "}
                           <span className="text-destructive">*</span>
