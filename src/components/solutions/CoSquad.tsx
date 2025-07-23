@@ -63,11 +63,11 @@ const CoSquad = () => {
                   Un <span className="font-bold">delivery agile</span>, rythmé
                   et piloté par des indicateurs de valeur et de performance
                 </li>
-                {/* <li>
+                <li>
                   Une capacité à augmenter ou à baisser la charge des équipes en
                   fonction des priorités du projet et des budgets associés (en
                   mode capacitaire)
-                </li> */}
+                </li>
               </ul>
             </div>
 
@@ -80,20 +80,18 @@ const CoSquad = () => {
                 />
               </div>
               <h3 className="text-3xl font-semibold">
-                Votre besoin de transformation digitale : une équipe dédiée
+                Toutes les expertises VYO intégrées en un seul dispositif
               </h3>
               <ul className="list-disc pl-6">
+                <li>Plus besoin de faire appel à 5 prestataires différents</li>
+                <li>Une seule interface, un maximum de synergie</li>
                 <li>
-                  Une <span className="font-bold">Task Force sur mesure</span>{" "}
-                  mobilisée selon vos objectifs et votre budget
+                  Un point d’entrée unique pour le  suivi managérial,
+                  administratif et financier
                 </li>
                 <li>
-                  Une coordination fluide entre les expertises techniques,
-                  métier et stratégiques
-                </li>
-                <li>
-                  Un accompagnement complet : de la conception à la réalisation
-                  (cadrage, build, run)
+                  Un <b>partenaire de confiance</b> pour vous faire gagner en
+                  clarté, rapidité et performance
                 </li>
               </ul>
             </div>
