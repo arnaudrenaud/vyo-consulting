@@ -18,7 +18,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Loader2Icon } from "lucide-react";
 
 const formSchema = z
   .object({
@@ -82,7 +83,10 @@ export function Contact() {
     form.trigger(); // revalidates the entire form
   }, [watchedValue, form]);
 
+  const [isPending, setIsPending] = useState(false);
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsPending(true);
     try {
       // Simule une requête async
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -92,6 +96,8 @@ export function Contact() {
     } catch (error) {
       console.log("error ::: ", error);
       toast.error("Erreur lors de l’envoi. Réessayez.");
+    } finally {
+      setIsPending(false);
     }
   }
 
@@ -316,8 +322,13 @@ export function Contact() {
             />
           </div>
 
-          <Button type="submit" className="block ml-auto">
-            Envoyer
+          <Button type="submit" className="block ml-auto" disabled={isPending}>
+            <span className="space-x-2">
+              {isPending ? (
+                <Loader2Icon className="inline animate-spin" />
+              ) : null}
+              <span>Envoyer</span>
+            </span>
           </Button>
         </form>
       </Form>
