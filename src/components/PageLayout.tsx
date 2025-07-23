@@ -41,7 +41,7 @@ export function PageLayout({
           className="absolute max-[500px]:w-[250px]! max-md:w-[360px] w-[458px] bottom-20 max-md:bottom-50 right-0 z-[-1]"
         />
       )}
-      <Toaster />
+      <Toaster richColors />
     </div>
   );
 }
