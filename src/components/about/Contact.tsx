@@ -29,10 +29,9 @@ const formSchema = z
     email: z.email({ message: "Email invalide" }),
     entreprise: z.string().optional(),
     poste: z.string().optional(),
-    cv: z.file({ message: "Fichier requis" }).optional(),
     message: z.string().max(500, { message: "500 caractères max" }),
   })
-  .check(({ value: { objectif, entreprise, poste, cv }, issues }) => {
+  .check(({ value: { objectif, entreprise, poste }, issues }) => {
     if (objectif === "solution") {
       if (!entreprise) {
         issues.push({
@@ -45,15 +44,6 @@ const formSchema = z
         issues.push({
           path: ["poste"],
           message: "Poste requis",
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } as any);
-      }
-    }
-    if (objectif === "postule") {
-      if (!cv) {
-        issues.push({
-          path: ["cv"],
-          message: "CV requis",
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any);
       }
@@ -317,48 +307,6 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
-
-                {/* CV */}
-                {form.getValues("objectif") === "postule" ? (
-                  <FormField
-                    control={form.control}
-                    name="cv"
-                    render={() => (
-                      <FormItem className="mt-6">
-                        <FormLabel className="max-lg:text-xs">
-                          <span>
-                            Votre CV
-                            {form.getValues("objectif") === "postule" ? (
-                              <>
-                                {" "}
-                                <span className="text-destructive">*</span>
-                              </>
-                            ) : (
-                              ""
-                            )}
-                          </span>
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            type="file"
-                            placeholder="Votre CV"
-                            className="text-sm"
-                            // value={form.getValues("cv")?.name ?? ""}
-                            onChange={(event) => {
-                              const file = event.target.files?.item(0);
-                              if (file) {
-                                form.setValue("cv", file, {
-                                  shouldValidate: true,
-                                });
-                              }
-                            }}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                ) : null}
               </div>
               {/* Message */}
               <FormField
