@@ -37,6 +37,8 @@ export type PrivacyPolicyPage = {
     _type: "block";
     _key: string;
   }>;
+  metaTitle?: string;
+  metaDescription?: string;
 };
 
 export type LegalNoticePage = {
@@ -63,6 +65,8 @@ export type LegalNoticePage = {
     _type: "block";
     _key: string;
   }>;
+  metaTitle?: string;
+  metaDescription?: string;
 };
 
 export type AboutPage = {
@@ -1000,6 +1004,64 @@ export type PROJECTS_PAGE_QUERYResult = {
     _key: string;
   }>;
 } | null;
+// Variable: LEGAL_NOTICE_PAGE_QUERY
+// Query: *[_type == "legalNoticePage"][0]
+export type LEGAL_NOTICE_PAGE_QUERYResult = {
+  _id: string;
+  _type: "legalNoticePage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  metaTitle?: string;
+  metaDescription?: string;
+} | null;
+// Variable: PRIVACY_POLICY_PAGE_QUERY
+// Query: *[_type == "privacyPolicyPage"][0]
+export type PRIVACY_POLICY_PAGE_QUERYResult = {
+  _id: string;
+  _type: "privacyPolicyPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  metaTitle?: string;
+  metaDescription?: string;
+} | null;
 // Variable: ALL_EXPERTISES_QUERY
 // Query: *[_type == "expertise"]| order(_createdAt asc)
 export type ALL_EXPERTISES_QUERYResult = Array<{
@@ -1445,6 +1507,8 @@ declare module "@sanity/client" {
     '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
     '*[_type == "aboutPage"][0]': ABOUT_PAGE_QUERYResult;
     '*[_type == "projectsPage"][0]': PROJECTS_PAGE_QUERYResult;
+    '*[_type == "legalNoticePage"][0]': LEGAL_NOTICE_PAGE_QUERYResult;
+    '*[_type == "privacyPolicyPage"][0]': PRIVACY_POLICY_PAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
     '*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;

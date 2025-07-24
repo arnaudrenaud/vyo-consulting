@@ -43,8 +43,15 @@ export function Footer({ metadata }: { metadata: METADATA_QUERYResult }) {
           </ul>
           <div className="mx-4 w-[1px] h-[60px] bg-[#c9cdd2]"></div>
           <ul className="text-sm text-[#737373]">
-            <li>Mentions Légales</li>
-            <li>Politique de confidentialité</li>
+            <li>
+              <Link href={PATHS.LEGAL_NOTICE}>Mentions Légales</Link>
+            </li>
+            <li>
+              <Link href={PATHS.PRIVACY_POLICY}>
+                Politique de confidentialité
+              </Link>
+            </li>
+
             <li>Paramètres des cookies</li>
           </ul>
         </div>

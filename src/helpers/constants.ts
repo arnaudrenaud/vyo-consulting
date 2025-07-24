@@ -4,6 +4,8 @@ export enum PATHS {
   PROJECTS = "/projects",
   ABOUT = "/about",
   CONTACT = "/contact",
+  LEGAL_NOTICE = "/legal-notice",
+  PRIVACY_POLICY = "/privacy-policy",
 }
 
 export enum SEARCH_PARAMS {
