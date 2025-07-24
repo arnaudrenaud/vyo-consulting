@@ -9,6 +9,8 @@ import { globalType } from "./singletons/globalType";
 import { homePageType } from "./singletons/homePageType";
 import { projectsPageType } from "./singletons/projectsPageType";
 import { aboutPageType } from "./singletons/aboutPageType";
+import { legalNoticePageType } from "./singletons/legalNoticePageType";
+import { privacyPolicyPageType } from "./singletons/privacyPolicyPageType";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +22,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homePageType,
     projectsPageType,
     aboutPageType,
+    legalNoticePageType,
+    privacyPolicyPageType,
   ],
 };

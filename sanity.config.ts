@@ -19,6 +19,8 @@ const singletonTypes = new Set([
   "homePage",
   "projectsPage",
   "aboutPage",
+  "legalNoticePage",
+  "privacyPolicyPage",
 ]);
 
 export default defineConfig({
@@ -76,6 +78,22 @@ export default defineConfig({
               .id("aboutPage")
               .child(
                 S.document().schemaType("aboutPage").documentId("aboutPage"),
+              ),
+            S.listItem()
+              .title('Page \"Mentions légales\"')
+              .id("legalNoticePage")
+              .child(
+                S.document()
+                  .schemaType("legalNoticePage")
+                  .documentId("legalNoticePage"),
+              ),
+            S.listItem()
+              .title('Page \"Politique de confidentialité\"')
+              .id("privacyPolicyPage")
+              .child(
+                S.document()
+                  .schemaType("privacyPolicyPage")
+                  .documentId("privacyPolicyPage"),
               ),
 
             // Regular document types
