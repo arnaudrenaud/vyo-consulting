@@ -66,7 +66,7 @@ const Processus = ({ introduction }: { introduction: RichContentValue }) => {
               <h4 className="text-sm font-bold">BUILD</h4>
               <ul className="text-sm leading-normal">
                 <li className="list-disc marker:text-[#22C55E] ml-4">
-                  Mise en place technique et cadE80rage (Sprint 0)..
+                  Mise en place technique et cadrage (Sprint 0)..
                 </li>
                 <li className="list-disc marker:text-[#22C55E] ml-4">
                   Développement du MVP en mode agile.
@@ -90,7 +90,7 @@ const Processus = ({ introduction }: { introduction: RichContentValue }) => {
                 alt="infinity image"
                 className="w-6 h-6"
               />
-              <h4 className="text-sm font-bold">Run</h4>
+              <h4 className="text-sm font-bold">RUN</h4>
               <ul className="text-sm leading-normal">
                 <li className="list-disc marker:text-[#22C55E] ml-4">
                   Déploiement et stabilisation.
