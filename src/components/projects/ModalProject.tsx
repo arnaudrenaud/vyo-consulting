@@ -26,7 +26,7 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   );
 
   if (!project) {
-    return "Project not found.";
+    return null;
   }
 
   const logo = project?.clientLogo ? urlFor(project.clientLogo).url() : null;
