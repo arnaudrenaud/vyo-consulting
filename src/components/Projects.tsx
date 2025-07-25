@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ALL_PROJECTS_QUERYResult } from "@/sanity/types";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { NextArrow, PrevArrow } from "./CustomArrow";
 
 const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
   const [mounted, setMounted] = useState(false);
@@ -18,6 +19,9 @@ const Projects = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
 
   const settings = {
     dots: false,
+    // dotsClass: isChrome ? "before:scale-[0.8]" : undefined,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
