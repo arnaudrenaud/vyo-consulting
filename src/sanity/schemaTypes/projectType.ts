@@ -51,36 +51,43 @@ export const projectType = defineType({
       name: "context",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "goals",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "realizations",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "achievements",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "team",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "technology",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "impact",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({

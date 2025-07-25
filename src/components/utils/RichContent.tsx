@@ -7,6 +7,7 @@ export function RichContent(props: Parameters<typeof PortableText>[0]) {
       components={{
         block: {
           normal: ({ children }) => <>{children}</>,
+
           h1: ({ children }) => (
             <h1 className="text-3xl text-bold">{children}</h1>
           ),
@@ -19,6 +20,9 @@ export function RichContent(props: Parameters<typeof PortableText>[0]) {
           h4: ({ children }) => (
             <h1 className="text-lg text-bold">{children}</h1>
           ),
+        },
+        list: {
+          bullet: ({ children }) => children,
         },
         ...props.components,
       }}

@@ -369,7 +369,7 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  context?: Array<{
+  context: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -387,7 +387,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  goals?: Array<{
+  goals: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -405,7 +405,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  realizations?: Array<{
+  realizations: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -423,7 +423,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  achievements?: Array<{
+  achievements: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -441,7 +441,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  team?: Array<{
+  team: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -459,7 +459,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  technology?: Array<{
+  technology: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -477,7 +477,7 @@ export type Project = {
     _type: "block";
     _key: string;
   }>;
-  impact?: Array<{
+  impact: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1269,7 +1269,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   goals: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1287,7 +1287,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   realizations: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1305,7 +1305,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   achievements: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1323,7 +1323,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   team: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1341,7 +1341,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   technology: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1359,7 +1359,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   impact: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1377,7 +1377,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     level?: number;
     _type: "block";
     _key: string;
-  }> | null;
+  }>;
   realizationScreenshots: Array<{
     asset?: {
       _ref: string;

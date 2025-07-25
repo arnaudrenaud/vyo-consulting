@@ -3245,7 +3245,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "goals": {
         "type": "objectAttribute",
@@ -3424,7 +3424,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "realizations": {
         "type": "objectAttribute",
@@ -3603,7 +3603,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "achievements": {
         "type": "objectAttribute",
@@ -3782,7 +3782,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "team": {
         "type": "objectAttribute",
@@ -3961,7 +3961,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "technology": {
         "type": "objectAttribute",
@@ -4140,7 +4140,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "impact": {
         "type": "objectAttribute",
@@ -4319,7 +4319,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "realizationScreenshots": {
         "type": "objectAttribute",
