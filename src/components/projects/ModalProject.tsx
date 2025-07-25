@@ -74,105 +74,114 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
             <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
 
             <div className="px-5 text-left">
-              <p className="text-sm text-[#737373] mb-1">Réalisations:</p>
-              <RichContent value={project.realizations} />
-
-              <div className="lg:flex items-center mt-4 gap-2 mb-8 max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1">
-                {project.realizationScreenshots
-                  ?.filter((screenshot) => urlFor(screenshot).url())
-                  .map((screenshot) => (
-                    <img
-                      key={screenshot._key}
-                      src={urlFor(screenshot).url()}
-                      alt="Illustration de réalisation"
-                      className="max-lg:mx-auto max-[1200px]:h-48"
-                    />
-                  ))}
-              </div>
-
-              <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
-
-              <div className="grid max-md:grid-cols-1 md:grid-cols-2 space-x-4 py-2">
+              <div className="grid gap-12">
                 <div>
-                  <p className="text-sm text-[#737373] mb-1">Résultats:</p>
-                  <RichContent value={project.achievements} />
+                  <p className="text-sm text-[#737373] mb-1">Réalisations:</p>
+                  <RichContent value={project.realizations} />
                 </div>
 
-                <div className="lg:border-l lg:border-gray-300 lg:pl-4 max-lg:mt-4">
-                  <p className="text-sm text-[#737373] mb-1">
-                    Équipe impliquée :
-                  </p>
-                  <RichContent value={project.team} />
+                <div className="flex flex-wrap gap-6">
+                  {project.realizationScreenshots
+                    ?.filter((screenshot) => urlFor(screenshot).url())
+                    .map((screenshot) => (
+                      <Link
+                        key={screenshot._key}
+                        href={urlFor(screenshot).url()}
+                        target="_blank"
+                      >
+                        <img
+                          src={urlFor(screenshot).url()}
+                          alt="Illustration de réalisation"
+                          className="block flex-shrink max-w-full md:max-w-[500px]"
+                        />
+                      </Link>
+                    ))}
                 </div>
               </div>
+            </div>
 
-              <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
+            <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
 
-              <div className="grid max-md:grid-cols-1 md:grid-cols-2 space-x-4 py-2">
+            <div className="grid max-md:grid-cols-1 md:grid-cols-2 space-x-4 py-2">
+              <div>
+                <p className="text-sm text-[#737373] mb-1">Résultats:</p>
+                <RichContent value={project.achievements} />
+              </div>
+
+              <div className="lg:border-l lg:border-gray-300 lg:pl-4 max-lg:mt-4">
+                <p className="text-sm text-[#737373] mb-1">
+                  Équipe impliquée :
+                </p>
+                <RichContent value={project.team} />
+              </div>
+            </div>
+
+            <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
+
+            <div className="grid max-md:grid-cols-1 md:grid-cols-2 space-x-4 py-2">
+              <div>
+                <p className="text-sm text-[#737373] mb-1">Technologies:</p>
+                <RichContent value={project.technology} />
+              </div>
+
+              <div className="lg:border-l lg:border-gray-300 lg:pl-4 max-lg:mt-4">
+                <p className="text-sm text-[#737373] mb-1">Impact:</p>
+                <RichContent value={project.impact} />
+              </div>
+            </div>
+
+            <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
+
+            <div className="flex flex-col md:flex-row justify-between items-top gap-4 md:mt-4 max-md:mt-8">
+              <div className="flex justify-between flex-row">
                 <div>
-                  <p className="text-sm text-[#737373] mb-1">Technologies:</p>
-                  <RichContent value={project.technology} />
-                </div>
-
-                <div className="lg:border-l lg:border-gray-300 lg:pl-4 max-lg:mt-4">
-                  <p className="text-sm text-[#737373] mb-1">Impact:</p>
-                  <RichContent value={project.impact} />
-                </div>
-              </div>
-
-              <div className="h-[1px] w-full bg-[#c9cdd2] my-2" />
-
-              <div className="flex flex-col md:flex-row justify-between items-top gap-4 md:mt-4 max-md:mt-8">
-                <div className="flex justify-between flex-row">
-                  <div>
-                    <p className="text-sm text-[#737373] mb-3">La team Vyo :</p>
-                    <div className="grid gap-3">
-                      {project.collaborators?.map((collaborator) => (
-                        <div
-                          key={collaborator._id}
-                          className="flex gap-2 items-center"
-                        >
-                          <img
-                            className="rounded-[43px]"
-                            width={86}
-                            height={86}
-                            src={urlFor(
-                              collaborator.profilePicture as SanityImageSource,
-                            ).url()}
-                            alt={`Photo de profil de ${collaborator.firstName}`}
-                          />
-                          <div className="ml-3">
-                            <p>
-                              {collaborator.firstName} {collaborator.lastName}
-                            </p>
-                            <p className="text-sm text-[#0A0A0A] font-bold">
-                              {collaborator.jobTitle}
-                            </p>
-                          </div>
+                  <p className="text-sm text-[#737373] mb-3">La team Vyo :</p>
+                  <div className="grid gap-3">
+                    {project.collaborators?.map((collaborator) => (
+                      <div
+                        key={collaborator._id}
+                        className="flex gap-2 items-center"
+                      >
+                        <img
+                          className="rounded-[43px]"
+                          width={86}
+                          height={86}
+                          src={urlFor(
+                            collaborator.profilePicture as SanityImageSource,
+                          ).url()}
+                          alt={`Photo de profil de ${collaborator.firstName}`}
+                        />
+                        <div className="ml-3">
+                          <p>
+                            {collaborator.firstName} {collaborator.lastName}
+                          </p>
+                          <p className="text-sm text-[#0A0A0A] font-bold">
+                            {collaborator.jobTitle}
+                          </p>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div>
-                  <p className="w-fit text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white pl-4 rounded-2xl py-1">
-                    {project.expertises.map((expertise) => (
-                      <img
-                        key={expertise._id}
-                        src={urlFor(expertise.logo as SanityImageSource).url()}
-                        alt={`Logo vyo.${project?.expertises[0].name}`}
-                        className="h-5"
-                      />
-                    ))}
-                  </p>
-                </div>
               </div>
-              <div className="flex items-center justify-end mt-6 gap-4">
-                <Button variant="outline">Je télécharge</Button>
-                <Button asChild variant="default">
-                  <Link href={PATHS.CONTACT}>Contactez-nous</Link>
-                </Button>
+              <div>
+                <p className="w-fit text-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)] bg-white pl-4 rounded-2xl py-1">
+                  {project.expertises.map((expertise) => (
+                    <img
+                      key={expertise._id}
+                      src={urlFor(expertise.logo as SanityImageSource).url()}
+                      alt={`Logo vyo.${project?.expertises[0].name}`}
+                      className="h-5"
+                    />
+                  ))}
+                </p>
               </div>
+            </div>
+            <div className="flex items-center justify-end mt-6 gap-4">
+              <Button variant="outline">Je télécharge</Button>
+              <Button asChild variant="default">
+                <Link href={PATHS.CONTACT}>Contactez-nous</Link>
+              </Button>
             </div>
           </DialogContent>
         </Dialog>
