@@ -181,7 +181,9 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
             <div className="flex items-center justify-end mt-6 gap-4">
               {project.document?.url ? (
                 <Button asChild variant="outline">
-                  <Link href={project.document.url}>Je télécharge</Link>
+                  <Link href={project.document.url} target="_blank">
+                    Je télécharge
+                  </Link>
                 </Button>
               ) : null}
               <Button asChild variant="default">
