@@ -56,18 +56,25 @@ export function Footer({ metadata }: { metadata: METADATA_QUERYResult }) {
           </ul>
         </div>
         <div className="flex items-center py-6">
-          <img src="/icones/linkedin.png" alt="Linkedin" className="w-6 mr-4" />
-          <img src="/icones/instagram.png" alt="Instagram" className="w-6" />
+          <Link href="https://www.linkedin.com/company/vyo-consulting">
+            <img
+              src="/icones/linkedin.png"
+              alt="Linkedin"
+              className="w-6 mr-4"
+            />
+          </Link>
+          {/* <img src="/icones/instagram.png" alt="Instagram" className="w-6" /> */}
         </div>
         <p className="text-sm text-[#737373]">
-          © 2025 Vyo Consulting - Site réalisé par xxxxxx
+          © 2025 VYO Consulting - Site réalisé par{" "}
+          <Link href="https://www.linkedin.com/in/arnaudrenaud/">
+            Arnaud Renaud
+          </Link>
+          ,{" "}
+          <Link href="https://www.linkedin.com/in/yaghmurassen">
+            Yaghmurassen Sainson
+          </Link>
         </p>
-        {/* <div className="absolute -top-80 -right-16 w-[483px] h-[483px] rounded-full bg-[#DCFCE7] z-[-1]"></div> */}
-        {/* <img
-          src="/icones/circle-green.png"
-          alt="Circle green"
-          className="absolute max-[500px]:w-[250px]! max-md:w-[360px] w-[458px] bottom-20 max-md:bottom-50 right-0 z-[-1]"
-        /> */}
       </footer>
     </>
   );
