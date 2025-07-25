@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { ALL_PROJECTS_QUERYResult } from "@/sanity/types";
 import { useSearchParams, useRouter } from "next/navigation";
 import { PATHS } from "@/helpers/constants";
@@ -178,7 +179,11 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
               </div>
             </div>
             <div className="flex items-center justify-end mt-6 gap-4">
-              <Button variant="outline">Je télécharge</Button>
+              {project.document?.url ? (
+                <Button asChild variant="outline">
+                  <Link href={project.document.url}>Je télécharge</Link>
+                </Button>
+              ) : null}
               <Button asChild variant="default">
                 <Link href={PATHS.CONTACT}>Contactez-nous</Link>
               </Button>

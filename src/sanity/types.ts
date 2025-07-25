@@ -1215,7 +1215,7 @@ export type EXPERTISE_DETAILS_QUERYResult = {
   >;
 } | null;
 // Variable: ALL_PROJECTS_QUERY
-// Query: *[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}
+// Query: *[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document{"url": asset->url}, expertises[]->, collaborators[]->}
 export type ALL_PROJECTS_QUERYResult = Array<{
   _id: string;
   slug: Slug;
@@ -1392,14 +1392,7 @@ export type ALL_PROJECTS_QUERYResult = Array<{
     _key: string;
   }> | null;
   document: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-    };
-    media?: unknown;
-    _type: "file";
+    url: string | null;
   } | null;
   expertises: Array<{
     _id: string;
@@ -1511,6 +1504,6 @@ declare module "@sanity/client" {
     '*[_type == "privacyPolicyPage"][0]': PRIVACY_POLICY_PAGE_QUERYResult;
     '*[_type == "expertise"]| order(_createdAt asc)': ALL_EXPERTISES_QUERYResult;
     '*[_type == "expertise" && slug.current == $slug][0]': EXPERTISE_DETAILS_QUERYResult;
-    '*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;
+    '*[_type == "project"]| order(_createdAt desc){_id, slug, shortTitle, shortDescription, fullTitle, client, clientLogo, context, goals, realizations, achievements, team, technology, impact, realizationScreenshots, document{"url": asset->url}, expertises[]->, collaborators[]->}': ALL_PROJECTS_QUERYResult;
   }
 }
