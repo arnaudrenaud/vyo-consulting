@@ -1,9 +1,11 @@
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import { PageLayout } from "@/components/PageLayout";
 import { PageLayoutData } from "@/helpers/getPageLayoutData";
 import { urlFor } from "@/sanity/lib/image";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import Head from "next/head";
 
 export default function App({
   Component,
@@ -41,6 +43,8 @@ export default function App({
       <PageLayout {...pageProps}>
         <Component {...pageProps} />
       </PageLayout>
+
+      <GoogleAnalytics gaId="G-KBLJ118WT1" />
     </>
   );
 }
