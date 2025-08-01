@@ -3,8 +3,8 @@
 const History = () => {
   return (
     <div className="md:h-[60rem] w-full relative">
-      <div className="absolute bg-[#DCFCE7] h-[228px] w-[228px] block z-[-1] -top-12 left-30 rounded-full" />
-      <div className="absolute bg-[#BBF7D0] h-[174] w-[174] block z-[-1] -bottom-[160px] -right-[100px] rounded-full" />
+      <div className="absolute bg-[#DCFCE7] md:h-[180px] md:w-[180px]  h-[228px] w-[228px] block z-[-1] -top-12 -right-[1rem] md:left-30 rounded-full" />
+      <div className="absolute bg-[#BBF7D0] md:h-[174px] md:w-[174px] h-[110px] w-[110px] block z-[-1] -bottom-[160px] -right-[1rem] md:-right-[2rem] rounded-full" />
 
       <div className="flex justify-center items-center mt-12 bg-[url('/histoire-bckg.jpg')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
         <div className="bg-white rounded-lg flex flex-col justify-center gap-4 text-justify md:max-w-[725px] pt-16 pb-16 max-md:px-8 px-16">

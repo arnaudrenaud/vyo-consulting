@@ -21,7 +21,7 @@ export function Contact() {
         <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
         <ContactForm />
       </div>
-      <div className="absolute bg-[#BBF7D0] h-[86px] w-[86px] block z-[-1] -top-6 right-0 md:-right-12 rounded-full" />
+      <div className="absolute bg-[#BBF7D0] h-[86px] w-[86px] block z-[-1] -top-6 -right-4 md:-right-12 rounded-full" />
     </section>
   );
 }

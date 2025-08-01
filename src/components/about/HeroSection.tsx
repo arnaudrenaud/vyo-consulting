@@ -30,7 +30,7 @@ const HeroSection = ({
             className="rounded-md max-w-11/12 mx-auto lg:max-w-full"
           />
 
-          <div className="absolute bg-[#BBF7D0] h-[86px] w-[86px] block z-[-1] -right-[3rem] -top-[1.5rem] rounded-full" />
+          <div className="absolute bg-[#BBF7D0] md:h-[86px] md:w-[86px] h-[60px] w-[60px] block z-[-1] md:-right-[3rem] -right-[1rem] -top-[1.5rem] rounded-full" />
         </div>
       </section>
     </>
