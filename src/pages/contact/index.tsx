@@ -23,7 +23,7 @@ const ContactPage = ({
       <SolutionsSection expertises={expertises} showDescription />
       <BannerNumber />
       <ChoiceSection />
-      <div className="absolute bg-[#DCFCE7] h-[458px] w-[458px] block z-[-1] top-[1250px] -right-32 rounded-full" />
+      <div className="absolute bg-[#DCFCE7] h-[458px] w-[458px] block z-[-1] top-[1250px] -right-4 md:-right-32 rounded-full" />
       <div className="absolute bg-[#BBF7D0] h-[308px] w-[308px] block z-[-1] top-[3000px] right-8 rounded-full" />
     </section>
   );

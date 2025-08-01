@@ -91,7 +91,7 @@ const Approach = () => {
       </div>
 
       <div className="absolute bg-[#DCFCE7] h-[535px] w-[535px] block z-[-1] -top-24 -left-[29rem] rounded-full" />
-      <div className="absolute bg-[#DCFCE7] h-[926px] w-[926px] block z-[-1] -top-16 -right-[30rem] rounded-full" />
+      {/* <div className="absolute bg-[#DCFCE7] h-[926px] w-[926px] block z-[-1] -top-16 -right-[30rem] rounded-full" /> */}
     </section>
   );
 };
