@@ -2,6 +2,7 @@
 import React from "react";
 import ButtonLink from "./ButtonLink";
 import { RichContent, RichContentValue } from "@/components/utils/RichContent";
+import { PATHS } from "@/helpers/constants";
 
 const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
   return (
@@ -107,10 +108,7 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
               <RichContent value={introduction} />
             </p>
 
-            <ButtonLink
-              href="/solutions/squad"
-              text="Découvrir VYO Consulting"
-            />
+            <ButtonLink href={PATHS.ABOUT} text="Découvrir VYO Consulting" />
           </div>
         </div>
       </div>
