@@ -147,9 +147,11 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                           className="rounded-[43px]"
                           width={86}
                           height={86}
-                          src={urlFor(
-                            collaborator.profilePicture as SanityImageSource,
-                          ).url()}
+                          src={
+                            collaborator.profilePicture
+                              ? urlFor(collaborator.profilePicture).url()
+                              : "/collaborator-placeholder.png"
+                          }
                           alt={`Photo de profil de ${collaborator.firstName}`}
                         />
                         <div className="ml-3">
