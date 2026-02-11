@@ -20,6 +20,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Loader2Icon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Turnstile } from "react-turnstile";
 
 const formSchema = z
   .object({
@@ -83,6 +84,7 @@ export function ContactForm() {
     form.trigger(); // revalidates the entire form
   }, [watchedValue, form]);
 
+  const [isBotCheckPassed, setIsBotCheckPassed] = useState(false);
   const [isFormShown, setIsFormShown] = useState(true);
   const [isPending, setIsPending] = useState(false);
 
@@ -119,6 +121,17 @@ export function ContactForm() {
     } finally {
       setIsPending(false);
     }
+  }
+
+  if (!isBotCheckPassed) {
+    return (
+      <div className="flex flex-col items-center gap-4 py-8">
+        <Turnstile
+          sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          onVerify={() => setIsBotCheckPassed(true)}
+        />
+      </div>
+    );
   }
 
   return isFormShown ? (
