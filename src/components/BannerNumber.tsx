@@ -58,7 +58,7 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
                 className="w-6 h-6"
               />
             </div>
-            <p className="text-3xl my-2">+ de 20</p>
+            <p className="text-3xl my-2">+ de 50</p>
             <p className="text-sm">Projets réalisés</p>
           </li>
 
