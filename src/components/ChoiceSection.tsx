@@ -82,11 +82,12 @@ const ChoiceSection = () => {
             </div>
 
             <div className="text-sm md:mx-[2.2rem] max-md:mx-auto max-md:-mt-[1.4rem] md:mt-8">
-              <p className="relative bg-[url('/icones/bckg-rectangle-left.png')] bg-no-repeat bg-contain p-4 pl-10 pb-4 rounded-lg leading-4 h-[4.5rem]">
-                Une expertise en{" "}
+              <p className="relative bg-[url('/icones/bckg-rectangle-left.png')] bg-no-repeat bg-contain py-3 px-4 pl-10 pb-4 rounded-lg leading-4 h-[4.5rem]">
+                Une expertise en
+                <br />
                 <span className="font-semibold">
-                  stratégie digitale
-                  <br /> et nouvelles technologies
+                  stratégie digitale,
+                  <br /> data et intelligence artificielle
                 </span>
                 <span className="flex items-center justify-center absolute -top-10 left-[-35px] max-sm:-left-[10px] max-sm:-top-6 max-sm:w-10! max-sm:h-10! w-16 h-16 max-md:w-14 max-md:h-14 rounded-full border border-[#16A34A]">
                   <img
