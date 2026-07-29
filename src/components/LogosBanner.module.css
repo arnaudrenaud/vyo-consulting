@@ -2,7 +2,9 @@
   --banner-border: #e2e8f0;
   --title-color: #334155;
   --logo-height: clamp(4rem, 7vw, 5rem);
-  width: min(1100px, 92vw);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: clamp(1.2rem, 2vw, 2rem) auto;
 }
 
@@ -49,6 +51,7 @@
 }
 
 .animatedMask {
+  width: 100%;
   overflow: hidden;
   mask-image: linear-gradient(
     to right,
