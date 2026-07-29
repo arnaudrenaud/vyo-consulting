@@ -3,6 +3,7 @@ import React from "react";
 import ButtonLink from "./ButtonLink";
 import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 import { PATHS } from "@/helpers/constants";
+import LogosBanner from "./LogosBanner";
 
 const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
   return (
@@ -76,6 +77,9 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
         </div>
       </ul>
 
+      <LogosBanner variant="fixed" />
+      <LogosBanner variant="animated" />
+
       <div className="md:h-[60rem] w-full relative">
         <div className="absolute bg-[#BBF7D0] h-[174px] w-[174px] block z-[-1] -top-8 -left-12 rounded-full" />
         <div className="flex justify-center items-center mt-12 bg-[url('/banner-number.png')] p-4 rounded-lg bg-no-repeat bg-cover h-full w-full">
@@ -104,9 +108,9 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
                 </div>
               </span>
             </h2>
-            <p className="max-sm:text-sm">
+            <div className="max-sm:text-sm">
               <RichContent value={introduction} />
-            </p>
+            </div>
 
             <ButtonLink href={PATHS.ABOUT} text="Découvrir VYO Consulting" />
           </div>
