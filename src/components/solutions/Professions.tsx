@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { getSolutionThemeColor } from "@/helpers/functions";
 import ButtonLink from "../ButtonLink";
 import { EXPERTISE_DETAILS_QUERYResult } from "@/sanity/types";
