@@ -77,8 +77,7 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
         </div>
       </ul>
 
-      <LogosBanner variant="fixed" />
-      <LogosBanner variant="animated" />
+      <LogosBanner />
 
       <div className="md:h-[60rem] w-full relative">
         <div className="absolute bg-[#BBF7D0] h-[174px] w-[174px] block z-[-1] -top-8 -left-12 rounded-full" />

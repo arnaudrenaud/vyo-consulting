@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styles from "./LogosBanner.module.css";
+import { GeistSans } from "geist/font/sans";
 
 type LogosBannerProps = {
-  variant?: "fixed" | "animated";
   title?: string;
 };
 
@@ -14,16 +14,18 @@ const logos = [
 ] as const;
 
 export default function LogosBanner({
-  variant = "fixed",
   title = "Ils nous font confiance",
 }: LogosBannerProps) {
   return (
     <>
       <div className="h-[1px] w-1/2 bg-[#c9cdd2] mx-auto mt-6" />
-      <section className={styles.section} aria-label={title}>
+      <section
+        className={`${styles.section} ${GeistSans.className}`}
+        aria-label={title}
+      >
         <p className={styles.title}>{title}</p>
 
-        {variant === "fixed" ? (
+        <div className={styles.fixedLayout}>
           <ul className={styles.grid}>
             {logos.map((logo, index) => (
               <li key={`${logo.src}-${index}`} className={styles.logoBox}>
@@ -38,7 +40,9 @@ export default function LogosBanner({
               </li>
             ))}
           </ul>
-        ) : (
+        </div>
+
+        <div className={styles.animatedLayout}>
           <div className={styles.animatedMask}>
             <div className={styles.animatedTrack}>
               {Array.from({ length: 3 }).map((_, trackIndex) => (
@@ -66,7 +70,7 @@ export default function LogosBanner({
               ))}
             </div>
           </div>
-        )}
+        </div>
       </section>
     </>
   );
