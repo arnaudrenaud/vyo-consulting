@@ -3,11 +3,11 @@ export type SortBy = "ALPHA_DESC" | "ALPHA_ASC";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getSortedObjects<T extends Record<string, any>>(
   objects: T[],
-  { key, sortBy }: { key: string; sortBy: SortBy }
+  { key, sortBy }: { key: string; sortBy: SortBy },
 ) {
   if (objects.length && !Object.hasOwn(objects[0], key)) {
     throw new Error(
-      `Cannot sort array of elements that do not have attribute "${key}".`
+      `Cannot sort array of elements that do not have attribute "${key}".`,
     );
   }
 

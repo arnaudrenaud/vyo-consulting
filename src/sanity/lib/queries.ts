@@ -6,7 +6,11 @@ export const METADATA_QUERY = defineQuery(`*[_type == "metadata"][0]{
   title, subtitle, description, logo, ogLogoWide
 }`);
 
-export const HOMEPAGE_QUERY = defineQuery(`*[_type == "homePage"][0]`);
+export const HOMEPAGE_QUERY = defineQuery(`*[_type == "homePage"][0]{
+  ...,
+  logoBannerTitle,
+  logoBannerLogos[] { _key, name, image }
+}`);
 export const ABOUT_PAGE_QUERY = defineQuery(`*[_type == "aboutPage"][0]`);
 export const PROJECTS_PAGE_QUERY = defineQuery(`*[_type == "projectsPage"][0]`);
 export const LEGAL_NOTICE_PAGE_QUERY = defineQuery(

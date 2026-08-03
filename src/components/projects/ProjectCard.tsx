@@ -46,9 +46,9 @@ export function ProjectCard({
           <Link href={projectUrl}>{project.shortTitle}</Link>
         </h4>
       </div>
-      <p className="text-sm">
+      <div className="text-sm">
         <RichContent value={project.shortDescription} />
-      </p>
+      </div>
       <Link
         href={projectUrl}
         className="flex items-center text-xs font-medium mt-4"

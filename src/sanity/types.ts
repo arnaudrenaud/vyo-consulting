@@ -257,6 +257,24 @@ export type HomePage = {
     _type: "block";
     _key: string;
   }>;
+  logoBannerTitle?: string;
+  logoBannerLogos?: Array<{
+    name: string;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _type: "logoItem";
+    _key: string;
+  }>;
 };
 
 export type Metadata = {
@@ -812,7 +830,7 @@ export type METADATA_QUERYResult = {
   };
 } | null;
 // Variable: HOMEPAGE_QUERY
-// Query: *[_type == "homePage"][0]
+// Query: *[_type == "homePage"][0]{  ...,  logoBannerTitle,  logoBannerLogos[] { _key, name, image }}
 export type HOMEPAGE_QUERYResult = {
   _id: string;
   _type: "homePage";
@@ -891,6 +909,23 @@ export type HOMEPAGE_QUERYResult = {
     _type: "block";
     _key: string;
   }>;
+  logoBannerTitle: string | null;
+  logoBannerLogos: Array<{
+    _key: string;
+    name: string;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  }> | null;
 } | null;
 // Variable: ABOUT_PAGE_QUERY
 // Query: *[_type == "aboutPage"][0]
@@ -1497,7 +1532,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[_type == "metadata"][0]{\n  title, subtitle, description, logo, ogLogoWide\n}': METADATA_QUERYResult;
-    '*[_type == "homePage"][0]': HOMEPAGE_QUERYResult;
+    '*[_type == "homePage"][0]{\n  ...,\n  logoBannerTitle,\n  logoBannerLogos[] { _key, name, image }\n}': HOMEPAGE_QUERYResult;
     '*[_type == "aboutPage"][0]': ABOUT_PAGE_QUERYResult;
     '*[_type == "projectsPage"][0]': PROJECTS_PAGE_QUERYResult;
     '*[_type == "legalNoticePage"][0]': LEGAL_NOTICE_PAGE_QUERYResult;

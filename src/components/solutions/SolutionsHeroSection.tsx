@@ -23,9 +23,9 @@ const SolutionsHeroSection = ({
             className="my-4 h-[37px]"
           />
 
-          <p className="max-w-[80%] max-lg:max-w-full max-lg:text-justify max-lg:mt-8 mb-[55px]">
+          <div className="max-w-[80%] max-lg:max-w-full max-lg:text-justify max-lg:mt-8 mb-[55px]">
             <RichContent value={heroParagraph} />
-          </p>
+          </div>
 
           <ButtonLink href="/contact" text="Discutons de votre besoin" />
         </div>

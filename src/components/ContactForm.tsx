@@ -52,6 +52,9 @@ const formSchema = z
   });
 
 export function ContactForm() {
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const isTurnstileEnabled = Boolean(turnstileSiteKey);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -123,11 +126,11 @@ export function ContactForm() {
     }
   }
 
-  if (!isBotCheckPassed) {
+  if (isTurnstileEnabled && !isBotCheckPassed) {
     return (
       <div className="flex flex-col items-center gap-4 py-8">
         <Turnstile
-          sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          sitekey={turnstileSiteKey as string}
           onVerify={() => setIsBotCheckPassed(true)}
         />
       </div>

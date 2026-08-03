@@ -56,7 +56,11 @@ export default function Home({
         heroTitle={content.heroTitle}
         heroParagraph={content.heroParagraph}
       />
-      <BannerNumber introduction={content.introduction} />
+      <BannerNumber
+        introduction={content.introduction}
+        logoBannerTitle={content.logoBannerTitle}
+        logoBannerLogos={content.logoBannerLogos}
+      />
       <SolutionsSection expertises={expertises} showDescription />
       <Process introduction={content.process} />
       <ChoiceSection />

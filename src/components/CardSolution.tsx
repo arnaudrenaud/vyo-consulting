@@ -28,9 +28,9 @@ const CardSolution = ({
         </Link>
       </h4>
       {showDescription && (
-        <p className="text-[0.9rem] text-[#737373] text-sm">
+        <div className="text-[0.9rem] text-[#737373] text-sm">
           <RichContent value={shortDescription} />
-        </p>
+        </div>
       )}
       <Link
         href={solutionUrl}

@@ -5,7 +5,19 @@ import { RichContent, RichContentValue } from "@/components/utils/RichContent";
 import { PATHS } from "@/helpers/constants";
 import LogosBanner from "./LogosBanner";
 
-const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
+const BannerNumber = ({
+  introduction,
+  logoBannerTitle,
+  logoBannerLogos,
+}: {
+  introduction: RichContentValue;
+  logoBannerTitle?: string | null;
+  logoBannerLogos?: Array<{
+    _key?: string;
+    name?: string;
+    image?: unknown;
+  }> | null;
+}) => {
   return (
     <>
       <div className="h-[1px] w-full bg-[#c9cdd2]"></div>
@@ -77,7 +89,10 @@ const BannerNumber = ({ introduction }: { introduction: RichContentValue }) => {
         </div>
       </ul>
 
-      <LogosBanner />
+      <LogosBanner
+        title={logoBannerTitle ?? "Ils nous font confiance"}
+        logos={logoBannerLogos ?? undefined}
+      />
 
       <div className="md:h-[60rem] w-full relative">
         <div className="absolute bg-[#BBF7D0] h-[174px] w-[174px] block z-[-1] -top-8 -left-12 rounded-full" />

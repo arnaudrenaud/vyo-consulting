@@ -30,5 +30,34 @@ export const homePageType = defineType({
       validation: (Rule) => Rule.required(),
       of: [{ type: "block" }],
     }),
+    defineField({
+      name: "logoBannerTitle",
+      type: "string",
+      initialValue: "Ils nous font confiance",
+      description: "Titre affiché au-dessus de la bannière de logos.",
+    }),
+    defineField({
+      name: "logoBannerLogos",
+      type: "array",
+      description: "Liste des logos à afficher dans la bannière.",
+      of: [
+        defineField({
+          type: "object",
+          name: "logoItem",
+          fields: [
+            defineField({
+              name: "name",
+              type: "string",
+              validation: (Rule) => Rule.required().min(1),
+            }),
+            defineField({
+              name: "image",
+              type: "image",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        }),
+      ],
+    }),
   ],
 });

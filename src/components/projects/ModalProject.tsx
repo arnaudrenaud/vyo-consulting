@@ -61,9 +61,9 @@ const ModalProject = ({ projects }: { projects: ALL_PROJECTS_QUERYResult }) => {
                 <p className="text-sm text-[#737373] mb-1">
                   Contexte de l&apos;intervention:
                 </p>
-                <p className="text-[#0A0A0A]">
+                <div className="text-[#0A0A0A]">
                   <RichContent value={project.context} />
-                </p>
+                </div>
               </div>
 
               <div className="lg:border-l lg:border-gray-300 lg:pl-4 max-lg:mt-4">

@@ -16,9 +16,9 @@ const Processus = ({ introduction }: { introduction: RichContentValue }) => {
           </div>
         </div>
       </div>
-      <p className="text-center mt-8">
+      <div className="text-center mt-8">
         <RichContent value={introduction} />
-      </p>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-0 lg:mt-12 items-center">
         <img
           src="/icones/schema.png"

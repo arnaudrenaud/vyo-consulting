@@ -16,9 +16,9 @@ const HeroSection = ({
           <RichContent value={heroTitle} />
         </h1>
 
-        <p className="mb-4 max-w-[370px] max-lg:max-w-full max-lg:text-justify max-lg:mt-8">
+        <div className="mb-4 max-w-[370px] max-lg:max-w-full max-lg:text-justify max-lg:mt-8">
           <RichContent value={heroParagraph} />
-        </p>
+        </div>
 
         <ButtonLink href="/solutions/squad" text="Nos solutions sur mesure" />
       </div>
